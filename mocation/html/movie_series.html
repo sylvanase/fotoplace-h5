@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>片场丨你的电影旅行指南</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，经典，场景，实景还原，取景地，旅行，朝圣，圣地巡礼，电影旅行，谷歌街景，卫星照片，路线"/>
+    <meta name="description"
+          content="片场是中国第一个电影取景地信息分享平台。精心收集整理了几百部经典电影几千个取景地，为跟着电影去旅行的旅游者提供详实的信息服务，也为广大电影爱好者提供从地理来理解电影的全新角度，体验阅读中的发现乐趣。"/>
+    <link rel="shortcut icon" href="/static/images/sharepage/favicon.ico"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/movie.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body {
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <img src="/static/images/sharepage/logo.png" alt="logo">
+    <div class="share-detail">
+        <p class="share-title">片场 mocation</p>
+        <p class="share-sub">你的电影旅行指南</p>
+        <a onclick="openApp('movieseries')" href="javascript:void(0);" class="btn-ios">打 开</a>
+    </div>
+</header>
+<div id="loading" class="loading-bg">
+    <div class="loading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<section id="section">
+    <div class="container" v-cloak>
+        <div class="h21 alic" style="margin-bottom: 25px;" v-if="name">
+            {{name}}
+        </div>
+        <div class="movie-series">
+            <div class="fs12 c152">
+                共{{num}}部
+            </div>
+            <ul class="series-content">
+                <li class="mb15 clearfix ptr" v-for="item in movieList" @click="gotoMovie(item.id)">
+                    <img :src="item.coverPath" alt="封面" class="fl">
+                    <div class="pt5 c33">
+                        <div class="fs16 mb5 fwb">
+                            {{item.cname}}
+                        </div>
+                        <div class="fs12 mb10 mr25 fwb">
+                            {{item.ename}}
+                        </div>
+                        <div class="fs12">
+                            {{item.year}}/{{item.categories}}
+                        </div>
+                        <div class="pta place-num alir">
+                            <p class="fs12 mb5">
+                                片场
+                            </p>
+                            <p class="fs24">
+                                {{item.placeIds}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fs12 c88 pta">
+                        {{item.areas}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/common/mserver.js"></script>
+<script type="text/javascript" src="/static/js/lib/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/lib/vue.js"></script>
+<script>
+
+//电影分类
+var movieCategories = ['爱情','喜剧','科幻','动作','悬疑','犯罪','青春','惊悚','文艺','励志','剧情','动画','战争','奇幻','传记','情色','家庭','音乐','黑帮','同性','史诗','灾难','武侠','西部','冒险','历史','歌舞','体育'];
+
+var app = new Vue({
+    el: '.container',
+    data:{
+        name: '', //电影中文名
+        num: '', 
+        movieList: ''
+    },
+    created:function(){
+        var _self = this,
+            _id = parseUrl('id'),
+            _url = '/api/movie/series/' + _id;
+        axios.get(_url).then(function (response) {
+            var loadingDom = document.getElementById('loading');
+            loadingDom.style.display = 'none';
+            var obj = response.data.data;
+            _self.name = obj.series.cname ? obj.series.cname : obj.series.ename;
+            _self.num = obj.movies.length;
+            if(obj.movies){
+                var movieArr = obj.movies.map(function(item) {
+                    var categoryStr = '';
+                    for(var i = 0, j = item.categories.length; i < j; i++) {
+                        categoryStr += movieCategories[item.categories[i]] + '/';
+                    }
+                    item.categories = categoryStr.slice(0, categoryStr.length-1);
+                    item.placeIds = item.placeIds.length;
+                    var areaStr = '';
+                    for (var i = 0, j = item.areas.length; i<j; i++) {
+                        areaStr += item.areas[i].areaCname + ' ';
+                    }
+                    item.areas = areaStr;
+                    return item;
+                });
+                _self.movieList = movieArr;
+            }
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
+    methods: {
+        gotoMovie: function (id) {
+            window.location.href = 'movie_detail.html?id=' + id;
+        }
+    }
+})
+
+</script>
+</body>
+</html>

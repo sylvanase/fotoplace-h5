@@ -1,0 +1,78 @@
+/* line 3, ../../sass/article.scss */
+.article-detail {
+  margin: 0 -9px;
+}
+
+/* line 7, ../../sass/article.scss */
+.article-cover {
+  width: 100%;
+  margin-bottom: 27px;
+}
+
+/* line 12, ../../sass/article.scss */
+.article-time {
+  margin-bottom: 47px;
+}
+/* line 14, ../../sass/article.scss */
+.article-time > div {
+  padding-left: 8px;
+  border-left: 1px solid #7c8c8b;
+  text-align: left;
+}
+
+/* line 21, ../../sass/article.scss */
+.article-content {
+  margin: 0 -7px 15px;
+  border-bottom: 1px dashed #989898;
+  padding: 0 7px;
+  line-height: 18px;
+  text-align: justify;
+}
+/* line 27, ../../sass/article.scss */
+.article-content img {
+  width: 100%;
+  margin: 27.5px 0 18px;
+}
+/* line 34, ../../sass/article.scss */
+.article-content a {
+  display: inline-block;
+}
+
+/* line 39, ../../sass/article.scss */
+.article-like {
+  margin: 0 auto 37px;
+  width: 66.5px;
+  height: 66.5px;
+  border: 1px solid #989898;
+  border-radius: 50%;
+}
+/* line 45, ../../sass/article.scss */
+.article-like img {
+  margin-top: 11px;
+  width: 21.5px;
+  height: 21.5px;
+}
+/* line 50, ../../sass/article.scss */
+.article-like div {
+  margin-top: 12.5px;
+}
+
+/* line 55, ../../sass/article.scss */
+.article-link {
+  margin-bottom: 29px;
+}
+/* line 57, ../../sass/article.scss */
+.article-link .link-header {
+  font-size: 15px;
+  color: #212121;
+  margin-bottom: 17px;
+  font-weight: bold;
+}
+/* line 63, ../../sass/article.scss */
+.article-link .link-content {
+  color: #718e8c;
+}
+/* line 65, ../../sass/article.scss */
+.article-link .link-content span {
+  line-height: 21px;
+}

@@ -1,0 +1,330 @@
+{
+  "code": 0,
+  "msg": null,
+  "data": {
+    "subject": {
+      "id": 12,
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170217/1/1487312606068210599.jpg",
+      "title": "看，土豪中的战斗机",
+      "subTitle": "钢铁侠系列影片取景地",
+      "description": "托尼·斯塔克，天才发明家，梦想家，爱国者，斯塔克工业CEO。Dei！wuli托尼就是这么一个集美貌、才华与金钱于一身的男子。他开创了武器工业的新格局，捍卫着美国的和平与自由。但伟人的命途总是多舛，在不幸遭遇了袭击绑架后，他绝地反击，摇身一变成为了全国追捧的英雄，钢铁侠漫威出品的钢铁侠系列影片，凭借紧凑的节奏、扣人心弦的剧情以及炫酷的特效场景，成功打造了钢铁侠的人物形象，在全球各地拥有万千迷妹迷弟。\n本专题列表中收录了钢铁侠1、2、3部中的电影拍摄地，让我们紧跟钢铁侠的脚步，见识一下特效大片的取景地！",
+      "online": true,
+      "createTime": 1487312609000,
+      "updateTime": 1488451745000,
+      "details": [{
+        "id": 29,
+        "movieSubjectId": 12,
+        "movieId": 8,
+        "graphics": [{
+          "description": "《美人鱼》不管从笑料还是故事上来说都的确不算周星驰最好的作品，但它却带着一种小人物的老去",
+          "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170217/1/1487312606068210599.jpg"
+        }, {
+          "description": "《美人鱼》不管从笑料还是故事上来说都的确不算周星驰最好的作品，但它却带着一种小人物的老去",
+          "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170217/1/1487312606068210599.jpg"
+        }, {
+          "description": "《美人鱼》不管从笑料还是故事上来说都的确不算周星驰最好的作品，但它却带着一种小人物的老去",
+          "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170217/1/1487312606068210599.jpg"
+        }],
+        "order": 0,
+        "movie": {
+          "id": 8,
+          "cname": "美人鱼",
+          "ename": "meirenyu",
+          "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170206/1/1486380670348195283.jpg",
+          "year": 2015,
+          "countryId": 2,
+          "countryCname": "中国",
+          "countryEname": "China",
+          "type": 0,
+          "categories": [
+            0,
+            1
+          ],
+          "placeIds": [
+            30,
+            42,
+            66
+          ],
+          "areas": [{
+            "areaId": 4,
+            "areaCname": "杭州市",
+            "areaEname": "Hangzhou"
+          }, {
+            "areaId": 34,
+            "areaCname": "阿韦龙省",
+            "areaEname": "Eure-et-Loir"
+          }, {
+            "areaId": 37,
+            "areaCname": "调布市",
+            "areaEname": "Chōfu City"
+          }],
+          "series": false
+        }
+      }, {
+        "id": 30,
+        "movieSubjectId": 12,
+        "movieId": 11,
+        "graphics": [{
+          "description": "该片在适时流动溢出的鸡汤台词下，巧妙加入了张一白最爱拍的重庆美景——连绵山峦前的小教堂，山坡上下的石板阶梯，不仅是别样的风光，还带来怡人的视听体验。张一白下的最重一剂猛药，是一个压阵的男主角——灵魂人物陈末。邓超将这个复杂的角色诠释到位，他将幽默与深沉并存，在两级分化的情境中游刃有余地切换，片中两种情感关系，两种身份的切换也相当到位",
+          "picPath": null
+        }],
+        "order": 1,
+        "movie": {
+          "id": 11,
+          "cname": "从你的全世界路过",
+          "ename": "I Belonged to You",
+          "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486610790609847200.jpg",
+          "year": 2016,
+          "countryId": 7,
+          "countryCname": "英国",
+          "countryEname": "United Kingdom",
+          "type": 0,
+          "categories": [
+            0,
+            6,
+            8
+          ],
+          "placeIds": [
+            12,
+            43,
+            60
+          ],
+          "areas": [{
+            "areaId": 4,
+            "areaCname": "杭州市",
+            "areaEname": "Hangzhou"
+          }, {
+            "areaId": 42,
+            "areaCname": "上海",
+            "areaEname": "Shanghai"
+          }],
+          "series": false
+        }
+      }, {
+        "id": 31,
+        "movieSubjectId": 12,
+        "movieId": 6,
+        "graphics": [{
+          "description": "《夺宝奇兵》中的冒险旅行是每个人都曾经有过的梦想。而当人们无法用自己的实际行动去实现那个与生俱来的寻宝梦时，《夺宝奇兵》就凭借自身所特有的奇幻色彩与浪漫情怀，成就了人们心中那个旖旎而绚烂的愿望。",
+          "picPath": null
+        }],
+        "order": 2,
+        "movie": {
+          "id": 6,
+          "cname": "夺宝奇兵",
+          "ename": "Raiders of the Lost Ark",
+          "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170206/1/1486380350572378877.jpg",
+          "year": 2015,
+          "countryId": 7,
+          "countryCname": "英国",
+          "countryEname": "United Kingdom",
+          "type": 0,
+          "categories": [
+            3,
+            4,
+            5
+          ],
+          "placeIds": [
+            23,
+            25,
+            17
+          ],
+          "areas": [{
+            "areaId": 34,
+            "areaCname": "阿韦龙省",
+            "areaEname": "Eure-et-Loir"
+          }, {
+            "areaId": 38,
+            "areaCname": "品川区",
+            "areaEname": "Shinagawa district"
+          }, {
+            "areaId": 39,
+            "areaCname": "藤泽市",
+            "areaEname": "Enoshima"
+          }],
+          "series": false
+        }
+      }, {
+        "id": 32,
+        "movieSubjectId": 12,
+        "movieId": 12,
+        "graphics": [{
+          "description": "原著作者辛夷坞评价剧版还原度挺高，往里面填充了一些细节。陈瑶所饰演的郑微挺符合自己心中的角色形象，林静的扮演者张丹峰则给了她惊喜，“陈瑶很有灵气，虽然她很年轻，但是眼中很有戏，在看过她的表演之后，确实在我的期望值之上",
+          "picPath": null
+        }],
+        "order": 3,
+        "movie": {
+          "id": 12,
+          "cname": "致我们终将逝去的青春",
+          "ename": "SO YOUNG",
+          "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170215/1/1487129942609583498.jpg",
+          "year": 2013,
+          "countryId": 2,
+          "countryCname": "中国",
+          "countryEname": "China",
+          "type": 0,
+          "categories": [
+            0,
+            10
+          ],
+          "placeIds": null,
+          "areas": [{
+            "areaId": 2,
+            "areaCname": "中国",
+            "areaEname": "China"
+          }],
+          "series": false
+        }
+      }, {
+        "id": 33,
+        "movieSubjectId": 12,
+        "movieId": 2,
+        "graphics": [{
+          "description": "星战系列电影中最深邃、最黑暗、最成熟和最富思想性的一部",
+          "picPath": null
+        }],
+        "order": 4,
+        "movie": {
+          "id": 2,
+          "cname": "星球大战2：帝国反击战",
+          "ename": "Star Wars: Episode V - The Empire Strikes Back",
+          "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485056373554482551.png",
+          "year": 2008,
+          "countryId": 7,
+          "countryCname": "英国",
+          "countryEname": "United Kingdom",
+          "type": 0,
+          "categories": [
+            0,
+            2,
+            3,
+            5
+          ],
+          "placeIds": [
+            24,
+            19,
+            12
+          ],
+          "areas": [{
+            "areaId": 2,
+            "areaCname": "中国",
+            "areaEname": "China"
+          }, {
+            "areaId": 4,
+            "areaCname": "杭州市",
+            "areaEname": "Hangzhou"
+          }, {
+            "areaId": 36,
+            "areaCname": "东京都",
+            "areaEname": "tokyo"
+          }],
+          "series": false
+        }
+      }, {
+        "id": 34,
+        "movieSubjectId": 12,
+        "movieId": 5,
+        "graphics": [{
+          "description": "《红色恋人》中有一场戏是在很冷的冬天拍摄",
+          "picPath": null
+        }],
+        "order": 5,
+        "movie": {
+          "id": 5,
+          "cname": "红色恋人",
+          "ename": "A Time to Remember",
+          "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170123/1/1485154014690693552.jpg",
+          "year": 1998,
+          "countryId": 18,
+          "countryCname": "中国香港",
+          "countryEname": "Hong Kong",
+          "type": 0,
+          "categories": [
+            0,
+            10,
+            12
+          ],
+          "placeIds": [
+            23,
+            60
+          ],
+          "areas": [{
+            "areaId": 4,
+            "areaCname": "杭州市",
+            "areaEname": "Hangzhou"
+          }, {
+            "areaId": 36,
+            "areaCname": "东京都",
+            "areaEname": "tokyo"
+          }, {
+            "areaId": 39,
+            "areaCname": "藤泽市",
+            "areaEname": "Enoshima"
+          }, {
+            "areaId": 42,
+            "areaCname": "上海",
+            "areaEname": "Shanghai"
+          }],
+          "series": false
+        }
+      }]
+    },
+    "imgInfos": [{
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485056373554482551.png",
+      "format": "PNG",
+      "colorModel": "TrueColor",
+      "size": "1.1M",
+      "frameNumber": 1,
+      "width": 524,
+      "height": 731
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170123/1/1485154014690693552.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "60.5K",
+      "frameNumber": 1,
+      "width": 488,
+      "height": 799
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170206/1/1486380350572378877.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "92.4K",
+      "frameNumber": 1,
+      "width": 422,
+      "height": 600
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170206/1/1486380670348195283.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "568.0K",
+      "frameNumber": 1,
+      "width": 1280,
+      "height": 1788
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486610790609847200.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "312.0K",
+      "frameNumber": 1,
+      "width": 1510,
+      "height": 500
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170215/1/1487129942609583498.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "146.0K",
+      "frameNumber": 1,
+      "width": 430,
+      "height": 600
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170217/1/1487312606068210599.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "43.2K",
+      "frameNumber": 1,
+      "width": 600,
+      "height": 312
+    }]
+  }
+}

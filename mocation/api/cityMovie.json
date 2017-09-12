@@ -1,0 +1,65 @@
+{
+  "code": 0,
+  "msg": null,
+  "data": {
+    "movies": [{
+      "id": 4361,
+      "cname": "烈日灼心",
+      "ename": "The Dead End",
+      "coverPath": "http://cache.fotoplace.cc/mocation/170316/5/1489647388710812134.jpg",
+      "placeCount": 12
+    }, {
+      "id": 3840,
+      "cname": "疯狂的赛车",
+      "ename": "Silver Medalist",
+      "coverPath": "http://cache.fotoplace.cc/mocation/old_discovery/0e4a2337f76c4f33881a4ad99b7f03b4.jpg",
+      "placeCount": 2
+    }, {
+      "id": 1823,
+      "cname": "南京！南京！",
+      "ename": "City of Life and Death",
+      "coverPath": "http://cache.fotoplace.cc/mocation/old_discovery/d071a7800e5347fda5fad7dad4965e94.jpg",
+      "placeCount": 1
+    }, {
+      "id": 3575,
+      "cname": "云水谣",
+      "ename": "The Knot",
+      "coverPath": "http://cache.fotoplace.cc/mocation/old_discovery/aa2a3beacbcf4aacb21a5b1fcc03937b.jpg",
+      "placeCount": 1
+    }],
+    "total": 4,
+    "imgInfos": [{
+      "id": "http://cache.fotoplace.cc/mocation/170316/5/1489647388710812134.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "301.7K",
+      "frameNumber": 1,
+      "width": 841,
+      "height": 1200
+    }, {
+      "id": "http://cache.fotoplace.cc/mocation/old_discovery/0e4a2337f76c4f33881a4ad99b7f03b4.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "299.9K",
+      "frameNumber": 1,
+      "width": 1030,
+      "height": 1400
+    }, {
+      "id": "http://cache.fotoplace.cc/mocation/old_discovery/aa2a3beacbcf4aacb21a5b1fcc03937b.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "227.6K",
+      "frameNumber": 1,
+      "width": 1000,
+      "height": 1505
+    }, {
+      "id": "http://cache.fotoplace.cc/mocation/old_discovery/d071a7800e5347fda5fad7dad4965e94.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "123.8K",
+      "frameNumber": 1,
+      "width": 410,
+      "height": 600
+    }]
+  }
+}

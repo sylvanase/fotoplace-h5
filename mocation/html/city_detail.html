@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>片场丨你的电影旅行指南，到有故事的地方看一看。</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，经典，场景，实景还原，取景地，旅行，朝圣，圣地巡礼，电影旅行，谷歌街景，卫星照片，路线"/>
+    <meta name="description"
+          content="片场是中国第一个电影取景地信息分享平台。精心收集整理了几百部经典电影几千个取景地，为跟着电影去旅行的旅游者提供详实的信息服务，也为广大电影爱好者提供从地理来理解电影的全新角度，体验阅读中的发现乐趣。"/>
+    <link rel="shortcut icon" href="/static/images/sharepage/favicon.ico"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/city.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body {
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <img src="/static/images/sharepage/logo.png" alt="logo">
+    <div class="share-detail">
+        <p class="share-title">片场 mocation</p>
+        <p class="share-sub">你的电影旅行指南</p>
+        <a onclick="openApp('area')" href="javascript:void(0);" class="btn-ios">打 开</a>
+    </div>
+</header>
+<div id="loading" class="loading-bg">
+    <div class="loading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<section id="section">
+    <div class="container" v-cloak>
+        <div class="city-content" v-if="!isRecommend">
+            <!--推荐城市-->
+            <div class="city-title clearfix">
+                <img class="fl" :src="mapurl" alt="地图">
+                <div class="c33">
+                    <div class="fs18 mt15" v-if="name">
+                        {{name}}
+                    </div>
+                    <div class="fs14 mt10" v-if="ename">
+                        {{ename}}
+                    </div>
+                    <div class="fs12 city-uplevel">
+                        {{upname}} {{upename}}
+                    </div>
+                </div>
+            </div>
+            <img :src="coverurl" alt="电影封面" v-if="coverurl">
+            <div class="fs10 c33 mt20 alir" v-if="coverDesc">
+                {{coverDesc}}
+            </div>
+            <div class="city-des fs12 c88" v-if="desc">
+                {{desc}}
+            </div>
+        </div>
+        <div class="city-content c33 alic" v-else>
+            <!--简单城市-->
+            <div class="fs18 " style="margin-top: -20px;" v-if="name">
+                {{name}}
+            </div>
+            <div class="fs14" style="margin-top: 8px;" v-if="ename">
+                {{ename}}
+            </div>
+            <div class="fs12" style="margin: 20px 0 29px;" v-if="levelname">
+                {{levelname}}
+            </div>
+        </div>
+        
+        <div class="recommend-route" v-if="routeList.length > 0">
+            <div class="route-header">
+                <div class="fs14 c33">
+                    推荐路线
+                </div>
+            </div>
+            <div class="route-content">
+                <ul>
+                    <li v-for="route in routeList" @click="gotoRoute(route.id)">
+                        <div class="route-cover clearfix">
+                            <img class="fl" :src="route.coverPath" alt="路线">
+                            <div class="route-title">
+                                <div class="fs18 c33">
+                                    {{route.title}} 
+                                </div>
+                                <div>
+                                    <img class="mark-img" src="/static/images/sharepage/route-mark.png" alt="">
+                                    <span class="fs12 c88">{{route.areas}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="route-tag fs12 c33">
+                            FILMED {{route.movies}}
+                            </div>
+                            <div class="route-des fs12 c88">
+                                {{route.description}}
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="related-movie" v-if="movieList.length > 0">
+            <div class="movie-header">
+                <div class="fs14 c33">
+                    相关电影
+                </div>
+                <div class="fs12 c152" style="margin: 30px 10px 0;">
+                    共（{{movieList.length}}）部
+                </div>
+            </div>
+            <div class="movie-content">
+                <ul>
+                    <li v-for="movie in movieList" @click="gotoMovie(movie.id)" class="clearfix">
+                        <img class="fl" :src="movie.coverPath" alt="电影封面">
+                        <div class="movie-title ptr c33">
+                            <div class="fs16" style="margin-right: 40px;">
+                                {{movie.cname}} 
+                            </div>
+                            <div class="fs12" style="line-height: 1.5;margin-top: 4px;margin-right: 40px;">
+                                {{movie.ename}} 
+                            </div>
+                            <!--简单城市不显示片场数量-->
+                            <div class="movie-num pta" v-if="!isRecommend">
+                                <div class="mb5">片场</div>
+                                <div class="fs24">{{movie.placeCount}}</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/common/mserver.js"></script>
+<script type="text/javascript" src="/static/js/lib/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/lib/vue.js"></script>
+<script>
+
+//获取城市详情
+function getDetail(id){
+    return axios.get('/api/area/'+ id);
+}
+//获取详情页相关路线
+function getRoute(id){
+    return axios.get('/api/area/' + id + '/route');
+}
+//获取详情页相关电影
+function getMovie(id){
+    return axios.get('/api/area/'+ id +'/movie?page=0&size=30');
+}
+
+var app = new Vue({
+    el: '.container',
+    data:{
+        isRecommend: false,
+        name: '', //中文名
+        ename:'', //英文名
+        levelname: '',
+        mapurl:'',
+        upname:'',
+        upename:'',
+        coverurl:'', //封面
+        coverDesc: '', //来源
+        desc:'',
+        routeList:'',
+        movieList: ''
+        
+    },
+    created:function(){
+        var _self = this,
+            _id = parseUrl('id');
+        axios.all([getDetail(_id), getRoute(_id), getMovie(_id)])
+            .then(axios.spread(function (detail, route, movie) {
+                var loadingDom = document.getElementById('loading');
+                loadingDom.style.display = 'none';
+                var detailObj = detail.data.data.area;
+                _self.name = detailObj.rmmId == null ? detailObj.cname : detailObj.rmmCname;
+                _self.ename = detailObj.rmmId == null ? detailObj.ename : detailObj.rmmEname;
+              
+                if(detailObj.rmmId == null){ //推荐id为空，该城市为简单城市
+                    _self.isRecommend = true;
+                    _self.levelname = detailObj.level0Cname;
+                }else{
+                    _self.upname = detailObj.upLevelCname;
+                    _self.upename = detailObj.upLevelEname;
+                    _self.coverurl = detailObj.coverPath;
+                    _self.mapurl = detailObj.mapPath;
+                    _self.coverDesc = detailObj.coverDesc;
+                    _self.desc = detailObj.description;
+                }
+
+                //推荐路线
+                var routeObj = route.data.data.routes;
+                    if(routeObj){
+                        var routeArr = routeObj.map(function(item){
+                            var movies = '',
+                                    areas = '';
+                            for(var i = 0, j = item.movies.length;i < j; i++){
+                                movies += (item.movies[i].cname != '' ? item.movies[i].cname : item.movies[i].ename) + ' | ';
+                            }
+                            for(var i = 0, j = item.areas.length;i < j; i++){
+                                areas += (item.areas[i].cname != '' ? item.areas[i].cname : item.areas[i].ename) + ' ';
+                            }
+                            item.movies = movies.slice(0, movies.length-2);
+                            item.areas = areas;
+                            return item;
+                        });
+                        _self.routeList = routeArr;
+                    }
+                //相关电影
+                _self.movieList = movie.data.data.movies;
+            })
+        );
+    },
+    methods: {
+        gotoRoute: function (id) {
+            window.location.href = 'route_detail.html?id=' + id;
+        },
+        gotoMovie: function (id) {
+            window.location.href = 'movie_detail.html?id=' + id;
+        }
+    }
+})
+
+</script>
+</body>
+</html>

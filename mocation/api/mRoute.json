@@ -1,0 +1,203 @@
+{
+  "code": 0,
+  "msg": null,
+  "data": {
+    "routes": [{
+      "id": 13,
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170227/1/1488191382440440495.jpg",
+      "title": "北京，走过你来时的路",
+      "description": "我来到你的城市 走过你来时的路 想像着没我的日子 你是怎样的孤独 拿着你给的照片 熟悉的那一条街 只是没了你的画面",
+      "skuId": 6,
+      "markedPrice": 2.21,
+      "isFree": false,
+      "startTime": null,
+      "endTime": null,
+      "areas": [{
+        "id": 4,
+        "cname": "杭州市",
+        "ename": "Hangzhou"
+      }, {
+        "id": 43,
+        "cname": "北京",
+        "ename": "Beijing"
+      }],
+      "movies": [{
+        "id": 13,
+        "cname": "谍影重重5",
+        "ename": "Jason Bourne"
+      }, {
+        "id": 8,
+        "cname": "美人鱼",
+        "ename": "meirenyu"
+}, {      "id": 11,
+      "cname": "从你的全世界路过",
+      "ename": "I Belonged to You"
+    }, {
+      "id": 5,
+      "cname": "红色恋人",
+      "ename": "A Time to Remember"
+    }, {
+      "id": 4,
+      "cname": "向阳处的她",
+      "ename": "Girl in the Sunny Place"
+    }, {
+      "id": 7,
+      "cname": "初恋红豆冰",
+      "ename": "Ice Kacang Puppy Love"
+    }]
+    }, {
+      "id": 10,
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170227/1/1488164068105083419.jpg",
+      "title": "文艺青年去厦门游玩路线",
+      "description": "厦门位于福建省东南端，西接漳州台商投资区，北邻南安，东南与大小金门和大担岛隔海相望，通行闽南语，是闽南地区的主要城市，与漳州、泉州并称厦漳泉",
+      "skuId": 4,
+      "markedPrice": 1.22,
+      "isFree": true,
+      "startTime": 1488182400000,
+      "endTime": 1488268800000,
+      "areas": [{
+        "id": 43,
+        "cname": "北京",
+        "ename": "Beijing"
+      }, {
+        "id": 51,
+        "cname": "天堂市",
+        "ename": "Paradise"
+      }, {
+        "id": 60,
+        "cname": "海参崴",
+        "ename": "Vladivostok"
+      }, {
+        "id": 62,
+        "cname": "厦门市",
+        "ename": "Xiamen"
+      }],
+      "movies": [{
+        "id": 11,
+        "cname": "从你的全世界路过",
+        "ename": "I Belonged to You"
+      }, {
+        "id": 8,
+        "cname": "美人鱼",
+        "ename": "meirenyu"
+      }, {
+        "id": 12,
+        "cname": "致我们终将逝去的青春",
+        "ename": "SO YOUNG"
+      }, {
+        "id": 16,
+        "cname": "烈日灼心",
+        "ename": "The Dead End"
+      }, {
+        "id": 13,
+        "cname": "谍影重重5",
+        "ename": "Jason Bourne"
+      }, {
+        "id": 17,
+        "cname": "云水谣",
+        "ename": "The Knot"
+      }, {
+        "id": 6,
+        "cname": "夺宝奇兵",
+        "ename": "Raiders of the Lost Ark"
+      }, {
+        "id": 7,
+        "cname": "初恋红豆冰",
+        "ename": "Ice Kacang Puppy Love"
+      }, {
+        "id": 5,
+        "cname": "红色恋人",
+        "ename": "A Time to Remember"
+      }, {
+        "id": 2,
+        "cname": "星球大战2：帝国反击战",
+        "ename": "Star Wars: Episode V - The Empire Strikes Back"
+      }, {
+        "id": 14,
+        "cname": "七月与安生",
+        "ename": "SoulMate"
+      }, {
+        "id": 10,
+        "cname": "星球大战3",
+        "ename": "War3"
+      }, {
+        "id": 4,
+        "cname": "向阳处的她",
+        "ename": "Girl in the Sunny Place"
+      }]
+    }, {
+      "id": 4,
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170207/1/1486434923356293079.jpg",
+      "title": "跟着《速度与激情》去旅行",
+      "description": "跟着速度与激情去旅行跟着速度与激情去旅行跟着速度与激情去旅行跟着速度与激情去旅行跟着速度与激情去旅行跟着速度与激情去旅行跟着速度与激情去旅行跟着速度与激情去旅行跟着速度与激情去旅行跟着速度与激情去旅行",
+      "skuId": 1,
+      "markedPrice": 0.02,
+      "isFree": false,
+      "startTime": null,
+      "endTime": null,
+      "areas": [{
+        "id": 4,
+        "cname": "杭州市",
+        "ename": "Hangzhou"
+      }, {
+        "id": 42,
+        "cname": "上海",
+        "ename": "Shanghai"
+      }, {
+        "id": 62,
+        "cname": "厦门市",
+        "ename": "Xiamen"
+      }],
+      "movies": [{
+        "id": 7,
+        "cname": "初恋红豆冰",
+        "ename": "Ice Kacang Puppy Love"
+      }, {
+        "id": 4,
+        "cname": "向阳处的她",
+        "ename": "Girl in the Sunny Place"
+      }, {
+        "id": 2,
+        "cname": "星球大战2：帝国反击战",
+        "ename": "Star Wars: Episode V - The Empire Strikes Back"
+      }, {
+        "id": 11,
+        "cname": "从你的全世界路过",
+        "ename": "I Belonged to You"
+      }, {
+        "id": 14,
+        "cname": "七月与安生",
+        "ename": "SoulMate"
+      }, {
+        "id": 10,
+        "cname": "星球大战3",
+        "ename": "War3"
+      }]
+    }],
+    "imgInfos": [{
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170207/1/1486434923356293079.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "13.4K",
+      "frameNumber": 1,
+      "width": 400,
+      "height": 300
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170227/1/1488164068105083419.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "85.8K",
+      "frameNumber": 1,
+      "width": 500,
+      "height": 332
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170227/1/1488191382440440495.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "155.0K",
+      "frameNumber": 1,
+      "width": 1280,
+      "height": 569
+    }]
+  }
+}

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>片场丨你的电影旅行指南</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，经典，场景，实景还原，取景地，旅行，朝圣，圣地巡礼，电影旅行，谷歌街景，卫星照片，路线"/>
+    <meta name="description"
+          content="片场是中国第一个电影取景地信息分享平台。精心收集整理了几百部经典电影几千个取景地，为跟着电影去旅行的旅游者提供详实的信息服务，也为广大电影爱好者提供从地理来理解电影的全新角度，体验阅读中的发现乐趣。"/>
+    <link rel="shortcut icon" href="/static/images/sharepage/favicon.ico"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/movie.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body {
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <img src="/static/images/sharepage/logo.png" alt="logo">
+    <div class="share-detail">
+        <p class="share-title">片场 mocation</p>
+        <p class="share-sub">你的电影旅行指南</p>
+        <a onclick="openApp('movie')" href="javascript:void(0);" class="btn-ios">打 开</a>
+    </div>
+</header>
+<div id="loading" class="loading-bg">
+    <div class="loading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<section id="section">
+    <div class="container" v-cloak>
+        <div class="h21 alic" v-if="name">
+            {{name}}
+        </div>
+        <div class="h11 alic" v-if="ename">
+            {{ename}}
+        </div>
+        <div class="movie-cover ptr clearfix">
+            <img :src="coverurl" alt="电影封面">
+            <div class="movie-type pta fs12">
+                <p v-if="category">
+                    {{category}}
+                </p>
+                <p v-if="countryname">
+                    {{countryname}}
+                </p>
+                <p v-if="year">
+                    {{year}}
+                </p>
+            </div>
+            <div class="movie-mocation pta c33 alir">
+                <p class="fs14">片场</p>
+                <p class="fs36 mocation-num">
+                    {{mnum}}
+                </p>
+            </div>
+        </div>
+        <div class="movie-des">
+            <p class="fs12 c88" v-if="overview">
+                {{overview}}
+            </p>
+            <!--<img :src="mapurl" alt="地图">-->
+        </div>
+        <div class="movie-plot">
+            <div class="plot-header">
+                <img class="vab" src="/static/images/sharepage/order.png" alt="">
+                <span class="fs16 c33 dsilb">剧情</span>
+            </div>
+            <ul>
+                <li class="pl10" v-for="plot in plotList">
+                    <template v-if="plot.assedCname == null">
+                        <div class="plot-time fs14">
+                            {{ plot.episode ? 'E'+ plot.episode : '' }} {{plot.position}}
+                        </div>
+                        <div class="plot-content clearfix">
+                            <img class="fr" :src="plot.coverPath" alt="剧照">
+                            <div class="c33">
+                                <div class="fs16 pb5" @click="gotoPlace(plot.placeId, plot.assType)">
+                                    {{plot.placeCname}}
+                                </div>
+                                <div class="fs10" v-if="plot.placeEname != ''" @click="gotoPlace(plot.placeId, plot.assType)">
+                                    {{plot.placeEname}}
+                                </div>
+                                <div class="fs12 pb5" style="margin-top: 18px;">
+                                    {{plot.areaCname}} {{plot.upLevelAreaCname}}
+                                </div>
+                                <div class="fs12 c88">
+                                    {{plot.sceneName}}
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template v-else>
+                        <div class="plot-time fs14">
+                            {{ plot.episode ? 'E'+ plot.episode : '' }} {{plot.position}}
+                        </div>
+                        <div class="plot-content clearfix">
+                            <img class="fr" :src="plot.coverPath" alt="剧照">
+                            <div class="c33">
+                                <div class="fs16" style="margin-bottom: 4px;" @click="gotoPlace(plot.placeId, plot.assType)">
+                                    {{plot.placeCname}}
+                                </div>
+                                <div class="fs12 c24a5e5 mb5" @click="gotoPlace(plot.assedId, '4')">
+                                    {{plot.assedCname}}
+                                </div>
+                                <div class="fs10" v-if="plot.placeEname != ''" style="margin-bottom: 4px;" @click="gotoPlace(plot.placeId, plot.assType)">{{plot.placeEname}}</div>
+                                <div class="fs10 c24a5e5" @click="gotoPlace(plot.assedId, '4')">{{plot.assedEname}}</div>
+                                <div style="margin-top: 6px;" class="fs12 pb5">
+                                    {{plot.areaCname}} {{plot.upLevelAreaCname}}
+                                </div>
+                                <div class="fs12 c88">
+                                    {{plot.sceneName}}
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </li>
+            </ul>
+        </div>
+        <div class="recommend-route" v-if="routeList.length > 0">
+            <div class="route-header">
+                <div class="fs14 c33">
+                    推荐路线
+                </div>
+            </div>
+            <div class="route-content">
+                <ul>
+                    <li v-for="route in routeList" @click="gotoRoute(route.id)">
+                        <div class="route-cover clearfix">
+                            <img class="fl" :src="route.coverPath" alt="路线">
+                            <div class="route-title">
+                                <div class="fs18 c33">
+                                    {{route.title}} 
+                                </div>
+                                <div>
+                                    <img class="mark-img" src="/static/images/sharepage/route-mark.png" alt="">
+                                    <span class="fs12 c88">{{route.areas}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="route-tag fs12 c33">
+                            FILMED {{route.movies}}
+                        </div>
+                        <div class="route-des fs12 c88">
+                            {{route.description}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="comment-list" v-if="commentnum > 0">
+            <div class="comment-header">
+                <img src="/static/images/sharepage/comment.png" alt="">
+                <span class="fs13 c88">全部评论（{{commentnum}}）</span>
+            </div>
+            <div class="comment-content">
+                <ul>
+                    <li v-for="item in commentList">
+                        <img :src="item.headPath" alt="用户头像">
+                        <div class="dsilb">
+                            <span class="fs14 c33" v-if="item.pcomment == null">
+                                {{item.username}}：
+                            </span>
+                            <span class="dsb fs14 c33" v-else>
+                                {{item.username}}
+                            </span>
+                            <div class="user-replay bg241" v-if="item.pcomment != null">
+                                <span class="replay-name fs12 c88">
+                                    {{item.rateeUsername}}：
+                                </span>
+                                <span class="replay-comment fs12 c88">
+                                    {{item.pcomment.comment}}
+                                </span>
+                            </div>
+                            <span class="fs14 c88" v-if="item.pcomment == null">
+                                {{item.comment}}
+                            </span>
+                            <span class="dsb fs14 c88" v-else>
+                                {{item.comment}}
+                            </span>
+                            <div class="fs14 c88">
+                                （{{item.createTime}}）
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/common/mserver.js"></script>
+<script type="text/javascript" src="/static/js/lib/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/lib/vue.js"></script>
+<script>
+
+//获取电影详情
+function getMovieDetail(id){
+    return axios.get('/api/mDetail.json');
+    //return axios.get('/api/movie/'+ id);
+}
+//获取电影详情页相关路线
+function getMovieRoute(id){
+    return axios.get('/api/mRoute.json');
+    //return axios.get('/api/movie/' + id + '/route');
+}
+//获取电影评论 
+function getMovieComment(id){
+    return axios.get('/api/mComment.json');
+    //return axios.get('/api/comment/list?targetId='+ id + '&targetType=1');
+}
+
+
+
+//电影分类
+var movieCategories = ['爱情','喜剧','科幻','动作','悬疑','犯罪','青春','惊悚','文艺','励志','剧情','动画','战争','奇幻','传记','情色','家庭','音乐','黑帮','同性','史诗','灾难','武侠','西部','冒险','历史','歌舞','体育'];
+
+var app = new Vue({
+    el: '.container',
+    data:{
+        name: '', //电影中文名
+        ename:'', //英文名
+        coverurl:'', //封面
+        mnum: '', //片场数
+        category:'', //分类
+        countryname: '',
+        year:'',
+        overview:'',
+        mapurl:'',
+        plotList:'',
+        routeList:'',
+        commentnum: '',
+        commentList: ''
+    },
+    created:function(){
+        var _self = this,
+            _id = parseUrl('id');
+        axios.all([getMovieDetail(_id), getMovieRoute(_id), getMovieComment(_id)])
+            .then(axios.spread(function (mDetail, mRoute, mComment) {
+                var loadingDom = document.getElementById('loading');
+                loadingDom.style.display = 'none';
+                var detailObj = mDetail.data.data.movie;
+                _self.name = detailObj.cname;
+                _self.ename = detailObj.ename;
+                _self.coverurl = detailObj.coverPath;
+                _self.mnum = detailObj.placeIds.length;
+                //获取电影分类
+                var categoryStr = '';
+                for(var i = 0, j = detailObj.categories.length; i < j; i++) {
+                    categoryStr += movieCategories[detailObj.categories[i]] + '/';
+                }
+                _self.category = categoryStr.slice(0,categoryStr.length - 1);
+                _self.countryname = detailObj.countryCname;
+                _self.year = detailObj.year;
+                _self.overview = detailObj.overview;
+
+                //地图截图
+                var mapArr = [];
+                for(var i = 0, j = detailObj.plots.length; i < j; i++) {
+                    mapArr.push([detailObj.plots[i].lat,detailObj.plots[i].lng]);
+                }
+                _self.mapurl = getMap(mapArr);
+                    if(detailObj.plots){
+                        var plotsArr = detailObj.plots.map(function(item,index,array){
+                            if(item.position){
+                                var html,
+                                        s = item.position % 60,
+                                        min = parseInt(item.position / 60);
+                                if(s < 10){
+                                    s = '0' + s;
+                                }
+                                if(min < 10){
+                                    min = '0' + min;
+                                }
+                                html = min + ':' + s;
+                                item.position = html;
+                            }else{
+                                item.position = '00:00';
+                            }
+                            return item;
+                        });
+                        _self.plotList = plotsArr;
+                    }
+                //推荐路线
+                var routeObj = mRoute.data.data.routes;
+                    if(routeObj){
+                        var routeArr = routeObj.map(function(item){
+                            var movies = '',
+                                    areas = '';
+                            for(var i = 0, j = item.movies.length;i < j; i++){
+                                movies += (item.movies[i].cname != '' ? item.movies[i].cname : item.movies[i].ename) + ' | ';
+                            }
+                            for(var i = 0, j = item.areas.length;i < j; i++){
+                                areas += (item.areas[i].cname != '' ? item.areas[i].cname : item.areas[i].ename) + ' ';
+                            }
+                            item.movies = movies.slice(0, movies.length-2);
+                            item.areas = areas;
+                            return item;
+                        });
+                        _self.routeList = routeArr;
+                    }
+
+
+                //评论列表
+                var commentObj = mComment.data.data;
+                _self.commentnum = commentObj.total;
+                    if(commentObj.list){
+                        var commentArr = commentObj.list.map(function(item){
+                            item.createTime = new Date(parseInt(item.createTime)).Format("yyyy-MM-dd hh:mm");
+                            return item;
+                        });
+                        _self.commentList = commentArr;
+                    }
+            })
+        );
+    },
+    methods: {
+        gotoRoute: function (id) {
+            window.location.href = 'route_detail.html?id=' + id;
+        },
+        gotoPlace: function (id,type) {
+            /*
+                0:无关地点
+                1:大地点
+                2:子地点
+                3:小地点
+                4:大地点-单电影 
+            */
+            if(type == 4){ //跳转到大地点-单电影
+                window.location.href = 'place_movie_one.html?id=' + id + '&movie=' + parseUrl('id');
+            } else{ //跳转到地点详情
+                window.location.href = 'place_detail.html?id=' + id;
+            }
+        }
+    }
+})
+
+
+</script>
+</body>
+</html>

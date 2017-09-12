@@ -1,0 +1,179 @@
+{
+  "code": 0,
+  "msg": null,
+  "data": {
+    "places": [{
+      "id": 22,
+      "cname": "北京故宫",
+      "ename": "Forbidden City",
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486522697196391621.jpg",
+      "lat": 38.8904381,
+      "lng": -77.0423338,
+      "assType": 1,
+      "areaId": 43,
+      "areaCname": "北京",
+      "areaEname": "Beijing",
+      "level1Id": 2,
+      "level1Cname": "中国",
+      "level1Ename": "China",
+      "movies": [{
+        "id": 6,
+        "cname": "夺宝奇兵",
+        "ename": "Raiders of the Lost Ark"
+      }, {
+        "id": 7,
+        "cname": "初恋红豆冰",
+        "ename": "Ice Kacang Puppy Love"
+      }, {
+        "id": 5,
+        "cname": "红色恋人",
+        "ename": "A Time to Remember"
+      }, {
+        "id": 11,
+        "cname": "从你的全世界路过",
+        "ename": "I Belonged to You"
+      }],
+      "assedId": 0,
+      "assedCname": null,
+      "assedEname": null,
+      "assedCoverPath": null,
+      "categories": [
+        0,
+        1,
+        10,
+        12,
+        16
+      ],
+      "asses": [{
+        "id": 23,
+        "cname": "午门",
+        "ename": "Wu Gate",
+        "lat": 38.8905381,
+        "lng": -77.0432481,
+        "coverPath": "mocation/170222/1/1487746334963528130.jpg",
+        "orderNo": 0,
+        "movies": null,
+        "scenes": null
+      }, {
+        "id": 25,
+        "cname": "御膳房",
+        "ename": "Yushanfang",
+        "lat": 38.8714381,
+        "lng": -77.0443338,
+        "coverPath": "mocation/170209/1/1486607076165116453.jpg",
+        "orderNo": 1,
+        "movies": null,
+        "scenes": null
+      }, {
+        "id": 29,
+        "cname": "御花园",
+        "ename": "Yu Garden",
+        "lat": 31.8905380,
+        "lng": 122.0432480,
+        "coverPath": "mocation/170322/1/1490163693038499930.jpg",
+        "orderNo": 2,
+        "movies": null,
+        "scenes": null
+      }, {
+        "id": 60,
+        "cname": "北京火车站",
+        "ename": "RailStation of Beijing",
+        "lat": 39.9024403,
+        "lng": 116.4274019,
+        "coverPath": "mocation/170227/1/1488193491093473457.jpg",
+        "orderNo": 3,
+        "movies": null,
+        "scenes": null
+      }],
+      "initial": null,
+      "distance": 0.0
+    }, {
+      "id": 19,
+      "cname": "宪法花园",
+      "ename": "Constitution Gardens",
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170207/1/1486439893351020446.jpg",
+      "lat": 38.8814381,
+      "lng": -77.0443338,
+      "assType": 3,
+      "areaId": 38,
+      "areaCname": "品川区",
+      "areaEname": "Shinagawa district",
+      "level1Id": 35,
+      "level1Cname": "日本",
+      "level1Ename": "japan",
+      "movies": [{
+        "id": 7,
+        "cname": "初恋红豆冰",
+        "ename": "Ice Kacang Puppy Love"
+      }, {
+        "id": 2,
+        "cname": "星球大战2：帝国反击战",
+        "ename": "Star Wars: Episode V - The Empire Strikes Back"
+      }],
+      "assedId": 0,
+      "assedCname": null,
+      "assedEname": null,
+      "assedCoverPath": null,
+      "categories": [
+        0,
+        2,
+        3
+      ],
+      "asses": null,
+      "initial": null,
+      "distance": 1.0167535519115372
+    }, {
+      "id": 24,
+      "cname": "养心殿",
+      "ename": "Yangxindian",
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486522953156105055.jpg",
+      "lat": 38.8714381,
+      "lng": -77.0443338,
+      "assType": 3,
+      "areaId": 43,
+      "areaCname": "北京",
+      "areaEname": "Beijing",
+      "level1Id": 2,
+      "level1Cname": "中国",
+      "level1Ename": "China",
+      "movies": [{
+        "id": 2,
+        "cname": "星球大战2：帝国反击战",
+        "ename": "Star Wars: Episode V - The Empire Strikes Back"
+      }],
+      "assedId": 0,
+      "assedCname": null,
+      "assedEname": null,
+      "assedCoverPath": null,
+      "categories": null,
+      "asses": null,
+      "initial": null,
+      "distance": 2.122159310852493
+    }],
+    "imgInfos": [{
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170207/1/1486439893351020446.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "265.0K",
+      "frameNumber": 1,
+      "width": 1920,
+      "height": 1080
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486522697196391621.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "155.0K",
+      "frameNumber": 1,
+      "width": 1280,
+      "height": 569
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486522953156105055.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "1.2M",
+      "frameNumber": 1,
+      "width": 2400,
+      "height": 2028
+    }]
+  }
+}

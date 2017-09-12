@@ -1,0 +1,393 @@
+@import "variables";
+
+.place-map{
+	img{
+		width: 86.5px;
+		height: 86.5px;
+	}
+	span{
+		display: inline-block;
+		margin: 50px 88px 35px 0;
+	}
+}
+
+.place-rem{
+	margin-bottom: 31px;
+	span{
+		border: 1px solid $black;
+		padding: 8px 11px;
+	}
+
+}
+
+.place-des{
+	line-height: 18px;
+	text-align: justify;
+}
+.place-tip{
+	margin-top: -3px;
+	margin-bottom: 26px;
+	img{
+		width: 10.5px;
+		height: 11.5px;
+		margin-top: 3px;
+	}
+	div{
+		line-height: 18px;
+		margin-left: 17px;
+	}
+}
+
+.place-mark{
+	width: 100%;
+	margin-bottom: 37px;
+}
+
+.place-realmap{
+	margin-bottom: 46px;
+	.satellite{
+		img{
+			width: 133px;
+			height: 133px;
+		}
+	}
+}
+.map-list{
+	margin-left: 144px;
+	span{
+		margin-top: -3px;
+	}
+	.icon{
+		width: 5.5px;
+		height: 5px;
+		vertical-align: baseline;
+	}
+	ul{
+		display:inline;
+		white-space: nowrap;
+	}
+	li{
+		display: inline-block;
+		margin-right: 11px;
+		img{
+			height: 133px;
+		}
+	}
+}
+
+
+.scenes-item{
+	border-bottom: 1px solid $greylight;
+	&:last-child{
+		border-bottom: none;
+	}
+	margin-top: 36px;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	.scenes-content{
+		margin: 36px 0;
+		padding-left: 11px;
+		>img{
+			width: 135px;
+			height: 200px;
+		}
+		>div{
+			margin-left: 160px;
+			div{
+				margin-bottom: 12px;
+			}
+			img{
+				max-width: 100%;
+				max-height: 120px;
+			}
+		}
+	}
+	.scenes-des{
+		padding-left: 11px;
+		line-height: 16px;
+		margin-bottom: 42px;
+		text-align: justify;
+	}
+	.scenes-movie{
+		margin-bottom: 30px;
+		padding-left: 11px;
+		.movie-time{
+			img{
+				width: 80px;
+				height: 21px;
+			}
+		}
+		.movie-des{
+			line-height: 16px;
+			text-align: justify;
+		}
+		.movie-tip{
+			margin-bottom: 16px;
+			img{
+				width: 10.5px;
+				height: 11.5px;
+			}
+			div{
+				margin-left: 17px;
+			}
+			span{
+				right: 0;
+				bottom: 0;
+			}
+		}
+		.movie-stills{
+			margin-right: -24px;
+			ul{
+				display:inline;
+				white-space: nowrap;
+			}
+			li{
+				display: inline-block;
+				margin-right: 11px;
+				img{
+					height: 109px;
+				}
+			}
+		}
+		.movie-person{
+			line-height: 16px;
+		}
+	}
+}
+
+.place-related-movie{
+	margin-bottom: 30px;
+	ul{
+		display:inline;
+		white-space: nowrap;
+	}
+	li{
+		display: inline-block;
+		margin-right: 12px;
+		img{
+			width: 82.5px;
+			height: 121.5px;
+			margin-bottom: 3px;
+		}
+		.movie-name{
+			margin-bottom: 6px;
+		}
+		.movie-name,.movie-year{
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
+}
+
+.place-distribution{
+	margin-bottom: 30px;
+	ul{
+		display:inline;
+		white-space: nowrap;
+	}
+	li{
+		display: inline-block;
+		margin-right: 12px;
+		width: 245px;
+		overflow: hidden;
+		>img{
+			width: 100%;
+			height: 137.5px;
+			margin-bottom: 9px;
+		}
+		span{
+			border-radius: 4px;
+			display: inline-block;
+			width: 25px;
+			height: 25px;
+			line-height: 25px;
+			color: #fff;
+			font-size: 18px;
+			text-align: center;
+		}
+		.movie-name{
+			margin-bottom: 6px;
+		}
+		div{
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
+}
+
+.place-assesmap{
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+.nearby-list{
+	padding: 17.5px 11px 10px;
+	margin-bottom: 45px;
+	.nearby-header{
+		margin-bottom: 17.5px;
+	}
+	>img{
+		width: 100%;
+		margin-bottom: 21px;
+	}
+	.nearby-item{
+		padding-bottom: 8.5px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid $grey;
+		&:last-child{
+			border-bottom: none;
+		}
+		img{
+			width: 106.5px;
+			height: 60px;
+		}
+		.nearby-content{
+			margin-left: 106.5px;
+			padding-left: 18px;
+			
+			.movies{
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap; 
+			}
+		}
+		.distance{
+			left: 0;
+			bottom: 8px;
+		}
+	}
+}
+
+.asses-item{
+	margin-top: 15px;
+	.asses-index{
+		color: #fff;
+		span{
+			padding: 2px 4.5px;
+		}
+	}
+	.asses-index-left{
+		span{
+			float: left;
+			color: #fff;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			font-size: 20px;
+			line-height: 30px;
+		}
+		div{
+			margin-left: 40px;
+		}
+	}
+	.asses-content{
+		margin-bottom: 42px;
+		img{
+			width: 58px;
+			height: 85.5px;
+		}
+		>div{
+			margin-top: 49.5px;
+			margin-left: 82px;
+		}
+	}
+	.asses-movie{
+		margin-bottom: 30px;
+		.movie-time{
+			img{
+				width: 80px;
+				height: 21px;
+			}
+		}
+		.movie-des{
+			line-height: 14px;
+			text-align: justify;
+		}
+		.movie-tip{
+			img{
+				width: 10.5px;
+				height: 11.5px;
+			}
+			div{
+				margin-left: 17px;
+				text-align: justify;
+			}
+		}
+		.movie-stills{
+			margin-right: -24px;
+			ul{
+				display:inline;
+				white-space: nowrap;
+			}
+			li{
+				display: inline-block;
+				margin-right: 12px;
+				img{
+					height: 110.5px;
+				}
+			}
+		}
+		.movie-person{
+			line-height: 16px;
+		}
+	}
+}
+
+.place-movie{
+	margin-bottom: 29px;
+	img{
+		width: 58px;
+		height: 85.5px;
+	}
+	>div{
+		margin-left: 82px;
+	}
+}
+
+.movie-all{
+	padding: 10px 0;
+	position: relative;
+	margin-bottom: 60px;
+	>img{
+		position: absolute;
+		margin: -6px 10px 0;
+		width: 6px;
+		height: 12px;
+		top: 50%;
+		right: 0;
+	}
+	>div{
+		margin-right: 26px;
+	}
+	/* .movie-item{
+		width: 25%;
+		float: left;
+		img{
+			width: 86%;
+			margin-left: 14%;
+		}
+	} */
+	ul{
+		white-space: nowrap;
+		li{
+			display: inline-block;
+			width: 25%;
+			img{
+				width: 84%;
+				margin-left: 16%
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+

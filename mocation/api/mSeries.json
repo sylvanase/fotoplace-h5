@@ -1,0 +1,95 @@
+{
+  "code": 0,
+  "msg": null,
+  "data": {
+    "id": 1,
+    "cname": "",
+    "ename": "Star Wars: Episode III - Revenge of the Sithssssss",
+    "oname": "星球大战前传3：西斯的复仇原文名修改",
+    "alias": "星球大战前传3：西斯的复仇别名1,修改",
+    "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485056213582236140.jpg",
+    "year": 2010,
+    "countryId": 32,
+    "type": 0,
+    "categories": null,
+    "areaIds": null,
+    "seriesId": 0,
+    "overview": "111片场综述克隆战争已经进行了三年，共和国即将胜利，分裂联盟的格非特将军和杜库伯爵（克里斯托弗•李 Christopher Lee 饰）劫持议会首相帕尔帕庭（伊恩·迈克蒂安米德Ian McDiarmid 饰）潜逃，绝地武士欧比-旺•肯诺比（伊万•麦克格雷格 Ewan McGregor 饰）和阿纳金（海登·克里斯滕森 Hayden Christensen 饰）奉长老院命前去营救，阿纳金杀死杜库伯爵救出帕尔帕庭，但格非特将军逃匿。阿纳金梦见妻子阿米达拉（娜塔丽·波特曼 Natalie Portman 饰）将死于难产，困惑中求助于帕尔帕庭，后者趁此机会离间阿纳金与绝地长老院。随着阿纳金向帕尔帕庭的靠拢，一场针对绝地武士与其所捍卫之民主的阴谋逐渐展开。 \n\n本片提名2006年第78界奥斯卡最佳化妆奖，并提名格莱美最佳电影电视等视觉媒体原创音乐奖。",
+    "summary": "3333剧情简介克隆战争已经进行了三年，共和国即将胜利，分裂联盟的格非特将军和杜库伯爵（克里斯托弗•李 Christopher Lee 饰）劫持议会首相帕尔帕庭（伊恩·迈克蒂安米德Ian McDiarmid 饰）潜逃，绝地武士欧比-旺•肯诺比（伊万•麦克格雷格 Ewan McGregor 饰）和阿纳金（海登·克里斯滕森 Hayden Christensen 饰）奉长老院命前去营救，阿纳金杀死杜库伯爵救出帕尔帕庭，但格非特将军逃匿。阿纳金梦见妻子阿米达拉（娜塔丽·波特曼 Natalie Portman 饰）将死于难产，困惑中求助于帕尔帕庭，后者趁此机会离间阿纳金与绝地长老院。随着阿纳金向帕尔帕庭的靠拢，一场针对绝地武士与其所捍卫之民主的阴谋逐渐展开。 \n\n本片提名2006年第78界奥斯卡最佳化妆奖，并提名格莱美最佳电影电视等视觉媒体原创音乐奖。",
+    "tags": "星球大战前传3：西斯的复仇标签2,星球大战前传3：西斯的复仇标签3,标签",
+    "createTime": 1485055321000,
+    "updateTime": 1486611711000,
+    "series": true,
+    "movies": [{
+      "id": 2,
+      "cname": "星球大战2：帝国反击战",
+      "ename": "Star Wars: Episode V - The Empire Strikes Back",
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485056373554482551.png",
+      "year": 2008,
+      "countryId": 7,
+      "countryCname": "英国",
+      "countryEname": "United Kingdom",
+      "type": 0,
+      "categories": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "placeIds": [
+        24,
+        19,
+        18
+      ],
+      "areas": [{
+        "areaId": 2,
+        "areaCname": "中国",
+        "areaEname": "China"
+      }, {
+        "areaId": 4,
+        "areaCname": "杭州市",
+        "areaEname": "Hangzhou"
+      }, {
+        "areaId": 36,
+        "areaCname": "东京都",
+        "areaEname": "tokyo"
+      }],
+      "series": false
+    }, {
+      "id": 2,
+      "cname": "星球大战2：帝国反击战",
+      "ename": "Star Wars: Episode V - The Empire Strikes Back",
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485056373554482551.png",
+      "year": 2008,
+      "countryId": 7,
+      "countryCname": "英国",
+      "countryEname": "United Kingdom",
+      "type": 0,
+      "categories": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "placeIds": [
+        24,
+        19,
+        18
+      ],
+      "areas": [{
+        "areaId": 2,
+        "areaCname": "中国",
+        "areaEname": "China"
+      }, {
+        "areaId": 4,
+        "areaCname": "杭州市",
+        "areaEname": "Hangzhou"
+      }, {
+        "areaId": 36,
+        "areaCname": "东京都",
+        "areaEname": "tokyo"
+      }],
+      "series": false
+    }]
+  }
+}

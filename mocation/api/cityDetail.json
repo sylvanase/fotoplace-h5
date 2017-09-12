@@ -1,0 +1,107 @@
+{
+  "code": 0,
+  "msg": null,
+  "data": {
+    "area": {
+      "id": 51,
+      "cname": "天堂市",
+      "ename": "Paradise",
+      "rmmId": null,
+      "rmmCname": "天堂市",
+      "rmmEname": "Tiantang City",
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170224/1/1487920812478272661.jpg",
+      "lat": 36.0971945,
+      "lng": -115.1466648,
+      "level": 4,
+      "level2Id": 49,
+      "level2Cname": "内华达州",
+      "level2Ename": "Nevada",
+      "level1Id": 32,
+      "level1Cname": "美国",
+      "level1Ename": "United States",
+      "level0Id": 8,
+      "level0Cname": "北美洲",
+      "level0Ename": "North America",
+      "initial": null,
+      "distance": null,
+      "upLevelCname": "克拉克县",
+      "upLevelEname": "Clark County",
+      "coverDesc": "百度图库",
+      "mapPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170224/1/1487920821576071275.jpg",
+      "description": "天堂市（Paradise）是位于美国内华达州克拉克郡的一个人口普查指定地区，属于广义的拉斯维加斯之一部份。",
+      "movies": [{
+        "id": 13,
+        "cname": "谍影重重5",
+        "ename": "Jason Bourne",
+        "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170220/1/1487568745793815962.jpg",
+        "placeIds": [
+          31,
+          33
+        ]
+      }],
+      "places": [{
+        "id": 31,
+        "cname": "阿丽雅赌场酒店",
+        "ename": "Aria Resort and Casino",
+        "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170220/1/1487568843875442762.jpg",
+        "lat": 36.1073918,
+        "lng": -115.1758701,
+        "movies": [{
+          "id": 13,
+          "cname": "谍影重重5",
+          "ename": "Jason Bourne"
+        }]
+      }, {
+        "id": 33,
+        "cname": "麦卡伦国际机场",
+        "ename": "McCarran International Airport",
+        "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170220/1/1487571376577086794.jpg",
+        "lat": 36.0841637,
+        "lng": -115.1534738,
+        "movies": null
+      }]
+    },
+    "favoriteId": null,
+    "imgInfos": [{
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170220/1/1487568745793815962.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "373.8K",
+      "frameNumber": 1,
+      "width": 1000,
+      "height": 1480
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170220/1/1487568843875442762.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "1.2M",
+      "frameNumber": 1,
+      "width": 1600,
+      "height": 900
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170220/1/1487571376577086794.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "1.5M",
+      "frameNumber": 1,
+      "width": 2048,
+      "height": 1152
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170224/1/1487920812478272661.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "293.3K",
+      "frameNumber": 1,
+      "width": 1123,
+      "height": 722
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170224/1/1487920821576071275.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "140.5K",
+      "frameNumber": 1,
+      "width": 600,
+      "height": 432
+    }]
+  }
+}

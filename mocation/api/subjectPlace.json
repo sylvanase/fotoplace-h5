@@ -1,0 +1,95 @@
+{
+  "code": 0,
+  "msg": null,
+  "data": {
+    "placeSubject": {
+      "id": 1,
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485061412918825949.png",
+      "title": "张大爷的荣史",
+      "subTitle": "张大爷",
+      "description": "google",
+      "online": true,
+      "createTime": 1485061434000,
+      "updateTime": 1485061434000,
+      "details": [{
+        "id": 1,
+        "placeSubjectId": 1,
+        "placeId": 1,
+        "graphics": [{
+          "description": "google",
+          "picPath": null
+        }, {
+          "description": "我是个特别特别长的描述",
+          "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485061471213568964.png"
+        }],
+        "order": 0,
+        "place": {
+          "id": 1,
+          "cname": "卫城道",
+          "ename": "Castle Road",
+          "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485057045134853571.png",
+          "lat": 22.281961,
+          "lng": 114.151386,
+          "assType": 3,
+          "areaId": 10,
+          "areaCname": "中国香港",
+          "areaEname": "Hong Kong",
+          "level1Id": 0,
+          "level1Cname": "levelmovies",
+          "level1Ename": null,
+          "movies": [{
+            "id": 1,
+            "cname": "阿飞正传",
+            "ename": "Days of Being Wild"
+          }],
+          "assedId": 0,
+          "assedCname": null,
+          "assedEname": null,
+          "categories": [
+            9
+          ],
+          "asses": null
+        }
+      }, {
+        "id": 1,
+        "placeSubjectId": 1,
+        "placeId": 1,
+        "graphics": [{
+          "description": "google",
+          "picPath": null
+        }, {
+          "description": null,
+          "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485061471213568964.png"
+        }],
+        "order": 0,
+        "place": {
+          "id": 1,
+          "cname": "卫城道",
+          "ename": "Castle Road",
+          "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170122/1/1485057045134853571.png",
+          "lat": 22.281961,
+          "lng": 114.151386,
+          "assType": 3,
+          "areaId": 10,
+          "areaCname": "中国香港",
+          "areaEname": "Hong Kong",
+          "level1Id": 0,
+          "level1Cname": "levelmovies",
+          "level1Ename": null,
+          "movies": [{
+            "id": 1,
+            "cname": "阿飞正传",
+            "ename": "Days of Being Wild"
+          }],
+          "assedId": 0,
+          "assedCname": null,
+          "assedEname": null,
+          "categories": [
+            9
+          ],
+          "asses": null
+        }
+      }]
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@import "variables";
+
+.h21{
+	font-size: 21px;
+	line-height: 21px;
+	color: $black;
+	margin-bottom: 13px;
+}
+.h11{
+	font-size: 11px;
+	line-height: 11px;
+	color: $black;
+	margin-bottom: 35px;
+}
+
+.city-content{
+	padding-top: 20px;
+	.city-title{
+		margin-bottom: 28px;
+		img{
+			width: 115px;
+			height: 115px;
+		}
+		> div{
+			margin-left: 165px;
+		}
+		.city-uplevel{
+			margin-top: 35px;
+		}
+	}
+	> img{
+		width: 100%;
+		//height: 185px;
+	}
+	.city-des{
+		margin-top: 44px;
+		margin-bottom: 42px;
+		line-height: 1.5;
+		text-align: justify;
+	}
+}
+
+.route-header{
+	div{
+		margin: -7px auto 0;
+		text-align: center;
+	}
+}
+
+.related-movie{
+	margin: 0 -10px 38px;
+	.movie-header{
+        border-top: 1px solid $grey;
+        margin-bottom: 21px;
+        div{
+        	&:first-child{
+        		width: 67px;
+            	background-color: #FFF;
+            	margin: -7px auto 0;
+				text-align: center;
+        	}
+        }
+    }
+    .movie-content{
+    	li{
+    		margin: 0 10px 27px;
+			img{
+				width: 45px;
+				height: 67px;
+			}
+			.movie-title{
+				margin-left: 63px;
+				padding-top: 15px;
+			}
+			.movie-num{
+				right: 0;
+				top: 0;
+				margin-left: 42px;
+				text-align: right;
+			}
+		}
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

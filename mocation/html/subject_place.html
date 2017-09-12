@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>片场丨你的电影旅行指南</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，经典，场景，实景还原，取景地，旅行，朝圣，圣地巡礼，电影旅行，谷歌街景，卫星照片，路线"/>
+    <meta name="description"
+          content="片场是中国第一个电影取景地信息分享平台。精心收集整理了几百部经典电影几千个取景地，为跟着电影去旅行的旅游者提供详实的信息服务，也为广大电影爱好者提供从地理来理解电影的全新角度，体验阅读中的发现乐趣。"/>
+    <link rel="shortcut icon" href="/static/images/sharepage/favicon.ico"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/subject.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body {
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <img src="/static/images/sharepage/logo.png" alt="logo">
+    <div class="share-detail">
+        <p class="share-title">片场 mocation</p>
+        <p class="share-sub">你的电影旅行指南</p>
+        <a onclick="openApp('placesubject')" id="openApp" href="javascript:void(0);" class="btn-ios">打 开</a>
+    </div>
+</header>
+<div id="loading" class="loading-bg">
+    <div class="loading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<section id="section">
+    <div class="container" v-cloak>
+        <div class="subject-cover" v-if="cover">
+            <img :src="cover" alt="封面">
+        </div>
+        <div class="subject-title c33">
+            <div class="fs20" v-if="title">
+                {{title}}
+            </div>
+            <div class="fs12" v-if="subtitle">
+                {{subtitle}}
+            </div>
+        </div>
+        <div class="subject-des c88 fs14" v-if="des">
+            {{des}}
+        </div>
+        <ul class="subject-list" v-if="detailList">
+            <li v-for="(item, index) in detailList ">
+                <div class="subject-place-cover c33 mb20 clearfix" @click="gotoPlace(item.place.id)">
+                    <div class="fl p15 bg249 mr10">
+                        <img :src="item.place.coverPath" class="mb10" alt="封面">
+                        <div class="fs21 mb10" v-if="item.place.cname">
+                            {{item.place.cname}}
+                        </div>
+                        <div class="fs12 mb15" v-if="item.place.ename">
+                            {{item.place.ename}}
+                        </div>
+                        <div class="fs12 c88">
+                            {{item.place.areaCname}} {{ item.place.level1Cname == null ? '' : item.place.level1Cname }}
+                        </div>
+                    </div>
+                    <div class="fs12 c33">
+                        <div class="c88">
+                            FILMED
+                        </div>
+                        <template v-for="movie in item.place.movies">
+                            <div style="margin-top: 13px;">
+                                {{movie.cname}} 
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <template v-for="graphics in item.graphics ">
+                    <div class="subject-graphics-pic alir" v-if="graphics.picPath">
+                        <img :src="graphics.picPath" alt="描述配图">
+                    </div>
+                    <div class="subject-graphics-des c88 fs14" v-if="graphics.description">
+                        {{graphics.description}}
+                    </div>
+                </template>
+            </li>
+        </ul> 
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/common/mserver.js"></script>
+<script type="text/javascript" src="/static/js/lib/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/lib/vue.js"></script>
+<script>
+
+var app = new Vue({
+    el: '.container',
+    data:{
+        cover: '', 
+        title: '', 
+        subtitle: '',
+        des:'',
+        detailList: ''
+    },
+    created:function(){
+        var _this = this,
+            _id = parseUrl('id'),
+            _url = '/api/place/subject/'+ _id;
+        axios.get(_url).then(function (response) {
+            var loadingDom = document.getElementById('loading');
+                loadingDom.style.display = 'none';
+            var obj = response.data.data.placeSubject;
+            _this.cover = obj.coverPath;
+            _this.title = obj.title;
+            _this.subtitle = obj.subTitle;
+            _this.des = obj.description;
+            _this.detailList = obj.details;
+            
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
+    methods: {
+        gotoPlace: function (id) {
+            window.location.href = 'place_detail.html?id=' + id;
+        }
+    }
+})
+
+</script>
+</body>
+</html>

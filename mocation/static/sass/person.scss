@@ -1,0 +1,87 @@
+@import "variables";
+
+.h21{
+	font-size: 21px;
+	line-height: 21px;
+	color: $black;
+	margin-bottom: 13px;
+}
+.h11{
+	font-size: 11px;
+	line-height: 11px;
+	color: $black;
+	margin-bottom: 35px;
+}
+
+.person-cover{
+	height: 234px;
+	margin: 0 -5px;
+ 	padding: 0 5px 34px;
+ 	border-bottom: 1px dashed $grey;
+ 	img{
+ 		width: 135px;
+ 		height: 199px;
+ 	}
+ 	.person-type{
+ 		width: 100%;
+ 		bottom: 34px;
+ 		padding-left: 165px;
+ 		color: $greydark;
+ 		p{
+ 			margin-top: 11px;
+ 			white-space: nowrap;
+ 			text-overflow: ellipsis;
+			overflow: hidden;
+ 		}
+ 	}
+ 	.person-mocation{
+ 		top: 0;
+ 		right: 0;
+ 		.mocation-num{
+ 			margin-top: 9px;
+ 		}
+ 	}
+ }
+
+.person-plot{
+ 	.plot-movie{
+ 		margin: 26px 0 33px;
+ 		img{
+ 			width: 80.5px;
+ 			height: 112.5px;
+ 		}
+ 		>div{
+ 			margin-left: 94px;
+ 		}
+ 		div{
+ 			overflow: hidden;
+ 			text-overflow: ellipsis;
+ 			white-space: nowrap;
+ 		}
+ 	}
+	ul{
+		border-left: 1px solid $grey;
+		margin-bottom: 45px;
+		li{
+			border-top: 1px solid $grey;
+			margin-bottom: 40px;
+		}
+	}
+	.plot-time{
+		background-color: #FFF;
+		margin-top: -7px;
+		margin-bottom: 24px;
+		color: $khaki;
+	}
+	.plot-content{
+		> div{
+			padding-right: 160px;
+		}
+		img{
+			width: 150px;
+		}
+		span{
+			padding-top: 4px;
+		}
+	}
+}

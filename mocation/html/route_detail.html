@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>片场丨你的电影旅行指南</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，经典，场景，实景还原，取景地，旅行，朝圣，圣地巡礼，电影旅行，谷歌街景，卫星照片，路线"/>
+    <meta name="description"
+          content="片场是中国第一个电影取景地信息分享平台。精心收集整理了几百部经典电影几千个取景地，为跟着电影去旅行的旅游者提供详实的信息服务，也为广大电影爱好者提供从地理来理解电影的全新角度，体验阅读中的发现乐趣。"/>
+    <link rel="shortcut icon" href="/static/images/sharepage/favicon.ico"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/route.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body {
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <img src="/static/images/sharepage/logo.png" alt="logo">
+    <div class="share-detail">
+        <p class="share-title">片场 mocation</p>
+        <p class="share-sub">你的电影旅行指南</p>
+        <a onclick="openApp('route')" id="openApp" href="javascript:void(0);" class="btn-ios">打 开</a>
+    </div>
+</header>
+<div id="loading" class="loading-bg">
+    <div class="loading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<section id="section">
+    <div class="container" v-cloak>
+        <div class="route-content c33">
+            <div class="route-title" v-if="areas">
+                <img src="/static/images/sharepage/route-mark-black.png" alt="">
+                <span class="fs13">{{areas}}</span>
+            </div>
+            <div class="fs32 mb15" v-if="name">
+                {{name}}
+            </div>
+            <div class="route-movie fs12" v-if="movies">
+                FILMED {{movies}}
+            </div>
+        </div>
+        <div class="route-cover" v-if="cover">
+            <img  :src="cover" alt="封面">
+        </div>
+        <div class="alir fs10 c152" v-if="source">
+            {{source}}
+        </div>
+        <div class="route-des fs14 c88" v-if="des">
+            {{des}}
+        </div>
+        <div class="route-list">
+            <div class="route-header alir">
+                <div class="c24a5e5 alic" v-if="placeNum">
+                    <div class="fs24 mb12">
+                        {{placeNum}}
+                    </div>
+                    <div class="fs14">片场</div>
+                </div>
+                <div class="corange alic" v-if="scenicNum">
+                    <div class="fs24 mb12">
+                        {{scenicNum}}
+                    </div>
+                    <div class="fs14">景点</div>
+                </div>
+                <div class="cgreen alic" v-if="hotelNum">
+                    <div class="fs24 mb12">
+                        {{hotelNum}}
+                    </div>
+                    <div class="fs14">酒店</div>
+                </div>
+            </div>
+            <ul class="clearfix">
+                <li>
+                    <img :src="mapPath" alt="地图">
+                </li>
+                <template v-for="(movie, index) in movieList ">
+                    <!--处理奇数行，不足三个的情况-->
+                    <li class="active" v-if="(index == movieList.length-1) && (index%6 == 5 || index%6==0)" @click="gotoMovie(movie.id)">
+                        <div class="circle">
+                            <div></div>
+                        </div>
+                        <img :src="movie.coverPath" alt="电影封面">
+                        <div class="fs12 c33 movie-name">{{movie.cname}}</div>
+                        <div class="circle-after" v-if="index%3 == 1">
+                            <div></div>
+                        </div>
+                        <div class="circle-after" v-else-if="index == movieList.length-1">
+                            <div></div>
+                        </div>
+                    </li>
+                    <li v-else>
+                        <div class="circle">
+                            <div></div>
+                        </div>
+                        <img :src="movie.coverPath" alt="电影封面">
+                        <div class="fs12 c33 movie-name">{{movie.cname}}</div>
+                        <div class="circle-after" v-if="index%3 == 1">
+                            <div></div>
+                        </div>
+                        <div class="circle-after" v-else-if="index == movieList.length-1">
+                            <div></div>
+                        </div>
+                    </li>
+                </template>
+                <!--处理偶数行不足三个时的情况-->
+                <template v-if="movieList.length%6 == 4 || movieList.length%6 == 3">
+                    <li v-for="n in 5-(movieList.length%6)"></li>
+                </template>
+            </ul>
+        </div>
+        <div class="route-btn">
+            <a onclick="openApp('route')" href="javascript:void(0);">下载片场app获取路线</a>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/common/mserver.js"></script>
+<script type="text/javascript" src="/static/js/lib/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/lib/vue.js"></script>
+<script>
+
+var app = new Vue({
+    el: '.container',
+    data:{
+        areas: '', //地点
+        name: '', 
+        movies: '',
+        cover:'',
+        source: '',
+        des:'',
+        placeNum:'',
+        scenicNum:'',
+        hotelNum:'',
+        mapPath:'',
+        movieList: ''
+    },
+    created:function(){
+        var _self = this,
+            _id = parseUrl('id'),
+            //_url = '/api/route/'+ _id +'/cover';
+            _url = '/api/routeDetail.json';
+        axios.get(_url).then(function (response) {
+            var loadingDom = document.getElementById('loading');
+                loadingDom.style.display = 'none';
+            var obj = response.data.data.route;
+            var areaArr = '';
+            for(var i = 0; i < obj.areas.length; i++) {
+                areaArr += obj.areas[i].cname + ' ';
+            }
+            _self.areas = areaArr;
+            _self.name = obj.title;
+
+            var movieArr = '';
+            for(var i = 0; i < obj.movies.length; i++) {
+                movieArr += (obj.movies[i].cname != '' ? obj.movies[i].cname : obj.movies[i].ename) + ' | ';
+            }
+            _self.movies = movieArr.slice(0, movieArr.length-2);
+            _self.cover = obj.coverPath;
+            _self.source = obj.coverDesc;
+            _self.des = obj.description;
+            _self.placeNum = obj.placeNum;
+            _self.scenicNum = obj.scenicNum;
+            _self.hotelNum = obj.hotelNum;
+            _self.mapPath = obj.mapPath;
+            _self.movieList = obj.movies;
+            
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
+    methods: {
+        gotoMovie: function (id) {
+            window.location.href = 'movie_detail.html?id=' + id;
+        }
+    }
+})
+
+</script>
+</body>
+</html>

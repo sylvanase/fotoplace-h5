@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>片场丨你的电影旅行指南</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，经典，场景，实景还原，取景地，旅行，朝圣，圣地巡礼，电影旅行，谷歌街景，卫星照片，路线"/>
+    <meta name="description"
+          content="片场是中国第一个电影取景地信息分享平台。精心收集整理了几百部经典电影几千个取景地，为跟着电影去旅行的旅游者提供详实的信息服务，也为广大电影爱好者提供从地理来理解电影的全新角度，体验阅读中的发现乐趣。"/>
+    <link rel="shortcut icon" href="/static/images/sharepage/favicon.ico"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/article.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body {
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <img src="/static/images/sharepage/logo.png" alt="logo">
+    <div class="share-detail">
+        <p class="share-title">片场 mocation</p>
+        <p class="share-sub">你的电影旅行指南</p>
+        <a onclick="openApp('article')" href="javascript:void(0);" class="btn-ios">打 开</a>
+    </div>
+</header>
+<div id="loading" class="loading-bg">
+    <div class="loading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<section id="section">
+    <div class="container c33" v-cloak>
+        <!-- 场记详情 -->
+        <div class="article-detail">
+            <img class="article-cover" :src="cover" alt="场记封面">
+            <div class="fs20" style="margin-bottom: 7px;" v-if="title">
+                {{title}}
+            </div>
+            <div class="fs12 c88" style="margin-bottom: 18px;" v-if="subtitle">
+                {{subtitle}}
+            </div>
+            <div class="fs12 mb10 alir" v-if="author">
+                作者 {{author}}
+            </div>
+            <div class="fs10 c152 article-time clear-fix">
+                <div class="fr">
+                    <div class="mb5" v-if="identity">
+                        {{identity}}
+                    </div>
+                    <div>
+                        {{time}}
+                    </div>
+                </div>
+            </div>
+            <div class="article-content c88 fs14" v-html="content">
+            </div>
+            <div class="article-like alic" onclick="openApp('article')">
+                <img src="/static/images/sharepage/like.png" alt="">
+                <div class="c152 fs10">
+                    {{likenum}}
+                </div>
+            </div>
+            <div class="article-link" v-if="movieList != ''">
+                <div class="link-header">
+                    提到的电影
+                </div>
+                <div class="link-content">
+                    <template v-for="(item, index) in movieList">
+                        <span v-if="index < movieList.length -1" @click="gotoMovie(item.id)" >{{item.cname}} | </span>
+                        <span v-else @click="gotoMovie(item.id)" >{{item.cname}}</span>
+                    </template>
+                </div>
+            </div>
+            <div class="article-link" v-if="areaList != ''">
+                <div class="link-header">
+                    提到的城市地区
+                </div>
+                <div class="link-content">
+                    <template v-for="(item, index) in areaList">
+                        <span v-if="index < areaList.length -1" @click="gotoCity(item.id)" >{{item.cname}} | </span>
+                        <span v-else @click="gotoCity(item.id)" >{{item.cname}}</span>
+                    </template>
+                </div>
+            </div>
+            <div class="article-link" v-if="placeList != ''">
+                <div class="link-header">
+                    提到的地点
+                </div>
+                <div class="link-content">
+                    <template v-for="(item, index) in placeList">
+                        <span v-if="index < placeList.length -1" @click="gotoPlace(item.id)" >{{item.cname}} | </span>
+                        <span v-else @click="gotoPlace(item.id)" >{{item.cname}}</span>
+                    </template>
+                </div>
+            </div>
+            <div class="article-link" v-if="routeList != ''">
+                <div class="link-header">
+                    相关路线
+                </div>
+                <div class="link-content">
+                    <template v-for="(item, index) in routeList">
+                        <div @click="gotoRoute(item.id)" >{{item.title}}</div>
+                    </template>
+                </div>
+            </div>
+            <div class="article-link" v-if="personList != ''">
+                <div class="link-header">
+                    相关人物
+                </div>
+                <div class="link-content">
+                    <template v-for="(item, index) in personList">
+                        <span v-if="index < personList.length -1" @click="gotoPerson(item.id)" >{{item.cname}} | </span>
+                        <span v-else @click="gotoPerson(item.id)" >{{item.cname}}</span>
+                    </template>
+                </div>
+            </div>
+            <div class="article-link" v-if="articleList != ''">
+                <div class="link-header">
+                    相关场记
+                </div>
+                <div class="link-content">
+                    <template v-for="(item, index) in articleList">
+                        <span v-if="index < articleList.length -1" @click="gotoArticle(item.id)" >{{item.title}} | </span>
+                        <span v-else @click="gotoArticle(item.id)" >{{item.title}}</span>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <!-- 评论列表 -->
+        <div class="comment-list" style="margin-top: 50px;" v-if="commentnum > 0">
+            <div class="comment-header">
+                <img src="/static/images/sharepage/comment.png" alt="">
+                <span class="fs13 c88">全部评论（{{commentnum}}）</span>
+            </div>
+            <div class="comment-content">
+                <ul>
+                    <li v-for="item in commentList">
+                        <img :src="item.headPath" alt="用户头像">
+                        <div class="dsilb">
+                            <span class="fs14 c33" v-if="item.pcomment == null">
+                                {{item.username}}：
+                            </span>
+                            <span class="dsb fs14 c33" v-else>
+                                {{item.username}}
+                            </span>
+                            <div class="user-replay bg241" v-if="item.pcomment != null">
+                                <span class="replay-name fs12 c88">
+                                    {{item.rateeUsername}}：
+                                </span>
+                                <span class="replay-comment fs12 c88">
+                                    {{item.pcomment.comment}}
+                                </span>
+                            </div>
+                            <span class="fs14 c88" v-if="item.pcomment == null">
+                                {{item.comment}}
+                            </span>
+                            <span class="dsb fs14 c88" v-else>
+                                {{item.comment}}
+                            </span>
+                            <div class="fs14 c88">
+                                （{{item.createTime}}）
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/common/mserver.js"></script>
+<script type="text/javascript" src="/static/js/lib/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/lib/vue.js"></script>
+<script>
+
+//获取详情
+function getDetail(id){
+    return axios.get('/api/article/'+ id);
+}
+
+//获取评论
+function getComment(id){
+    return axios.get('/api/comment/list?targetId='+ id + '&targetType=3');
+    /*
+        人物 0
+        电影 1
+        地点 2
+        场记 3
+    */
+}
+
+
+var app = new Vue({
+    el: '.container',
+    data:{
+        cover: '',
+        title: '',
+        subtitle:'',
+        author: '',
+        identity:'',
+        time:'',
+        content:'',
+        likenum:'',
+        movieList:'',
+        areaList:'',
+        placeList:'',
+        routeList:'',
+        personList:'',
+        articleList:'',
+        commentnum: '',
+        commentList: ''
+    },
+    created:function(){
+        var _this = this,
+            _id = parseUrl('id');
+        axios.all([getDetail(_id), getComment(_id)])
+            .then(axios.spread(function (response, mComment) {
+                var loadingDom = document.getElementById('loading');
+                loadingDom.style.display = 'none';
+                var detailObj = response.data.data.article;
+                _this.cover = detailObj.coverPath;
+                _this.title = detailObj.title;
+                _this.subtitle = detailObj.subTitle;
+                _this.author = detailObj.author;
+                _this.identity = detailObj.identity;
+                _this.time = new Date(parseInt(detailObj.releaseTime)).Format("yyyy-MM-dd");
+                _this.content = detailObj.content;
+                _this.likenum = detailObj.likeNum;
+                _this.movieList = detailObj.movies;
+                _this.areaList = detailObj.areas;
+                _this.placeList = detailObj.places;
+                _this.routeList = detailObj.routes;
+                _this.personList = detailObj.persons;
+                _this.articleList = detailObj.articles;
+
+                //评论列表
+                var commentObj = mComment.data.data;
+                _this.commentnum = commentObj.total;
+                    if(commentObj.list){
+                        var commentArr = commentObj.list.map(function(item){
+                            item.createTime = new Date(parseInt(item.createTime)).Format("yyyy-MM-dd hh:mm");
+                            return item;
+                        });
+                        _this.commentList = commentArr;
+                    }
+
+            })
+        );
+    },
+    methods: {
+        gotoMovie: function (id) {
+            window.location.href = 'movie_detail.html?id=' + id;
+        },
+        gotoPlace: function (id) {
+            window.location.href = 'place_detail.html?id=' + id;
+        },
+        gotoCity: function (id) {
+            window.location.href = 'city_detail.html?id=' + id;
+        },
+        gotoArticle: function (id) {
+            window.location.href = 'article_detail.html?id=' + id;
+        },
+        gotoPerson: function (id) {
+            window.location.href = 'person_detail.html?id=' + id;
+        },
+        gotoRoute: function (id) {
+            window.location.href = 'person_route.html?id=' + id;
+        }
+    }
+})
+
+
+</script>
+</body>
+</html>

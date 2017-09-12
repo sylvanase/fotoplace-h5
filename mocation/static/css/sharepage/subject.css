@@ -1,0 +1,96 @@
+/* line 3, ../../sass/subject.scss */
+.subject-cover {
+  margin: 0 -10px 24px;
+}
+/* line 5, ../../sass/subject.scss */
+.subject-cover img {
+  width: 100%;
+}
+
+/* line 9, ../../sass/subject.scss */
+.subject-title {
+  margin-bottom: 38px;
+}
+/* line 12, ../../sass/subject.scss */
+.subject-title div:first-child {
+  margin-bottom: 12px;
+}
+
+/* line 18, ../../sass/subject.scss */
+.subject-des {
+  line-height: 18px;
+  margin-bottom: 55px;
+}
+
+/* line 24, ../../sass/subject.scss */
+.subject-list li {
+  padding-bottom: 25px;
+}
+/* line 27, ../../sass/subject.scss */
+.subject-list .subject-movie-cover {
+  padding: 17px 18px;
+  height: 124px;
+}
+/* line 30, ../../sass/subject.scss */
+.subject-list .subject-movie-cover img {
+  max-width: 61px;
+  max-height: 90px;
+}
+/* line 34, ../../sass/subject.scss */
+.subject-list .subject-movie-cover > div {
+  margin-left: 81px;
+  height: 100%;
+  position: relative;
+}
+/* line 39, ../../sass/subject.scss */
+.subject-list .subject-movie-cover .content-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+/* line 45, ../../sass/subject.scss */
+.subject-list .subject-area {
+  margin-bottom: 26px;
+  height: 47px;
+}
+/* line 48, ../../sass/subject.scss */
+.subject-list .subject-area .num {
+  width: 110px;
+  text-align: center;
+  position: relative;
+}
+/* line 53, ../../sass/subject.scss */
+.subject-list .subject-area .line {
+  width: 50px;
+  border-top: 1px solid #cecece;
+  transform: rotate(-60deg);
+  position: absolute;
+  top: 25px;
+  right: -12px;
+}
+/* line 61, ../../sass/subject.scss */
+.subject-list .subject-area .areas {
+  margin-left: 124px;
+  padding-top: 15px;
+  line-height: 18px;
+}
+/* line 67, ../../sass/subject.scss */
+.subject-list .subject-graphics-pic {
+  margin-bottom: 24px;
+}
+/* line 69, ../../sass/subject.scss */
+.subject-list .subject-graphics-pic img {
+  max-width: 100%;
+  max-height: 112px;
+}
+/* line 74, ../../sass/subject.scss */
+.subject-list .subject-graphics-des {
+  text-align: justify;
+  line-height: 18px;
+  margin-bottom: 24px;
+}
+/* line 80, ../../sass/subject.scss */
+.subject-list .subject-place-cover img {
+  width: 187px;
+  height: 105px;
+}

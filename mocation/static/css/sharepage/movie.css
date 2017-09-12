@@ -1,0 +1,149 @@
+@charset "UTF-8";
+/* line 3, ../../sass/movie.scss */
+.h21 {
+  font-size: 21px;
+  line-height: 21px;
+  color: #212121;
+  margin-bottom: 13px;
+}
+
+/* line 9, ../../sass/movie.scss */
+.h11 {
+  font-size: 11px;
+  line-height: 11px;
+  color: #212121;
+  margin-bottom: 35px;
+}
+
+/* 
+	电影详情开始
+ */
+/* line 19, ../../sass/movie.scss */
+.movie-cover {
+  padding-bottom: 34px;
+  border-bottom: 1px dashed #cecece;
+  height: 234px;
+}
+/* line 23, ../../sass/movie.scss */
+.movie-cover img {
+  width: 135px;
+  height: 199px;
+}
+/* line 27, ../../sass/movie.scss */
+.movie-cover .movie-type {
+  width: 100%;
+  bottom: 34px;
+  padding-left: 168px;
+  color: #989898;
+}
+/* line 32, ../../sass/movie.scss */
+.movie-cover .movie-type p {
+  margin-top: 11px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* line 39, ../../sass/movie.scss */
+.movie-cover .movie-mocation {
+  top: 0;
+  right: 0;
+}
+/* line 42, ../../sass/movie.scss */
+.movie-cover .movie-mocation .mocation-num {
+  margin-top: 9px;
+}
+
+/* line 48, ../../sass/movie.scss */
+.movie-des p {
+  line-height: 1.6rem;
+  padding: 15px 0;
+  text-align: justify;
+}
+/* line 53, ../../sass/movie.scss */
+.movie-des img {
+  width: 100%;
+  height: 206px;
+  margin-bottom: 26px;
+}
+
+/* line 61, ../../sass/movie.scss */
+.movie-plot .plot-header {
+  margin-bottom: 42px;
+}
+/* line 63, ../../sass/movie.scss */
+.movie-plot .plot-header img {
+  width: 26px;
+  height: 17px;
+}
+/* line 67, ../../sass/movie.scss */
+.movie-plot .plot-header span {
+  border-top: 1px solid #212121;
+  margin-left: 20px;
+  padding-top: 8px;
+}
+/* line 73, ../../sass/movie.scss */
+.movie-plot ul {
+  border-left: 1px solid #cecece;
+  margin-bottom: 45px;
+}
+/* line 76, ../../sass/movie.scss */
+.movie-plot ul li {
+  border-top: 1px solid #cecece;
+  margin-bottom: 40px;
+}
+/* line 81, ../../sass/movie.scss */
+.movie-plot .plot-time {
+  background-color: #FFF;
+  margin-top: -7px;
+  margin-bottom: 24px;
+  color: #b78f3e;
+}
+/* line 88, ../../sass/movie.scss */
+.movie-plot .plot-content > div {
+  padding-right: 160px;
+}
+/* line 91, ../../sass/movie.scss */
+.movie-plot .plot-content img {
+  width: 150px;
+}
+/* line 94, ../../sass/movie.scss */
+.movie-plot .plot-content span {
+  padding-top: 4px;
+}
+
+/* 
+	电影系列
+ */
+/* line 104, ../../sass/movie.scss */
+.movie-series {
+  margin: 0 -9px;
+}
+/* line 106, ../../sass/movie.scss */
+.movie-series .series-content {
+  margin-top: 4px;
+  border-top: 1px solid #cecece;
+  padding-top: 15px;
+}
+/* line 110, ../../sass/movie.scss */
+.movie-series .series-content li {
+  height: 119px;
+  margin-bottom: 15px;
+}
+/* line 113, ../../sass/movie.scss */
+.movie-series .series-content li img {
+  width: 80px;
+  height: 100%;
+}
+/* line 117, ../../sass/movie.scss */
+.movie-series .series-content li > div {
+  margin-left: 89px;
+}
+/* line 119, ../../sass/movie.scss */
+.movie-series .series-content li > div:last-child {
+  bottom: 0;
+}
+/* line 123, ../../sass/movie.scss */
+.movie-series .series-content li .place-num {
+  top: 5px;
+  right: 0;
+}

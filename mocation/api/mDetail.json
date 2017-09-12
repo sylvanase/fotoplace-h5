@@ -1,0 +1,162 @@
+{
+  "code": 0,
+  "msg": null,
+  "data": {
+    "movie": {
+      "id": 6,
+      "cname": "夺宝奇兵",
+      "ename": "Raiders of the Lost Ark",
+      "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170206/1/1486380350572378877.jpg",
+      "year": 2015,
+      "countryId": 7,
+      "countryCname": "英国",
+      "countryEname": "United Kingdom",
+      "type": 0,
+      "categories": [
+        3,
+        4,
+        5
+      ],
+      "placeIds": [
+        23,
+        25,
+        17,
+        18
+      ],
+      "areas": [{
+        "areaId": 34,
+        "areaCname": "阿韦龙省",
+        "areaEname": "Eure-et-Loir"
+      }, {
+        "areaId": 38,
+        "areaCname": "品川区",
+        "areaEname": "Shinagawa district"
+      }, {
+        "areaId": 39,
+        "areaCname": "藤泽市",
+        "areaEname": "Enoshima"
+      }],
+      "overview": "二战期间，希特勒在世界各地召集考古学家寻找“失落的约柜”——圣经中引导希伯来人与上帝交流的圣物，希特勒欲借其来护佑纳粹的战争。 \n\n为了使希特勒的计划破灭，印第安纳琼斯博士（Harrison Ford饰）奔赴尼泊尔，一边奋力挖掘蛛丝马迹，一边还要与无孔不入的纳粹分子周旋。凭借着过人的智慧和异于常人的胆量及大无畏的勇气，琼斯终于在罗马找到了指示约柜位置的太阳手杖，继而发现了约柜。 \n\n就在大功告成之际，纳粹军却侵吞了胜利果实，还将琼斯等人留在了蛇穴里！但是无往不胜的琼斯总是有办法死里逃生，并狠狠地还以颜色！",
+      "plots": [{
+        "placeId": 25,
+        "placeCname": "御膳房",
+        "placeEname": "Yushanfang",
+        "lat": 38.8714381,
+        "lng": -77.0443338,
+        "assType": 2,
+        "assedId": 22,
+        "assedCname": "北京故宫",
+        "assedEname": "Forbidden City",
+        "areaId": 43,
+        "areaCname": "北京",
+        "areaEname": "Beijing",
+        "upLevelAreaId": 2,
+        "upLevelAreaCname": "中国",
+        "upLevelAreaEname": "China",
+        "sceneId": 20,
+        "sceneName": "夺宝奇兵取景地2",
+        "episode": 0,
+        "position": 343,
+        "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607526216823242.jpg"
+      }, {
+        "placeId": 17,
+        "placeCname": "瘦西湖五亭桥",
+        "placeEname": "ShouWestLaker",
+        "lat": 33.8202380,
+        "lng": 121.3619757,
+        "assType": 3,
+        "assedId": 0,
+        "assedCname": null,
+        "assedEname": null,
+        "areaId": 4,
+        "areaCname": "杭州市",
+        "areaEname": "Hangzhou",
+        "upLevelAreaId": 2,
+        "upLevelAreaCname": "中国",
+        "upLevelAreaEname": "China",
+        "sceneId": 23,
+        "sceneName": "夺宝奇兵取景地3",
+        "episode": 0,
+        "position": 2231,
+        "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170217/1/1487322495645745590.jpg"
+      }, {
+        "placeId": 23,
+        "placeCname": "午门",
+        "placeEname": "Wu Gate",
+        "lat": 38.8905381,
+        "lng": -77.0432481,
+        "assType": 2,
+        "assedId": 22,
+        "assedCname": "北京故宫",
+        "assedEname": "Forbidden City",
+        "areaId": 43,
+        "areaCname": "北京",
+        "areaEname": "Beijing",
+        "upLevelAreaId": 2,
+        "upLevelAreaCname": "中国",
+        "upLevelAreaEname": "China",
+        "sceneId": 12,
+        "sceneName": "夺宝奇兵取景地1",
+        "episode": 1,
+        "position": 223,
+        "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486545548012918807.jpg"
+      }, {
+        "placeId": 18,
+        "placeCname": "杭州西湖",
+        "placeEname": "Las Vegas Boulevard South",
+        "lat": 36.1075930,
+        "lng": -115.1729308,
+        "assType": 3,
+        "assedId": 0,
+        "assedCname": null,
+        "assedEname": null,
+        "areaId": 4,
+        "areaCname": "杭州市",
+        "areaEname": "Hangzhou",
+        "upLevelAreaId": 2,
+        "upLevelAreaCname": "中国",
+        "upLevelAreaEname": "China",
+        "sceneId": 25,
+        "sceneName": "夺宝奇兵取景地4",
+        "episode": 0,
+        "position": 0,
+        "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486545548012918807.jpg"
+      }],
+      "series": false
+    },
+    "favoriteId": null,
+    "imgInfos": [{
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170206/1/1486380350572378877.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "92.4K",
+      "frameNumber": 1,
+      "width": 422,
+      "height": 600
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486545548012918807.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "113.0K",
+      "frameNumber": 1,
+      "width": 1200,
+      "height": 741
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607526216823242.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "78.0K",
+      "frameNumber": 1,
+      "width": 1200,
+      "height": 739
+    }, {
+      "id": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170217/1/1487322495645745590.jpg",
+      "format": "JPEG",
+      "colorModel": "TrueColor",
+      "size": "126.4K",
+      "frameNumber": 1,
+      "width": 1100,
+      "height": 619
+    }]
+  }
+}

@@ -1,0 +1,100 @@
+/* line 3, ../../sass/person.scss */
+.h21 {
+  font-size: 21px;
+  line-height: 21px;
+  color: #212121;
+  margin-bottom: 13px;
+}
+
+/* line 9, ../../sass/person.scss */
+.h11 {
+  font-size: 11px;
+  line-height: 11px;
+  color: #212121;
+  margin-bottom: 35px;
+}
+
+/* line 16, ../../sass/person.scss */
+.person-cover {
+  height: 234px;
+  margin: 0 -5px;
+  padding: 0 5px 34px;
+  border-bottom: 1px dashed #cecece;
+}
+/* line 21, ../../sass/person.scss */
+.person-cover img {
+  width: 135px;
+  height: 199px;
+}
+/* line 25, ../../sass/person.scss */
+.person-cover .person-type {
+  width: 100%;
+  bottom: 34px;
+  padding-left: 165px;
+  color: #989898;
+}
+/* line 30, ../../sass/person.scss */
+.person-cover .person-type p {
+  margin-top: 11px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* line 37, ../../sass/person.scss */
+.person-cover .person-mocation {
+  top: 0;
+  right: 0;
+}
+/* line 40, ../../sass/person.scss */
+.person-cover .person-mocation .mocation-num {
+  margin-top: 9px;
+}
+
+/* line 47, ../../sass/person.scss */
+.person-plot .plot-movie {
+  margin: 26px 0 33px;
+}
+/* line 49, ../../sass/person.scss */
+.person-plot .plot-movie img {
+  width: 80.5px;
+  height: 112.5px;
+}
+/* line 53, ../../sass/person.scss */
+.person-plot .plot-movie > div {
+  margin-left: 94px;
+}
+/* line 56, ../../sass/person.scss */
+.person-plot .plot-movie div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 62, ../../sass/person.scss */
+.person-plot ul {
+  border-left: 1px solid #cecece;
+  margin-bottom: 45px;
+}
+/* line 65, ../../sass/person.scss */
+.person-plot ul li {
+  border-top: 1px solid #cecece;
+  margin-bottom: 40px;
+}
+/* line 70, ../../sass/person.scss */
+.person-plot .plot-time {
+  background-color: #FFF;
+  margin-top: -7px;
+  margin-bottom: 24px;
+  color: #b78f3e;
+}
+/* line 77, ../../sass/person.scss */
+.person-plot .plot-content > div {
+  padding-right: 160px;
+}
+/* line 80, ../../sass/person.scss */
+.person-plot .plot-content img {
+  width: 150px;
+}
+/* line 83, ../../sass/person.scss */
+.person-plot .plot-content span {
+  padding-top: 4px;
+}

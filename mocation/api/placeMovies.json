@@ -1,0 +1,229 @@
+{
+    "code": 0,
+    "msg": null,
+    "data": {
+        "id": 22,
+        "cname": "北京故宫",
+        "ename": "Forbidden City",
+        "oname": null,
+        "alias": null,
+        "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486522697196391621.jpg",
+        "coverSource": "北京故宫封面来源",
+        "mapPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486522716189162777.jpg",
+        "lat": 39.9164081,
+        "lng": 116.3971424,
+        "areaId": 43,
+        "caddress": "北京市东城区景山前街4号故宫博物院",
+        "eaddress": "Forbidden City english address",
+        "addressTips": "北京故宫地址贴士",
+        "dispark": 1,
+        "disparkRemark": "门票300元",
+        "categories": null,
+        "assedId": 0,
+        "assType": 1,
+        "satellitePath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170208/1/1486522822925545018.jpg",
+        "satelliteDesc": "北京故宫卫星照片描述",
+        "realGraphics": null,
+        "phone": "5621233",
+        "rmmDesc": "北京故宫推荐语",
+        "tips": "北京故宫地点贴士",
+        "description": "地点描述北京故宫，全名北京故宫博物院，旧称为紫禁城，位于北京中轴线的中心，是中国明、清两代24位皇帝的皇家宫殿，是中国古代汉族宫廷建筑之精华，无与伦比的建筑杰作，也是世界上现存规模最大、保存最为完整的木质结构古建筑之一。它有大小宫殿七十多座，房屋九千余间，以太和、中和、保和三大殿为中心。\n\n北京故宫由明成祖朱棣永乐四年（公元1406年）开始建设，以南京故宫为蓝本营建，到明代永乐十八年（公元1420年）建成，占地面积约为72万平方米，建筑面积约为15万平方米，它是一座长方形城池，东西宽七百五十三米，南北长九百六十一米。周围筑有十米多高的城墙，并有一条宽五十二米的护城河环绕，构成了“城中之城”。宫殿建筑均是木结构、黄琉璃瓦顶、青白石底座。\n\n故宫被誉为世界五大宫之首（北京故宫、法国凡尔赛宫、英国白金汉宫、美国白宫和俄罗斯克里姆林宫），已被列为世界文化遗产、全国重点文物保护单位、国家AAAAA级旅游景区。",
+        "createTime": null,
+        "areaCname": "北京",
+        "areaEname": "Beijing",
+        "level1Id": 2,
+        "level1Cname": "中国",
+        "level1Ename": "China",
+        "level0Id": 1,
+        "level0Cname": "亚洲",
+        "level0Ename": "Asia",
+        "assedCname": null,
+        "assedEname": null,
+        "assedCoverPath": null,
+        "asses": [{
+            "id": 25,
+            "cname": "御膳房",
+            "ename": "Yushanfang",
+            "lat": 33.0000000,
+            "lng": 22.0000000,
+            "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607076165116453.jpg",
+            "orderNo": 0,
+            "movies": null,
+            "scenes": [{
+                "movieId": 6,
+                "movieCname": "夺宝奇兵",
+                "movieEname": "Raiders of the Lost Ark",
+                "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170206/1/1486380350572378877.jpg",
+                "year": 2015,
+                "countryId": 7,
+                "countryCname": "英国",
+                "countryEname": "United Kingdom",
+                "type": 0,
+                "categories": [
+                    3,
+                    4,
+                    5
+                ],
+                "placeId": 25,
+                "sceneId": 20,
+                "sceneOverride": "夺宝奇兵的取景地综述夺宝奇兵的取景地综述夺宝奇兵的取景地综述夺宝奇兵的取景地综述夺宝奇兵的取景地综述夺宝奇兵的取景地综述",
+                "details": [{
+                    "id": 20,
+                    "sceneId": 20,
+                    "episode": "E1",
+                    "position": 333,
+                    "description": "夺宝奇兵取景地2的场景1剧情描述",
+                    "tips": "夺宝奇兵取景地2的场景1场景贴士",
+                    "lat": 33.0000000,
+                    "lng": 22.0000000,
+                    "pinpoint": false,
+                    "persons": [{
+                        "sceneDetailId": 20,
+                        "id": 7,
+                        "cname": "张国荣",
+                        "ename": "Leslie Cheung"
+                    }],
+                    "stills": [{
+                        "sceneId": 20,
+                        "sceneDetailId": 20,
+                        "description": "夺宝奇兵取景地2的场景1剧照描述1",
+                        "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607480881278286.jpg",
+                        "cover": false,
+                        "scene": false
+                    }, {
+                        "sceneId": 20,
+                        "sceneDetailId": 20,
+                        "description": "夺宝奇兵取景地2的场景1剧照描述2",
+                        "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607490775904956.jpg",
+                        "cover": true,
+                        "scene": false
+                    }]
+                }, {
+                    "id": 20,
+                    "sceneId": 20,
+                    "episode": "E1",
+                    "position": 333,
+                    "description": "夺宝奇兵取景地2的场景1剧情描述",
+                    "tips": "夺宝奇兵取景地2的场景1场景贴士",
+                    "lat": 33.0000000,
+                    "lng": 22.0000000,
+                    "pinpoint": false,
+                    "persons": [{
+                        "sceneDetailId": 20,
+                        "id": 7,
+                        "cname": "张国荣",
+                        "ename": "Leslie Cheung"
+                    }],
+                    "stills": [{
+                        "sceneId": 20,
+                        "sceneDetailId": 20,
+                        "description": "夺宝奇兵取景地2的场景1剧照描述1",
+                        "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607480881278286.jpg",
+                        "cover": false,
+                        "scene": false
+                    }, {
+                        "sceneId": 20,
+                        "sceneDetailId": 20,
+                        "description": "夺宝奇兵取景地2的场景1剧照描述2",
+                        "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607490775904956.jpg",
+                        "cover": true,
+                        "scene": false
+                    }]
+                }],
+                "series": false
+            }]
+        }, {
+            "id": 25,
+            "cname": "御膳房",
+            "ename": "Yushanfang",
+            "lat": 33.0000000,
+            "lng": 22.0000000,
+            "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607076165116453.jpg",
+            "orderNo": 0,
+            "movies": null,
+            "scenes": [{
+                "movieId": 6,
+                "movieCname": "夺宝奇兵",
+                "movieEname": "Raiders of the Lost Ark",
+                "coverPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170206/1/1486380350572378877.jpg",
+                "year": 2015,
+                "countryId": 7,
+                "countryCname": "英国",
+                "countryEname": "United Kingdom",
+                "type": 0,
+                "categories": [
+                    3,
+                    4,
+                    5
+                ],
+                "placeId": 25,
+                "sceneId": 20,
+                "sceneOverride": "夺宝奇兵的取景地综述夺宝奇兵的取景地综述夺宝奇兵的取景地综述夺宝奇兵的取景地综述夺宝奇兵的取景地综述夺宝奇兵的取景地综述",
+                "details": [{
+                    "id": 20,
+                    "sceneId": 20,
+                    "episode": "E1",
+                    "position": 333,
+                    "description": "夺宝奇兵取景地2的场景1剧情描述",
+                    "tips": "夺宝奇兵取景地2的场景1场景贴士",
+                    "lat": 33.0000000,
+                    "lng": 22.0000000,
+                    "pinpoint": false,
+                    "persons": [{
+                        "sceneDetailId": 20,
+                        "id": 7,
+                        "cname": "张国荣",
+                        "ename": "Leslie Cheung"
+                    }],
+                    "stills": [{
+                        "sceneId": 20,
+                        "sceneDetailId": 20,
+                        "description": "夺宝奇兵取景地2的场景1剧照描述1",
+                        "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607480881278286.jpg",
+                        "cover": false,
+                        "scene": false
+                    }, {
+                        "sceneId": 20,
+                        "sceneDetailId": 20,
+                        "description": "夺宝奇兵取景地2的场景1剧照描述2",
+                        "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607490775904956.jpg",
+                        "cover": true,
+                        "scene": false
+                    }]
+                }, {
+                    "id": 20,
+                    "sceneId": 20,
+                    "episode": "E1",
+                    "position": 333,
+                    "description": "夺宝奇兵取景地2的场景1剧情描述",
+                    "tips": "夺宝奇兵取景地2的场景1场景贴士",
+                    "lat": 33.0000000,
+                    "lng": 22.0000000,
+                    "pinpoint": false,
+                    "persons": [{
+                        "sceneDetailId": 20,
+                        "id": 7,
+                        "cname": "张国荣",
+                        "ename": "Leslie Cheung"
+                    }],
+                    "stills": [{
+                        "sceneId": 20,
+                        "sceneDetailId": 20,
+                        "description": "夺宝奇兵取景地2的场景1剧照描述1",
+                        "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607480881278286.jpg",
+                        "cover": false,
+                        "scene": false
+                    }, {
+                        "sceneId": 20,
+                        "sceneDetailId": 20,
+                        "description": "夺宝奇兵取景地2的场景1剧照描述2",
+                        "picPath": "http://fp-testvideo.ks3-cn-beijing.ksyun.com/mocation/170209/1/1486607490775904956.jpg",
+                        "cover": true,
+                        "scene": false
+                    }]
+                }],
+                "series": false
+            }]
+        }]
+    }
+}
