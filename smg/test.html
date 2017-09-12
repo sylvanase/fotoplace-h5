@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>像电影一样记录生活，解锁2017你的本命电影</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0,width=device-width"/>
+    <meta name="applicable-device" content="mobile">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome="/>
+    <style>
+        html,body{
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+        }
+        div{
+            height: 100%;
+            position: relative;
+            touch-action:none;
+        }
+    </style>
+</head>
+
+<body onselectstart="return false">
+<input type="hidden" name="shareLink" value="" />
+<input type="hidden" name="shareAppLink" value="" />
+<input type="hidden" name="shareTimelineLink" value="" />
+<input type="hidden" name="shareTitle" value="@王嘉尔工作室发了一个抖音短视频，你尽管点开，不好看算我输！" />
+<input type="hidden" name="shareDesc" value="我是王嘉尔Jackson，这是我的新歌《Papillon》MV，快来使用这首歌曲跟我一起#扶帽挑战~" />
+<input type="hidden" name="shareTimelineTitle" value="@王嘉尔工作室发了一个抖音短视频，你尽管点开，不好看算我输！" />
+<input type="hidden" name="shareAppTitle" value="@王嘉尔工作室发了一个抖音短视频，你尽管点开，不好看算我输！" />
+<input type="hidden" name="ShareAppDesc" value="我是王嘉尔Jackson，这是我的新歌《Papillon》MV，快来使用这首歌曲跟我一起#扶帽挑战~" />
+<input type="hidden" name="shareImage" value="https://p1.pstatp.com/large/37a2000f7243ffede4c1.jpg" />
+
+  <div id="test">1j2kljj</div>
+  <script>
+    window.onload=function () {
+        document.addEventListener('touchstart',function (event) {
+            if(event.touches.length>1){
+                event.preventDefault();
+            }
+        })
+        var lastTouchEnd=0;
+        document.addEventListener('touchend',function (event) {
+            var now=(new Date()).getTime();
+            if(now-lastTouchEnd<=300){
+                event.preventDefault();
+            }
+            lastTouchEnd=now;
+        },false)
+    }
+  </script>
+</body>
+</html>

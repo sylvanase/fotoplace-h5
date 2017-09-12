@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>上海广播节</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,minimum-scale=1.0,width=device-width"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="上海广播，足记"/>
+    <meta name="description" content="上海广播，足记"/>
+    <link rel="shortcut icon" href="/static/img/smg/favicon.ico"/>
+    <link href="/static/css/smg/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/smg/swiper.css" rel="stylesheet" type="text/css"/>
+    <style>
+        html{
+            font-size: calc(100vw/3.75);
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide page1 swiper-no-swiping">
+            <div class="ad clearfix">
+                <img class="partner" src="/static/img/smg/partner-logo.png" alt="合作方logo">
+                <img class="logo" src="/static/img/smg/logo.png" alt="logo">
+                <img class="banner" src="/static/img/smg/ad.png" alt="广告">
+            </div>
+            <div class="content">
+                <div class="formula">
+                    <i class="lightning-icon"></i>你的精彩瞬间 <span class="multiply">×</span>
+                    <i class="pac-man-icon"></i>上海电台DJ献声<span class="equal">=</span>可以聆听的照片<i class="voice-icon"></i>
+                </div>
+                <div class="demo">
+                    <img src="/static/img/smg/demo.jpg" alt="示例图片">
+                    <div class="text">用照片记录生活，用声音热爱生活</div>
+                </div>
+            </div>
+            <div class="tool clearfix">
+                <div class="make-img js-choose-img">
+                    <span>制作有声图</span>
+                </div>
+                <div class="player js-play-music">
+                    <div class="on rotate"></div>
+                </div>
+            </div>
+            <div class="player-text">radio voice</div>
+        </div>
+        <div class="swiper-slide page2 swiper-no-swiping">
+            <div class="tool-music clearfix">
+                <img class="left" src="/static/img/smg/sound-wave.png" alt="">
+                <div class="player js-play-music">
+                    <div class="on rotate"></div>
+                </div>
+                <img class="right" src="/static/img/smg/sound-wave.png" alt="">
+            </div>
+            <div class="player-text">radio voice</div>
+            <div class="make-content">
+                <div class="img">
+                    <div class="area">
+                        <div id="imgPreview">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="text js-text">
+                    </div>
+                </div>
+                <div class="dub">
+                    <i class="pac-man-icon"></i>配音by <span class="js-dub"></span>
+                </div>
+            </div>
+            <div class="tool-img">
+                <div class="text js-choose-text"></div>
+                <div class="img js-choose-img"></div>
+                <div class="show js-show-img"></div>
+            </div>
+        </div>
+        <div class="swiper-slide page3 swiper-no-swiping">
+            <div class="share-tips" style="display: none;">
+                <div>点击此处分享</div>
+            </div>
+            <div class="share-content">
+                <img src="" alt="分享图">
+            </div>
+            <div class="share-text">
+                长按照片保存本地
+            </div>
+            <div class="share-btn js-show-tips"></div>
+        </div>
+    </div>
+    <div style="display: none;">
+        <!-- 文件选择器 -->
+        <input type="file" name="img_file" id="imgFile" accept="image/*" onchange="javascript:setImagePreview();"/>
+        <!-- 音乐播放器 -->
+        <audio loop src="http://cache.fotoplace.cc/system/fotoplace/smg_radio/smg_radio_home.mp3" autoplay="autoplay" preload="auto" loop="loop"></audio>
+    </div>
+</div>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="/static/js/smg/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/static/js/smg/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/smg/common.js"></script>
+<script>
+    autoPlayMusic(); //播放音乐
+</script>
+</body>
+</html>

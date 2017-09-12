@@ -1,0 +1,515 @@
+/* line 3, ../../sass/base.scss */
+html, body {
+  position: relative;
+  height: 100%;
+}
+
+/* line 7, ../../sass/base.scss */
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 0.12rem;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 16, ../../sass/base.scss */
+.clearfix:after, .clearfix:before {
+  content: "";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+/* line 23, ../../sass/base.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 27, ../../sass/base.scss */
+.clearfix {
+  zoom: 1;
+}
+
+/* line 32, ../../sass/base.scss */
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 36, ../../sass/base.scss */
+.swiper-slide {
+  text-align: center;
+  background: #fff;
+  background-image: url("/static/img/smg/bg.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  /* Center slide text vertically */
+  /* display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; */
+}
+
+/* line 58, ../../sass/base.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #000;
+  opacity: 0.8;
+  z-index: 99;
+  text-align: center;
+}
+/* line 67, ../../sass/base.scss */
+.loading img {
+  width: 2.18rem;
+  height: 2.1rem;
+  margin-top: 45%;
+}
+/* line 72, ../../sass/base.scss */
+.loading div {
+  color: #fff;
+  font-size: 12px;
+}
+
+/* line 78, ../../sass/base.scss */
+.pop {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 45%;
+  z-index: 100;
+}
+
+/* line 88, ../../sass/base.scss */
+.pop span {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  padding: 8px 15px;
+}
+
+/* line 94, ../../sass/base.scss */
+.rotate {
+  -webkit-animation: rotating 2.5s linear infinite;
+  -moz-animation: rotating 2.5s linear infinite;
+  -o-animation: rotating 2.5s linear infinite;
+  animation: rotating 2.5s linear infinite;
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotating {
+  from {
+    -moz-transform: rotate(0);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+/* line 129, ../../sass/base.scss */
+.page1 .partner {
+  width: 0.724rem;
+  height: 0.194rem;
+  position: absolute;
+  top: 0.077rem;
+  left: 0.12rem;
+}
+/* line 136, ../../sass/base.scss */
+.page1 .logo {
+  width: 0.395rem;
+  height: 0.215rem;
+  position: absolute;
+  top: 0.07rem;
+  left: 0.95rem;
+}
+/* line 143, ../../sass/base.scss */
+.page1 .banner {
+  width: 3.55rem;
+  height: 2.28rem;
+  float: right;
+  margin-top: 0.047rem;
+}
+/* line 149, ../../sass/base.scss */
+.page1 .content {
+  padding: 0 0.1rem;
+}
+/* line 152, ../../sass/base.scss */
+.page1 .formula {
+  font-size: 0.12rem;
+  color: #fff;
+}
+/* line 155, ../../sass/base.scss */
+.page1 .formula span {
+  color: #000;
+}
+/* line 158, ../../sass/base.scss */
+.page1 .formula .multiply {
+  margin: 0 0.08rem;
+  font-size: 0.24rem;
+  vertical-align: sub;
+}
+/* line 163, ../../sass/base.scss */
+.page1 .formula .equal {
+  margin: 0 0.04rem;
+  font-size: 0.18rem;
+}
+/* line 167, ../../sass/base.scss */
+.page1 .formula .lightning-icon {
+  background-image: url("/static/img/smg/lightning.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 0.08rem;
+  height: 0.16rem;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+/* line 177, ../../sass/base.scss */
+.page1 .formula .pac-man-icon {
+  background-image: url("/static/img/smg/pac-man.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 0.17rem;
+  height: 0.13rem;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+/* line 187, ../../sass/base.scss */
+.page1 .formula .voice-icon {
+  background-image: url("/static/img/smg/voice.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 0.105rem;
+  height: 0.125rem;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+/* line 198, ../../sass/base.scss */
+.page1 .demo {
+  margin-top: 0.06rem;
+  height: 2rem;
+  box-sizing: border-box;
+  background-color: #000;
+  padding: 0.25rem 0.02rem;
+  position: relative;
+}
+/* line 205, ../../sass/base.scss */
+.page1 .demo img {
+  width: 100%;
+  height: 100%;
+}
+/* line 209, ../../sass/base.scss */
+.page1 .demo .text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 0.12rem;
+  width: 100%;
+  height: 0.25rem;
+  line-height: 0.25rem;
+  color: #fff;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* line 223, ../../sass/base.scss */
+.page1 .tool {
+  background-image: url("/static/img/smg/sound-wave.png");
+  background-size: 1.765rem 0.774rem;
+  background-repeat: no-repeat;
+  background-position: 1.08rem;
+  margin-top: 0.3rem;
+  padding: 0 0.23rem 0 0.28rem;
+  height: 0.774rem;
+}
+/* line 231, ../../sass/base.scss */
+.page1 .tool .make-img {
+  background-image: url("/static/img/smg/make-img.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 1.62rem;
+  height: 0.53rem;
+  float: left;
+  margin-top: 0.12rem;
+  text-align: left;
+}
+/* line 240, ../../sass/base.scss */
+.page1 .tool .make-img span {
+  font-size: 0.22rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 0.15rem;
+  margin-top: 0.15rem;
+}
+/* line 249, ../../sass/base.scss */
+.page1 .tool .player {
+  background-image: url("/static/img/smg/tv.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 0.625rem;
+  height: 0.59rem;
+  float: right;
+  margin-top: 0.04rem;
+  position: relative;
+}
+/* line 258, ../../sass/base.scss */
+.page1 .tool .player .on {
+  position: absolute;
+  top: 0.239rem;
+  left: 0.109rem;
+  width: 0.148rem;
+  height: 0.203rem;
+  background-image: url("/static/img/smg/music-on.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* line 268, ../../sass/base.scss */
+.page1 .tool .player .off {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.1rem;
+  width: 0.215rem;
+  height: 0.215rem;
+  background-image: url("/static/img/smg/music-off.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* line 280, ../../sass/base.scss */
+.page1 .player-text {
+  margin-top: -0.05rem;
+  font-size: 0.12rem;
+  text-align: right;
+  padding-right: 0.24rem;
+}
+
+/* line 290, ../../sass/base.scss */
+.page2 .tool-music {
+  margin-top: 0.38rem;
+  position: relative;
+}
+/* line 293, ../../sass/base.scss */
+.page2 .tool-music > img {
+  width: 1.545rem;
+  height: 0.676rem;
+}
+/* line 297, ../../sass/base.scss */
+.page2 .tool-music .left {
+  float: left;
+}
+/* line 300, ../../sass/base.scss */
+.page2 .tool-music .right {
+  float: right;
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+/* line 307, ../../sass/base.scss */
+.page2 .tool-music .player {
+  background-image: url("/static/img/smg/tv.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 0.621rem;
+  height: 0.587rem;
+  position: absolute;
+  margin-left: -0.31rem;
+  left: 50%;
+  top: 0;
+}
+/* line 317, ../../sass/base.scss */
+.page2 .tool-music .player .on {
+  position: absolute;
+  top: 0.239rem;
+  left: 0.109rem;
+  width: 0.148rem;
+  height: 0.203rem;
+  background-image: url("/static/img/smg/music-on.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* line 327, ../../sass/base.scss */
+.page2 .tool-music .player .off {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.1rem;
+  width: 0.215rem;
+  height: 0.215rem;
+  background-image: url("/static/img/smg/music-off.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* line 339, ../../sass/base.scss */
+.page2 .player-text {
+  font-size: 0.12rem;
+  margin-bottom: 0.23rem;
+}
+/* line 343, ../../sass/base.scss */
+.page2 .make-content {
+  margin: 0 0.09rem 0.388rem;
+  color: #fff;
+}
+/* line 346, ../../sass/base.scss */
+.page2 .make-content .img {
+  background: #000;
+  box-sizing: border-box;
+  height: 2rem;
+  padding: 0.25rem 0.02rem;
+  position: relative;
+}
+/* line 352, ../../sass/base.scss */
+.page2 .make-content .img .area {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+/* line 357, ../../sass/base.scss */
+.page2 .make-content .img #imgPreview {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 362, ../../sass/base.scss */
+.page2 .make-content .img img {
+  width: 100%;
+}
+/* line 365, ../../sass/base.scss */
+.page2 .make-content .img .text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 0.12rem;
+  width: 100%;
+  height: 0.25rem;
+  line-height: 0.25rem;
+  color: #fff;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* line 379, ../../sass/base.scss */
+.page2 .make-content .dub {
+  font-size: 0.1rem;
+  text-align: left;
+  padding: 0.1rem 0 0;
+  font-weight: bold;
+}
+/* line 384, ../../sass/base.scss */
+.page2 .make-content .dub .pac-man-icon {
+  background-image: url("/static/img/smg/pac-man.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 0.17rem;
+  height: 0.13rem;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+/* line 396, ../../sass/base.scss */
+.page2 .tool-img {
+  text-align: left;
+}
+/* line 398, ../../sass/base.scss */
+.page2 .tool-img .text {
+  width: 1.69rem;
+  height: 0.625rem;
+  background-image: url("/static/img/smg/choose-text.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto 0.6rem;
+}
+/* line 406, ../../sass/base.scss */
+.page2 .tool-img .img {
+  display: inline-block;
+  width: 1.12rem;
+  height: 0.45rem;
+  background-image: url("/static/img/smg/choose-img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 0.44rem;
+}
+/* line 415, ../../sass/base.scss */
+.page2 .tool-img .show {
+  display: inline-block;
+  width: 1.12rem;
+  height: 0.45rem;
+  background-image: url("/static/img/smg/show-img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 0.61rem;
+}
+
+/* line 427, ../../sass/base.scss */
+.page3 {
+  position: relative;
+}
+/* line 429, ../../sass/base.scss */
+.page3 .share-tips {
+  width: 1.32rem;
+  height: 0.48rem;
+  position: absolute;
+  right: 0.125rem;
+  top: -0.09rem;
+  font-size: 0.19rem;
+  color: #000;
+  background-image: url("/static/img/smg/share-tips.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* line 440, ../../sass/base.scss */
+.page3 .share-tips div {
+  margin-top: 0.18rem;
+}
+/* line 444, ../../sass/base.scss */
+.page3 .share-content {
+  margin: 0.535rem auto 0.108rem;
+  width: 3.28rem;
+  height: 4.28rem;
+}
+/* line 448, ../../sass/base.scss */
+.page3 .share-content img {
+  width: 100%;
+  height: 100%;
+}
+/* line 453, ../../sass/base.scss */
+.page3 .share-text {
+  color: #fff;
+  font-size: 0.12rem;
+}
+/* line 457, ../../sass/base.scss */
+.page3 .share-btn {
+  margin: 0.258rem auto 0;
+  width: 1.63rem;
+  height: 0.54rem;
+  background-image: url("/static/img/smg/share-btn.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
