@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>泡面短视频,有料更开心</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，短视频，泡面短视频，泡面视频，演戏，飙戏，泡面短视频APP，短视频APP，电影片段，泡面短视频官网，明星"/>
+    <meta name="description"
+          content="泡面短视频，有料更开心，让我们和影帝一起飙戏，和明星一起唱歌，和美女一起跳舞"/>
+    <link rel="shortcut icon" href="/static/img/sharepage/favicon.png"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/videoDetail.css" rel="stylesheet" type="text/css"/>
+    <style>
+        /*
+            让1rem的大小在iPhone6下等于100px
+            px单位替换成rem，除以100，比如80px，就是0.8rem
+        */
+        html { 
+            font-size: calc(100vw/3.75); 
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <img src="/static/img/sharepage/logo.png" alt="logo">
+    <div class="share-detail">
+        <p class="share-title">有料更开心！</p>
+        <a onclick="openApp('')" href="javascript:void(0);" class="btn-ios">打开看看</a>
+    </div>
+</header>
+
+<section id="section">
+    <!-- 错误处理 -->
+    <div class="error-page z9" v-show="showError">
+        <div class="wrap">
+            <p class="info">诶？页面不见了，/(ㄒoㄒ)/</p>
+            <p class="guide">点击打开看看来寻找泡面君吧！</p>
+        </div>
+    </div>
+    <div class="container" v-cloak v-if="!showError">
+        <!-- 播放视频 -->
+        <div class="video-detail">
+            <img :src="avatar" alt="用户头像" class="avatar fl">
+            <div class="username">
+                {{ name }}
+            </div>
+            <div class="user-des">{{ des }}</div>
+            <div class="video-wrap" id="videoWrap">
+                <div class="video-poster" v-show="showPoster">
+                    <img :src="cover" alt="视频封面">
+                    <span class="play-btn" @click="playVideo"></span>
+                </div>
+                <div class="video-play" v-show="showVideo">
+                    <video id="media" @click="videoStatus" class="video-player" :src="videoUrl" :poster="cover" type="video/mp4" webkit-playsinline="true" playsinline="true" x5-video-player-type="h5" loop="loop"></video>
+                    <span class="play-btn" v-show="showBtn" @click="videoStatus"></span>
+                </div>
+            </div>
+        </div>
+        <!-- 用户精彩视频 -->
+        <div class="user-video" v-if="userVideo">
+            <div>
+                <span>{{ name }}</span>的精彩视频
+            </div>
+            <div class="video-list scrollx">
+                <ul>
+                    <li @click="gotoVideo(item.vpId)" v-for="item in userVideo">
+                        <img :src="item.coverUrl" alt="用户视频">
+                    </li>
+                </ul>
+            </div>   
+        </div>
+        <!-- 热门视频 -->
+        <div class="hot-video" v-if="hotVideo">
+            <div>热门泡面视频</div>
+            <ul class="video-list clearfix">
+                <li class="fl" v-for="item in hotVideo">
+                    <div @click="gotoVideo(item.vpId)">
+                        <img :src="item.coverUrl" alt="热门视频">
+                        <div class="title ellipsis">
+                            {{ item.videoText}}
+                        </div>
+                        <div class="info clearfix">
+                            <img :src="item.user.avatarUrl" class="fl" alt="">
+                            <div class="name ellipsis">{{ item.user.username }}</div>
+                            <span class="count fr">
+                                <img src="/static/img/sharepage/play2.png" alt="">{{ item.viewShowCount }}
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 底部下载链接 -->
+        <div class="footer">
+            <a class="app-btn" onclick="openApp('')"></a>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/vue.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script>
+
+var app = new Vue({
+    el: '.container',
+    data:{
+        avatar:'', //用户头像
+        name: '', //用户名
+        des:'', //视频描述
+        cover:'', //视频封面
+        videoUrl: '', //视频地址
+        userVideo:[], //用户精彩视频
+        hotVideo: [], //热门视频
+        showPoster: true, //显示海报
+        showVideo: false, //显示播放器
+        showBtn: false, //显示播放按钮
+        showError: false //显示错误页
+    },
+    created:function(){
+        var _self = this,
+            _id = parseUrl('id'),
+            _url = '/m/video/detail?vpId=' + _id;
+        axios.get(_url).then(function (res) {
+            var obj = res.data.data; //数据
+            console.log(obj);
+            _self.avatar = obj.video.user.avatarUrl;
+            _self.name = obj.video.user.username;
+            _self.des = obj.video.videoText;
+            _self.cover = obj.video.coverUrl;
+            _self.videoUrl = obj.video.videoUrl;
+            _self.userVideo = obj.videos;
+            _self.hotVideo = obj.hotVideos;
+        }).catch(function (error) {
+            _self.showError = true;
+            console.log('error');
+        });
+    },
+    methods: {
+        playVideo: function () { //海报的播放按钮进行播放视频
+            const Media = document.getElementById("media");
+            const Header = document.getElementById("header");
+            const Higher = document.getElementById("videoWrap").offsetTop - Header.offsetHeight;
+            this.showPoster = false;
+            this.showVideo = true;
+            Media.play();
+            window.scrollTo(0 ,Higher);
+        },
+        videoStatus: function (){ //播放器状态控制
+            const Media = document.getElementById("media");
+            const Header = document.getElementById("header");
+            const Higher = document.getElementById("videoWrap").offsetTop - Header.offsetHeight;
+            if(!Media.paused){
+                Media.pause();
+                this.showBtn = true;
+            } else {
+                Media.play();
+                this.showBtn = false;
+                window.scrollTo(0 ,Higher);
+            }
+        },
+        gotoVideo: function (id) { //打开视频详情页
+            window.location.href = 'video_detail.html?id=' + id;
+        } 
+    }
+})
+
+</script>
+</body>
+</html>

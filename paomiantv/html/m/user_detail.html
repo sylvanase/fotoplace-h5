@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>泡面短视频,有料更开心</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，短视频，泡面短视频，泡面视频，演戏，飙戏，泡面短视频APP，短视频APP，电影片段，泡面短视频官网，明星"/>
+    <meta name="description"
+          content="泡面短视频，有料更开心，让我们和影帝一起飙戏，和明星一起唱歌，和美女一起跳舞"/>
+    <link rel="shortcut icon" href="/static/img/sharepage/favicon.png"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/userDetail.css" rel="stylesheet" type="text/css"/>
+    <style>
+        /*
+            让1rem的大小在iPhone6下等于100px
+            px单位替换成rem，除以100，比如80px，就是0.8rem
+        */
+        html { 
+            font-size: calc(100vw/3.75); 
+        }
+        body{
+            background-color: #161616;
+        }
+        #header{
+            top: calc(100vh - 0.4rem);
+        }
+        .container{
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <img src="/static/img/sharepage/logo.png" alt="logo">
+    <div class="share-detail">
+        <p class="share-title">有料更开心！</p>
+        <a onclick="openApp('')" href="javascript:void(0);" class="btn-ios">打开看看</a>
+    </div>
+</header>
+
+<section id="section">
+    <!-- 错误处理 -->
+    <div class="error-page z9" v-show="showError">
+        <div class="wrap">
+            <p class="info">诶？页面不见了，/(ㄒoㄒ)/</p>
+            <p class="guide">点击打开看看来寻找泡面君吧！</p>
+        </div>
+    </div>
+    <div class="container" v-cloak v-if="!showError">
+        <!-- 用户信息主体 -->
+        <div class="user-wrap">
+            <div class="bg" v-bind:style="{ background-image: dimBg}">
+            </div>
+            <div class="layer">
+                <img :src="avatar" class=fl alt="">
+                <div class="name-wrap">
+                    <div class="name">{{ name }}</div>
+                    <a class="follow-btn dsilb" href="javascript:void(0);" onclick="openApp()"></a>
+                </div>
+                <div class="sex fs14">
+                    {{ sex == 0 ? 'superboy': 'supergirl' }}. {{ constellation }}
+                </div>
+                <div class="address fs14">
+                    {{ city }} / {{province}}
+                </div>
+                <div class="des fs14" v-if="signature">
+                    {{ signature }}
+                </div>
+                <div class="count fs21">
+                    {{ follow }}<span>关注</span>
+                    {{ follower }}<span>粉丝</span>
+                    {{ like }}<span>被赞</span>
+                </div>
+            </div>
+        </div>
+        <!-- 我的和喜欢视频 -->
+        <div class="user-video-wrap">
+            <div class="tab fs16" @click="changeTab">
+                <div class="left dsilb alic"><span class="icon dsilb"></span>我的</div>
+                <div class="right dsilb alic"><span class="icon dsilb"></span>喜欢</div>
+                <div class="btn" v-html="tabHtml" v-bind:class="{ 'btn-left': isLeft , 'btn-right': isRight }">
+                </div>
+            </div>
+            <div class="video-list">
+                <ul class="clearfix">
+                    <li class="fl" v-for="item in videoList">
+                        <div @click="gotoVideo(item.vpId)">
+                            <img :src="item.coverUrl" alt="视频封面">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/vue.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script>
+
+var app = new Vue({
+    el: '.container',
+    data:{
+        dimBg: '', //模糊背景
+        avatar: '', //头像
+        name: '', //用户名称
+        sex:0, //性别
+        constellation: '', //星座
+        city: '', //城市
+        province:'', //省份
+        signature: '', //签名
+        follow: 0, //关注
+        follower: 0, //粉丝
+        like: 0, //被赞
+        videoList:[], //tab下列表取值
+        userVideo: [], //用户视频
+        userLike: [], //用户喜欢
+        isTop: true, //tab是否切换到了top列表
+        isLeft: true, //默认在tab左侧
+        isRight: false,
+        tabHtml:'<img src="/static/img/sharepage/video.png">我的',
+        showError: false //显示错误页
+    },
+    created:function(){
+        var _self = this,
+            _id = parseUrl('id'),
+            _url = '/m/user/detail?uid=' + _id;
+        axios.get(_url).then(function (res) {
+            var obj = res.data.data; //数据
+            _self.dimBg = "url('"+ obj.user.avatarUrl + "')";
+            _self.avatar = obj.user.avatarUrl;
+            _self.name = obj.user.username;
+            _self.sex = obj.user.sex;
+            _self.constellation = obj.user.constellation;
+            _self.city = obj.user.cityName;
+            _self.province = obj.user.provinceName;
+            _self.signature = obj.user.signature;
+            _self.follow = obj.user.followCount;
+            _self.follower = obj.user.followerCount;
+            _self.like = obj.user.likeCount;
+            _self.videoList = obj.videos;
+            _self.userVideo = obj.videos;
+            _self.userLike = obj.videos;
+        }).catch(function (error) {
+            _self.showError = true;
+        });
+    },
+    methods: {
+        gotoVideo: function (id) { //打开视频详情页
+            window.location.href = 'video_detail.html?id=' + id;
+        },
+        changeTab: function () { //切换tab
+            this.isTop = !this.isTop;
+            this.isLeft = !this.isLeft;
+            this.isRight = !this.isRight;
+            if(this.isTop){
+                this.tabHtml = '<img src="/static/img/sharepage/video.png">我的';
+                _self.videoList = _self.userVideos;
+            }else{
+                this.tabHtml = '<img src="/static/img/sharepage/like.png">喜欢';
+                _self.videoList = _self.userLike;
+            }
+        }
+    }
+})
+
+</script>
+</body>
+</html>

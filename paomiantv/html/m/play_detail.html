@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>泡面短视频,有料更开心</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，短视频，泡面短视频，泡面视频，演戏，飙戏，泡面短视频APP，短视频APP，电影片段，泡面短视频官网，明星"/>
+    <meta name="description"
+          content="泡面短视频，有料更开心，让我们和影帝一起飙戏，和明星一起唱歌，和美女一起跳舞"/>
+    <link rel="shortcut icon" href="/static/img/sharepage/favicon.png"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/playDetail.css" rel="stylesheet" type="text/css"/>
+    <style>
+        /*
+            让1rem的大小在iPhone6下等于100px
+            px单位替换成rem，除以100，比如80px，就是0.8rem
+        */
+        html {
+            font-size: calc(100vw / 3.75);
+        }
+
+        body {
+            background-color: #161616;
+        }
+
+        .container {
+            background-color: transparent;
+        }
+        .play-demo{
+            width: 100%;
+            height: calc(100vh - 0.4rem);
+            position: fixed;
+            left: 0;
+            top: 0.4rem;
+            background: #000;
+        }
+        .play-demo video{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<div style="display: none;">
+    <img src="" id="shareImg" alt="分享图"/>
+</div>
+<header id="header" class="z10">
+    <img src="/static/img/sharepage/logo.png" alt="logo">
+
+    <div class="share-detail">
+        <p class="share-title">有料更开心！</p>
+        <a onclick="openApp('')" href="javascript:void(0);" class="btn-ios">打开看看</a>
+    </div>
+</header>
+
+<section id="section" v-cloak>
+    <!-- 错误处理 -->
+    <div class="error-page z9" v-if="showError">
+        <div class="wrap">
+            <p class="info">诶？页面不见了，/(ㄒoㄒ)/</p>
+
+            <p class="guide">点击打开看看来寻找泡面君吧！</p>
+        </div>
+    </div>
+    <div class="container" v-if="!showError">
+        <!-- 小剧场主体 -->
+        <div class="play-wrap">
+            <div class="bg" v-bind:style="styleObject">
+            </div>
+            <div class="layer">
+                <div class="title fs20 alic">
+                    {{ name }}
+                </div>
+                <div class="tv alic" v-bind:style="styleObject">
+                    <img src="/static/img/sharepage/tv.png" alt="">
+                </div>
+                <div class="des fs15">
+                    {{des}}
+                </div>
+            </div>
+        </div>
+        <!-- top和new视频 -->
+        <div class="top-video-wrap">
+            <div class="tab" @click="changeTab">
+                <div class="left dsilb alic">TOP</div>
+                <div class="right dsilb alic">最新</div>
+                <div class="btn" v-bind:class="{ 'btn-left': isLeft , 'btn-right': isRight }">{{ isTop ? 'TOP': '最新'
+                    }}
+                </div>
+            </div>
+            <div class="video-list">
+                <ul class="clearfix">
+                    <li class="fl" v-if="sponsor&&isLeft">
+                        <div @click="playDemo(sponsor)">
+                            <div class="tag fs11">
+                                发起
+                            </div>
+
+                            <img v-if="sponsor.height > sponsor.width" :src="sponsor.coverUrl" style="height: 2.786rem;" alt="">
+                            <!--宽大于高时需要旋转-->
+                            <img v-else :src="sponsor.coverUrl + '@base@tag=imgScale&r=2&rotate=90'" style="height: 2.786rem;" alt="">
+
+                            <div class="title ellipsis">
+                                {{ sponsor.name }}
+                            </div>
+                            <div class="info clearfix">
+                                <img :src="avatar" class="fl" alt="">
+
+                                <div class="name ellipsis">{{ name }}</div>
+                                <span class="count fr">
+                                    <img src="/static/img/sharepage/play2.png" alt="">{{ showCount }}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="fl" v-for="(item, index) in videoList">
+                        <div @click="gotoVideo(item.vpId)">
+                            <div class="num fs18" v-if="index < 3">
+                                NO.{{ index+1 }}
+                            </div>
+                            <img v-if="item.height > item.width" :src="item.coverUrl" style="height: 2.786rem;" alt="">
+                            <img v-else :src="item.coverUrl + '@base@tag=imgScale&r=2&rotate=90'" style="height: 2.786rem;" alt="">
+                            <div class="title">
+                                {{ item.videoText}}
+                            </div>
+                            <div class="info clearfix">
+                                <img v-if="item.user.avatarUrl" :src="item.user.avatarUrl" class="fl" alt="">
+                                <img v-else src="/static/img/sharepage/avatar.png" class="fl" alt="">
+                                <div class="name ellipsis">{{ item.user.username }}</div>
+                                <span class="count fr">
+                                    <img src="/static/img/sharepage/play2.png" alt="">{{ item.viewShowCount }}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- 底部下载链接 -->
+        <div class="footer">
+            <a class="app-btn" onclick="openApp('')"></a>
+        </div>
+        <!--播放样片-->
+        <div class="play-demo z2" v-show="showDemo">
+            <video id="media" @click="closeDemo" class="video-player" :src="sponsor.url" :poster="sponsor.coverUrl"
+                   type="video/mp4" webkit-playsinline="true" playsinline="true" x5-video-player-type="h5"></video>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/vue.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script>
+
+    var app = new Vue({
+        el: '#section',
+        data: {
+            styleObject: '', //模糊背景
+            avatar: '', //头像
+            name: '', //剧场名称
+            des: '', //话题描述
+            sponsor: '', //发起视频
+            showCount: 0, //发起视频播放的次数
+            videoList: [], //显示的视频
+            hotList: [], //热门视频
+            newList: [], //最新视频
+            isTop: true, //tab是否切换到了top列表
+            isLeft: true, //默认在tab左侧
+            isRight: false,
+            showError: false, //显示错误页
+            showDemo: false //显示播放页
+        },
+        created: function () {
+            var _self = this,
+                    _id = parseUrl('id'),
+                    _url = '/m/play/detail?playId=' + _id;
+            axios.get(_url).then(function (res) {
+                if(res.data.status !== 0){ //返回值code不为0
+                    _self.showError = true;
+                }
+                var obj = res.data.data; //数据
+                //配置微信分享
+                document.title = obj.play.name +'太好玩了，快来和我一起飙演技吧';
+                document.getElementById('shareImg').src = obj.play.image.url;
+
+                _self.styleObject = {
+                    backgroundImage: "url('" + obj.play.image.url + "')"
+                };
+                _self.avatar = obj.play.image.url ? obj.play.image.url : '/static/img/sharepage/avatar.png' ;
+
+                _self.name = obj.play.name;
+                _self.des = obj.play.description;
+                //_self.showCount = obj.play.showCount;
+                _self.sponsor = obj.play.video;
+                _self.videoList = obj.hotVideos;
+                _self.hotList = obj.hotVideos;
+                _self.newList = obj.newVideos;
+            }).catch(function (error) {
+                var str = error.toString();
+                if(str == 'Error: Request failed with status code 404'){
+                    _self.showError = true;
+                }
+            });
+        },
+        methods: {
+            gotoVideo: function (id) { //打开视频详情页
+                window.location.href = 'video_detail.html?id=' + id;
+            },
+            changeTab: function () { //切换tab
+                this.isTop = !this.isTop;
+                this.isLeft = !this.isLeft;
+                this.isRight = !this.isRight;
+                //切换成功后刷新视频列表
+                if (this.isTop) {
+                    this.videoList = this.hotList;
+                } else {
+                    this.videoList = this.newList;
+                }
+            },
+            playDemo: function () { //播放样片
+                this.showDemo = true;
+                const Media = document.getElementById("media");
+                Media.play();
+
+            },
+            closeDemo: function () { //关闭样片弹出层
+                this.showDemo = false;
+                const Media = document.getElementById("media");
+                Media.pause();
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

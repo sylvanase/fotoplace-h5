@@ -1,0 +1,83 @@
+/* line 1, ../../sass/topicDetail.scss */
+.topic-wrap {
+  padding-top: 0.4rem;
+  position: relative;
+}
+/* line 4, ../../sass/topicDetail.scss */
+.topic-wrap .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: rgba(22, 22, 22, 0.7);
+  -webkit-webkit-filter: blur(30px);
+  -moz-webkit-filter: blur(30px);
+  -ms-webkit-filter: blur(30px);
+  -o-webkit-filter: blur(30px);
+  webkit-filter: blur(30px);
+  filter: blur(30px);
+  z-index: -2;
+}
+/* line 23, ../../sass/topicDetail.scss */
+.topic-wrap .bg:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(22, 22, 22, 0.6);
+}
+/* line 33, ../../sass/topicDetail.scss */
+.topic-wrap .layer {
+  padding: 0.315rem 0.295rem 0;
+}
+/* line 36, ../../sass/topicDetail.scss */
+.topic-wrap .title {
+  margin-bottom: 0.125rem;
+}
+/* line 38, ../../sass/topicDetail.scss */
+.topic-wrap .title span {
+  margin-right: 0.085rem;
+}
+/* line 42, ../../sass/topicDetail.scss */
+.topic-wrap .hot {
+  margin-bottom: 0.374rem;
+}
+/* line 44, ../../sass/topicDetail.scss */
+.topic-wrap .hot img {
+  width: 0.118rem;
+  height: 0.126rem;
+  margin-right: 0.062rem;
+}
+/* line 50, ../../sass/topicDetail.scss */
+.topic-wrap .des {
+  text-align: justify;
+  line-height: 0.18rem;
+  margin-bottom: 0.38rem;
+}
+/* line 55, ../../sass/topicDetail.scss */
+.topic-wrap .sponsor {
+  padding-bottom: 0.195rem;
+}
+/* line 57, ../../sass/topicDetail.scss */
+.topic-wrap .sponsor .avatar {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+}
+/* line 62, ../../sass/topicDetail.scss */
+.topic-wrap .sponsor > div {
+  margin-left: 0.35rem;
+  padding-left: 0.09rem;
+}
+/* line 66, ../../sass/topicDetail.scss */
+.topic-wrap .sponsor .name {
+  margin-top: 0.085rem;
+}

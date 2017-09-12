@@ -1,0 +1,164 @@
+/* line 3, ../../sass/videoDetail.scss */
+.video-detail {
+  padding: 0.495rem 0.15rem 0.3rem;
+  color: #fff;
+}
+/* line 6, ../../sass/videoDetail.scss */
+.video-detail .avatar {
+  width: 0.355rem;
+  height: 0.355rem;
+  border-radius: 50%;
+}
+/* line 11, ../../sass/videoDetail.scss */
+.video-detail .username {
+  padding-left: 0.49rem;
+  height: 0.355rem;
+  font-size: 0.14rem;
+  line-height: 0.355rem;
+  margin-bottom: 0.15rem;
+}
+/* line 18, ../../sass/videoDetail.scss */
+.video-detail .user-des {
+  font-size: 0.16rem;
+  margin-bottom: 0.255rem;
+}
+/* line 23, ../../sass/videoDetail.scss */
+.video-detail .video-wrap .play-btn {
+  width: 0.329rem;
+  height: 0.363rem;
+  background-image: url("/static/img/sharepage/play.png");
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.181rem;
+  margin-left: -0.164rem;
+}
+/* line 34, ../../sass/videoDetail.scss */
+.video-detail .video-wrap .video-poster {
+  text-align: center;
+  position: relative;
+}
+/* line 37, ../../sass/videoDetail.scss */
+.video-detail .video-wrap .video-poster img {
+  width: 2.807rem;
+  height: 4.425rem;
+}
+/* line 43, ../../sass/videoDetail.scss */
+.video-detail .video-wrap .video-play {
+  margin: 0 -0.15rem;
+  position: relative;
+}
+/* line 46, ../../sass/videoDetail.scss */
+.video-detail .video-wrap .video-play video {
+  width: 100%;
+  height: calc(100vh - 0.4rem);
+}
+
+/* line 54, ../../sass/videoDetail.scss */
+.user-video {
+  padding: 0 0 0.304rem 0.15rem;
+}
+/* line 56, ../../sass/videoDetail.scss */
+.user-video > div {
+  margin-bottom: 0.2rem;
+  color: #fff;
+  font-size: 0.14rem;
+}
+/* line 60, ../../sass/videoDetail.scss */
+.user-video > div span {
+  color: #fcbc39;
+  font-size: 0.16rem;
+  margin-right: 0.05rem;
+}
+/* line 66, ../../sass/videoDetail.scss */
+.user-video .video-list {
+  overflow-y: hidden;
+}
+/* line 68, ../../sass/videoDetail.scss */
+.user-video .video-list ul {
+  display: inline;
+  white-space: nowrap;
+}
+/* line 72, ../../sass/videoDetail.scss */
+.user-video .video-list li {
+  display: inline-block;
+  margin-right: 0.037rem;
+}
+/* line 75, ../../sass/videoDetail.scss */
+.user-video .video-list li img {
+  width: 0.943rem;
+  height: 1.486rem;
+}
+
+/* line 84, ../../sass/videoDetail.scss */
+.hot-video > div {
+  text-align: center;
+  font-size: 0.16rem;
+  margin-bottom: 0.1rem;
+}
+/* line 89, ../../sass/videoDetail.scss */
+.hot-video .video-list {
+  width: 100%;
+  margin-bottom: 0.275rem;
+}
+/* line 92, ../../sass/videoDetail.scss */
+.hot-video .video-list li {
+  width: 50%;
+  position: relative;
+  margin-bottom: 1px;
+  height: 3.02rem;
+}
+/* line 97, ../../sass/videoDetail.scss */
+.hot-video .video-list li > div {
+  height: 100%;
+}
+/* line 101, ../../sass/videoDetail.scss */
+.hot-video .video-list li:nth-child(2n) > div {
+  margin-left: 1px;
+}
+/* line 105, ../../sass/videoDetail.scss */
+.hot-video .video-list li img {
+  width: 100%;
+  height: 100%;
+}
+/* line 109, ../../sass/videoDetail.scss */
+.hot-video .video-list li .title {
+  position: absolute;
+  font-size: 0.14rem;
+  padding: 0 0.085rem;
+  left: 0;
+  bottom: 0.375rem;
+}
+/* line 116, ../../sass/videoDetail.scss */
+.hot-video .video-list li .info {
+  font-size: 0.12rem;
+  width: 100%;
+  position: absolute;
+  padding: 0 0.085rem;
+  left: 0;
+  bottom: 0.06rem;
+}
+/* line 119, ../../sass/videoDetail.scss */
+.hot-video .video-list li .info img {
+  width: 0.24rem;
+  height: 0.24rem;
+  border-radius: 50%;
+  margin-right: 0.075rem;
+}
+/* line 129, ../../sass/videoDetail.scss */
+.hot-video .video-list li .info .name {
+  display: inline-block;
+  width: 0.8rem;
+  line-height: 0.24rem;
+}
+/* line 134, ../../sass/videoDetail.scss */
+.hot-video .video-list li .info .count {
+  line-height: 0.24rem;
+}
+/* line 136, ../../sass/videoDetail.scss */
+.hot-video .video-list li .info .count img {
+  width: 0.076rem;
+  height: 0.083rem;
+  margin-right: 0.054rem;
+}

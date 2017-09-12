@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>泡面短视频,有料更开心</title>
+    <meta charset="utf-8">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="电影，短视频，泡面短视频，泡面视频，演戏，飙戏，泡面短视频APP，短视频APP，电影片段，泡面短视频官网，明星"/>
+    <meta name="description"
+          content="泡面短视频，有料更开心，让我们和影帝一起飙戏，和明星一起唱歌，和美女一起跳舞"/>
+    <link rel="shortcut icon" href="/static/img/sharepage/favicon.png"/>
+    <link href="/static/css/sharepage/base.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/sharepage/topicDetail.css" rel="stylesheet" type="text/css"/>
+    <style>
+        /*
+            让1rem的大小在iPhone6下等于100px
+            px单位替换成rem，除以100，比如80px，就是0.8rem
+        */
+        html {
+            font-size: calc(100vw/3.75);
+        }
+        body{
+            background-color: #161616;
+        }
+        .container{
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <img src="/static/img/sharepage/logo.png" alt="logo">
+    <div class="share-detail">
+        <p class="share-title">有料更开心！</p>
+        <a onclick="openApp('')" href="javascript:void(0);" class="btn-ios">打开看看</a>
+    </div>
+</header>
+
+<section id="section">
+    <!-- 错误处理 -->
+    <!--<div class="error-page z9" v-show="showError">
+        <div class="wrap">
+            <p class="info">诶？页面不见了，/(ㄒoㄒ)/</p>
+            <p class="guide">点击打开看看来寻找泡面君吧！</p>
+        </div>
+    </div>-->
+    <div class="container" v-cloak v-if="!showError">
+        <picture><source srcset="http://fp-testvideo.ks3-cn-beijing.ksyun.com/tv/170905/admin/79EECBCE6D3D70B4F525BF820E7D24BC.webp" type="image/webp"><img style="max-width: 100%;max-height:350px;" src="http://fp-testvideo.ks3-cn-beijing.ksyun.com/tv/170905/admin/29B72AFB449D9C809E027FEBFA00D962.jpg" alt="动态封面"></picture>
+        <!-- top和new视频 -->
+        <div class="top-video-wrap">
+            <div class="tab" @click="changeTab">
+                <div class="left dsilb alic">TOP</div>
+                <div class="right dsilb alic">最新</div>
+                <div class="btn" v-bind:class="{ 'btn-left': isLeft , 'btn-right': isRight }">{{ isTop ? 'TOP': '最新' }}</div>
+            </div>
+            <div class="video-list">
+                <ul class="clearfix">
+                    <li class="fl" v-if="sponsor&&isLeft"  style="height:2.78rem;;">
+                        fdjkal
+                    </li>
+                    <li class="fl" style="height:2.78rem;;">
+                        djfkalkjd
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- 底部下载链接 -->
+        <div class="footer">
+            <a class="app-btn" onclick="openApp('')"></a>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="/static/js/axios.min.js"></script>
+<script type="text/javascript" src="/static/js/vue.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script>
+
+    //获取电影详情
+    function getMovieDetail(id){
+        return axios.get('/api/movie/'+ id);
+    }
+
+
+    var app = new Vue({
+        el: '.container',
+        data:{
+            dimBg: '', //模糊背景
+            avatar: '', //头像
+            name: '', //用户名称
+            title: '', //话题名称
+            des:'', //话题描述
+            score:'', //话题火热
+            sponsor: '11', //发起视频
+            showCount: '', //发起视频播放的次数
+            videoList:[], //显示的视频
+            hotList: [], //热门视频
+            newList: [], //最新视频
+            isTop: true, //tab是否切换到了top列表
+            isLeft: true, //默认在tab左侧
+            isRight: false,
+            showError: false //显示错误页
+        },
+        created:function(){
+            console.log(1);
+            /*var _self = this,
+                    _id = parseUrl('id'),
+                    _url = '/m/topic/detail?topicId=' + _id;
+            axios.get(_url).then(function (res) {
+                var obj = res.data.data; //数据
+                _self.dimBg = "url('"+ obj.topic.user.avatarUrl + "')";
+                _self.avatar = obj.topic.user.avatarUrl;
+                _self.name = obj.topic.user.username;
+                _self.title = obj.topic.name;
+                _self.des = obj.topic.description;
+                //_self.score = obj.topic.score;
+                _self.score = '缺少该参数';
+                _self.showCount = obj.topic.showCount;
+                _self.sponsor = obj.topic.video;
+                _self.videoList = obj.hotVideos;
+                _self.hotList = obj.hotVideos;
+                _self.newList = obj.newVideos;
+            }).catch(function (error) {
+                _self.showError = true;
+            });*/
+        },
+        methods: {
+            gotoVideo: function (id) { //打开视频详情页
+                window.location.href = 'video_detail.html?id=' + id;
+            },
+            changeTab: function () { //切换tab
+                this.isTop = !this.isTop;
+                this.isLeft = !this.isLeft;
+                this.isRight = !this.isRight;
+                //切换成功后刷新视频列表
+
+            }
+
+        }
+    })
+
+</script>
+</body>
+</html>
