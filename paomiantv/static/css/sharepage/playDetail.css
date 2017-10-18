@@ -16,12 +16,12 @@
   background-position: center center;
   background-size: cover;
   background-color: rgba(22, 22, 22, 0.7);
-  -webkit-webkit-filter: blur(30px);
-  -moz-webkit-filter: blur(30px);
-  -ms-webkit-filter: blur(30px);
-  -o-webkit-filter: blur(30px);
-  webkit-filter: blur(30px);
-  filter: blur(30px);
+  -webkit-webkit-filter: blur(6px);
+  -moz-webkit-filter: blur(6px);
+  -ms-webkit-filter: blur(6px);
+  -o-webkit-filter: blur(6px);
+  webkit-filter: blur(6px);
+  filter: blur(6px);
   z-index: -2;
 }
 /* line 23, ../../sass/playDetail.scss */
@@ -50,38 +50,49 @@
 .play-wrap .tv {
   width: 0.68rem;
   height: 0.72rem;
-  background-size: 75% 59%;
-  background-repeat: no-repeat;
-  background-position: 0.08rem 0.13rem;
+  position: relative;
   margin: 0 auto;
 }
-/* line 49, ../../sass/playDetail.scss */
+/* line 47, ../../sass/playDetail.scss */
+.play-wrap .tv div {
+  border-radius: 10px;
+  position: absolute;
+  width: 73%;
+  height: 59%;
+  top: 17%;
+  left: 13%;
+  z-index: -1;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  background-position: 50%;
+}
+/* line 59, ../../sass/playDetail.scss */
 .play-wrap .tv img {
   width: 100%;
   height: 100%;
 }
-/* line 55, ../../sass/playDetail.scss */
+/* line 65, ../../sass/playDetail.scss */
 .play-wrap .des {
   text-align: justify;
   line-height: 0.18rem;
   margin-bottom: 0.38rem;
 }
-/* line 60, ../../sass/playDetail.scss */
+/* line 70, ../../sass/playDetail.scss */
 .play-wrap .sponsor {
   padding-bottom: 0.195rem;
 }
-/* line 62, ../../sass/playDetail.scss */
+/* line 72, ../../sass/playDetail.scss */
 .play-wrap .sponsor .avatar {
   width: 0.35rem;
   height: 0.35rem;
   border-radius: 50%;
 }
-/* line 67, ../../sass/playDetail.scss */
+/* line 77, ../../sass/playDetail.scss */
 .play-wrap .sponsor > div {
   margin-left: 0.35rem;
   padding-left: 0.09rem;
 }
-/* line 71, ../../sass/playDetail.scss */
+/* line 81, ../../sass/playDetail.scss */
 .play-wrap .sponsor .name {
   margin-top: 0.085rem;
 }

@@ -16,12 +16,12 @@
   background-position: center center;
   background-size: cover;
   background-color: rgba(22, 22, 22, 0.7);
-  -webkit-webkit-filter: blur(30px);
-  -moz-webkit-filter: blur(30px);
-  -ms-webkit-filter: blur(30px);
-  -o-webkit-filter: blur(30px);
-  webkit-filter: blur(30px);
-  filter: blur(30px);
+  -webkit-webkit-filter: blur(6px);
+  -moz-webkit-filter: blur(6px);
+  -ms-webkit-filter: blur(6px);
+  -o-webkit-filter: blur(6px);
+  webkit-filter: blur(6px);
+  filter: blur(6px);
   z-index: -2;
 }
 /* line 23, ../../sass/topicDetail.scss */

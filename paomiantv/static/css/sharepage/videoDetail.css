@@ -41,8 +41,7 @@
 }
 /* line 37, ../../sass/videoDetail.scss */
 .video-detail .video-wrap .video-poster img {
-  width: 2.807rem;
-  height: 4.425rem;
+  width: 2.4rem;
 }
 /* line 43, ../../sass/videoDetail.scss */
 .video-detail .video-wrap .video-play {
@@ -87,8 +86,7 @@
 }
 /* line 75, ../../sass/videoDetail.scss */
 .user-video .video-list li img {
-  width: 0.943rem;
-  height: 1.486rem;
+  width: 0.94rem;
 }
 
 /* line 84, ../../sass/videoDetail.scss */
@@ -107,7 +105,7 @@
   width: 50%;
   position: relative;
   margin-bottom: 1px;
-  height: 3.02rem;
+  height: 3.32rem;
 }
 /* line 97, ../../sass/videoDetail.scss */
 .hot-video .video-list li > div {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>泡面短视频,有料更开心</title>
+    <title>泡面短视频，这就是我！看我！</title>
     <meta charset="utf-8">
     <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" name="viewport">
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -51,10 +51,9 @@
 </div>
 <header id="header" class="z10">
     <img src="/static/img/sharepage/logo.png" alt="logo">
-
     <div class="share-detail">
-        <p class="share-title">有料更开心！</p>
-        <a onclick="openApp('')" href="javascript:void(0);" class="btn-ios">打开看看</a>
+        <p class="share-title">这就是我！看我！</p>
+        <a onclick="openApp('play')" href="javascript:void(0);" class="btn-ios">打开看看</a>
     </div>
 </header>
 
@@ -73,10 +72,11 @@
             <div class="bg" v-bind:style="styleObject">
             </div>
             <div class="layer">
-                <div class="title fs20 alic">
+                <div class="title fs20 alic fwb">
                     {{ name }}
                 </div>
-                <div class="tv alic" v-bind:style="styleObject">
+                <div class="tv alic">
+                    <div v-bind:style="styleObject"></div>
                     <img src="/static/img/sharepage/tv.png" alt="">
                 </div>
                 <div class="des fs15">
@@ -101,9 +101,9 @@
                                 发起
                             </div>
 
-                            <img v-if="sponsor.height > sponsor.width" :src="sponsor.coverUrl" style="height: 2.786rem;" alt="">
+                            <img v-if="sponsor.height > sponsor.width" :src="sponsor.coverUrl" alt="">
                             <!--宽大于高时需要旋转-->
-                            <img v-else :src="sponsor.coverUrl + '@base@tag=imgScale&r=2&rotate=90'" style="height: 2.786rem;" alt="">
+                            <img v-else :src="sponsor.coverUrl + '@base@tag=imgScale&r=2&rotate=90'" alt="">
 
                             <div class="title ellipsis">
                                 {{ sponsor.name }}
@@ -120,11 +120,11 @@
                     </li>
                     <li class="fl" v-for="(item, index) in videoList">
                         <div @click="gotoVideo(item.vpId)">
-                            <div class="num fs18" v-if="index < 3">
+                            <div class="num fs18" v-if="isLeft">
                                 NO.{{ index+1 }}
                             </div>
-                            <img v-if="item.height > item.width" :src="item.coverUrl" style="height: 2.786rem;" alt="">
-                            <img v-else :src="item.coverUrl + '@base@tag=imgScale&r=2&rotate=90'" style="height: 2.786rem;" alt="">
+                            <img v-if="item.height > item.width" :src="item.coverUrl" alt="">
+                            <img v-else :src="item.coverUrl + '@base@tag=imgScale&r=2&rotate=90'" alt="">
                             <div class="title">
                                 {{ item.videoText}}
                             </div>
@@ -144,7 +144,7 @@
         </div>
         <!-- 底部下载链接 -->
         <div class="footer">
-            <a class="app-btn" onclick="openApp('')"></a>
+            <a class="app-btn" onclick="openApp('play')"></a>
         </div>
         <!--播放样片-->
         <div class="play-demo z2" v-show="showDemo">
