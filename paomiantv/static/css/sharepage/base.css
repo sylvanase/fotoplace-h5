@@ -416,25 +416,27 @@ img {
 /* line 162, ../../sass/base.scss */
 #header img {
   float: left;
-  width: 0.8rem;
+  width: 0.665rem;
   margin-top: 0.04rem;
   margin-left: 0.108rem;
 }
 /* line 168, ../../sass/base.scss */
 #header .share-detail {
   position: relative;
-  padding-left: 1.22rem;
+  padding-left: 0.78rem;
   height: 0.4rem;
 }
 /* line 172, ../../sass/base.scss */
 #header .share-detail .share-title {
-  font-size: 0.21rem;
+  font-size: 0.19rem;
   margin-bottom: 0;
   color: #000;
   line-height: 0.4rem;
   font-weight: bold;
+  padding-right: 0.88rem;
+  text-align: right;
 }
-/* line 179, ../../sass/base.scss */
+/* line 181, ../../sass/base.scss */
 #header .share-detail a {
   position: absolute;
   right: 0.095rem;
@@ -451,7 +453,7 @@ img {
   line-height: 1;
 }
 
-/* line 197, ../../sass/base.scss */
+/* line 199, ../../sass/base.scss */
 .container {
   background-color: #0e1018;
   color: #fff;
@@ -460,12 +462,12 @@ img {
   font-size: 0.12rem;
 }
 
-/* line 208, ../../sass/base.scss */
+/* line 210, ../../sass/base.scss */
 .top-video-wrap {
   background-color: #0e1018;
   padding: 0.185rem 0.11rem 0.33rem;
 }
-/* line 211, ../../sass/base.scss */
+/* line 213, ../../sass/base.scss */
 .top-video-wrap .tab {
   width: 1.8rem;
   height: 0.35rem;
@@ -476,17 +478,17 @@ img {
   line-height: 0.35rem;
   position: relative;
 }
-/* line 220, ../../sass/base.scss */
+/* line 222, ../../sass/base.scss */
 .top-video-wrap .tab .left {
   width: 49%;
   line-height: 0.35rem;
 }
-/* line 224, ../../sass/base.scss */
+/* line 226, ../../sass/base.scss */
 .top-video-wrap .tab .right {
   width: 48%;
   line-height: 0.35rem;
 }
-/* line 228, ../../sass/base.scss */
+/* line 230, ../../sass/base.scss */
 .top-video-wrap .tab .btn {
   position: absolute;
   width: 50%;
@@ -498,35 +500,35 @@ img {
   border-radius: 0.9rem;
   color: #401212;
 }
-/* line 239, ../../sass/base.scss */
+/* line 241, ../../sass/base.scss */
 .top-video-wrap .tab .btn-left {
   left: 0;
 }
-/* line 242, ../../sass/base.scss */
+/* line 244, ../../sass/base.scss */
 .top-video-wrap .tab .btn-right {
   right: 0;
 }
-/* line 247, ../../sass/base.scss */
+/* line 249, ../../sass/base.scss */
 .top-video-wrap .video-list li {
   width: 49.7%;
   position: relative;
   margin-bottom: 0.01rem;
   text-shadow: 2px 2px 3px #585858;
 }
-/* line 252, ../../sass/base.scss */
+/* line 254, ../../sass/base.scss */
 .top-video-wrap .video-list li > div {
   height: 100%;
 }
-/* line 255, ../../sass/base.scss */
+/* line 257, ../../sass/base.scss */
 .top-video-wrap .video-list li:nth-child(2n) {
   margin-left: 0.6%;
 }
-/* line 258, ../../sass/base.scss */
+/* line 260, ../../sass/base.scss */
 .top-video-wrap .video-list li img {
   width: 100%;
   height: 3.3rem;
 }
-/* line 262, ../../sass/base.scss */
+/* line 264, ../../sass/base.scss */
 .top-video-wrap .video-list li .tag {
   background-color: #f92727;
   padding: 0.035rem 0.095rem;
@@ -536,13 +538,13 @@ img {
   border-radius: 0.1rem;
   line-height: 1;
 }
-/* line 271, ../../sass/base.scss */
+/* line 273, ../../sass/base.scss */
 .top-video-wrap .video-list li .num {
   position: absolute;
   top: 0.1rem;
   right: 0.09rem;
 }
-/* line 276, ../../sass/base.scss */
+/* line 278, ../../sass/base.scss */
 .top-video-wrap .video-list li .title {
   width: 100%;
   position: absolute;
@@ -552,7 +554,7 @@ img {
   bottom: 0.375rem;
   width: 100%;
 }
-/* line 285, ../../sass/base.scss */
+/* line 287, ../../sass/base.scss */
 .top-video-wrap .video-list li .info {
   font-size: 0.12rem;
   width: 100%;
@@ -561,31 +563,31 @@ img {
   left: 0;
   bottom: 0.06rem;
 }
-/* line 288, ../../sass/base.scss */
+/* line 290, ../../sass/base.scss */
 .top-video-wrap .video-list li .info img {
   width: 0.24rem;
   height: 0.24rem;
   border-radius: 50%;
   margin-right: 0.075rem;
 }
-/* line 298, ../../sass/base.scss */
+/* line 300, ../../sass/base.scss */
 .top-video-wrap .video-list li .info .name {
   display: inline-block;
   width: 0.6rem;
   line-height: 0.24rem;
 }
-/* line 303, ../../sass/base.scss */
+/* line 305, ../../sass/base.scss */
 .top-video-wrap .video-list li .info .count {
   line-height: 0.24rem;
 }
-/* line 305, ../../sass/base.scss */
+/* line 307, ../../sass/base.scss */
 .top-video-wrap .video-list li .info .count img {
   width: 0.076rem;
   height: 0.083rem;
   margin-right: 0.054rem;
 }
 
-/* line 316, ../../sass/base.scss */
+/* line 318, ../../sass/base.scss */
 .footer {
   background-image: url("/static/img/sharepage/footer.png");
   background-size: 100%;
@@ -593,7 +595,7 @@ img {
   height: 0.94rem;
   position: relative;
 }
-/* line 322, ../../sass/base.scss */
+/* line 324, ../../sass/base.scss */
 .footer .app-btn {
   position: absolute;
   width: 0.77rem;
@@ -602,29 +604,29 @@ img {
   bottom: 0.13rem;
 }
 
-/* line 331, ../../sass/base.scss */
+/* line 333, ../../sass/base.scss */
 .error-page {
   background: #ccc;
   height: calc(100vh);
   font-size: 0.3rem;
   text-align: center;
 }
-/* line 336, ../../sass/base.scss */
+/* line 338, ../../sass/base.scss */
 .error-page .wrap {
   padding-top: calc(50vh - 0.35rem);
   color: #666;
 }
-/* line 340, ../../sass/base.scss */
+/* line 342, ../../sass/base.scss */
 .error-page .info {
   font-size: 0.25rem;
   margin-bottom: 0.1rem;
 }
-/* line 344, ../../sass/base.scss */
+/* line 346, ../../sass/base.scss */
 .error-page .guide {
   font-size: 0.2rem;
 }
 
-/* line 349, ../../sass/base.scss */
+/* line 351, ../../sass/base.scss */
 [v-cloak] {
   display: none;
 }

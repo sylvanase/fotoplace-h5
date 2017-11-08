@@ -161,20 +161,22 @@ img {
     //margin-bottom: 0.095rem;
     img{
         float: left;
-        width: 0.8rem;
+        width: 0.665rem;
         margin-top: 0.04rem;
         margin-left: 0.108rem;
     }
     .share-detail{
         position: relative;
-        padding-left: 1.22rem;
+        padding-left: 0.78rem;
         height: 0.4rem;
         .share-title{
-            font-size: 0.21rem;
+            font-size: 0.19rem;
             margin-bottom: 0;
             color: #000;
             line-height: 0.4rem;
             font-weight: bold;
+            padding-right: 0.88rem;
+            text-align: right;
         }
         a{
             position: absolute;
