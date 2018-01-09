@@ -50,7 +50,7 @@ body {
     -webkit-overflow-scrolling: touch;
 
     font-family: Microsoft Yahei,Tahoma,Arial,sans-serif;
-    background-color: #fff;
+    background-color: #000;
     font-size:1.4rem;
     color: #fff;
     width: 100%;
@@ -282,12 +282,11 @@ img {
                 padding: 0 0.085rem;
                 left: 0;
                 bottom: 0.375rem;
-                width: 100%;
             }
             .info{
                 font-size: 0.12rem;
                 width: 100%;
-                img{
+                >img{
                     width: 0.24rem;
                     height: 0.24rem;
                     border-radius: 50%;

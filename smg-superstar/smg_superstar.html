@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>2018明日之星上海广播主持人选拔赛</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0,user-scalable=no,maximum-scale=1,minimum-scale=1.0,width=device-width"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="上海广播，足记"/>
+    <meta name="description" content="上海广播，足记"/>
+    <style>
+        html {
+            font-size: calc(100vw / 3.75);
+        }
+
+        html, body {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: #000;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 0.12rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+
+        #header {
+            position: fixed;
+            width: 100%;
+            height: 0.60rem;
+            top: 0;
+            z-index: 99999;
+        }
+
+        #header .bg {
+            background-color: #000;
+            opacity: 0.8;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            z-index: -1;
+        }
+
+        #header .logo {
+            position: absolute;
+            width: 100%;
+            height: 0.56rem;
+            top: 0;
+            padding-left: 0.01rem;
+        }
+
+        #header .logo .smg-logo {
+            height: 0.56rem;
+        }
+
+        #header .logo .more {
+            height: 0.37rem;
+            position: absolute;
+            right: 0.05rem;
+            top: 0.12rem;
+        }
+
+        .container {
+            min-height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container video {
+            height: 100%;
+            width: 100%;
+        }
+
+        .container #cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+        }
+
+        .pop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pop .bg {
+            background-color: #000;
+            opacity: 0.8;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            z-index: -1;
+        }
+
+        .pop .qscontent {
+            margin-top: 0.95rem;
+            text-align: center;
+        }
+
+        .pop .qscontent .qs {
+            width: 2.23rem;
+            height: 3.36rem;
+        }
+
+        .pop .qscontent .more {
+            width: 2.29rem;
+            height: 0.63rem;
+            margin-top: 0.32rem;
+        }
+
+        .pop .qscontent .replay {
+            width: 1.2rem;
+            height: 0.34rem;
+            position: absolute;
+            bottom: 0.23rem;
+            left: 50%;
+            margin-left: -0.6rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @-moz-keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @-webkit-keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+
+        .animated {
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeOutDown {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+        }
+
+        @-moz-keyframes fadeOutDown {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+        }
+
+        @-webkit-keyframes fadeOutDown {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+        }
+
+        .fadeOutDown {
+            animation-name: fadeOutDown;
+        }
+
+        .tadaAnimated {
+            animation-duration: 1.5s;
+            animation-fill-mode: both;
+        }
+
+        .tadaAnimated.infinite {
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes tada {
+            from {
+                transform: scale3d(1, 1, 1);
+            }
+
+            10%, 20% {
+                transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+            }
+
+            30%, 50%, 70%, 90% {
+                transform: scale3d(1.0, 1.0, 1.0) rotate3d(0, 0, 1, 3deg);
+            }
+
+            40%, 60%, 80% {
+                transform: scale3d(1.0, 1.0, 1.0) rotate3d(0, 0, 1, -3deg);
+            }
+
+            to {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        .tada {
+            animation-name: tada;
+        }
+
+    </style>
+</head>
+<body onselectstart="return false">
+<header id="header" class="z10">
+    <div class="bg"></div>
+    <div class="logo">
+        <img class="smg-logo" src="header-logo.png" alt="logo">
+        <a onclick="openApp()" href="javascript:void(0);">
+            <img class="more tadaAnimated infinite tada" src="more.png" alt="more">
+        </a>
+    </div>
+</header>
+<div class="container">
+    <!--<img src="http://cache.fotoplace.cc/tv/180103/admin/C4F9FAFCD334999DB14740276A8D7700.png" alt="" id="cover">-->
+    <img src="cover.jpg" alt="封面" id="cover">
+    <video id="media" @click="videoStatus" class="video-player"
+           src="http://cache.fotoplace.cc/tv/180104/admin/D4038533C0212BB5AAEFFBFBB1176982.mp4"
+           type="video/mp4" webkit-playsinline="true" playsinline="true" x5-video-player-type="h5"
+           x5-video-player-fullscreen="true"
+           poster="http://cache.fotoplace.cc/tv/180103/admin/C4F9FAFCD334999DB14740276A8D7700.png"></video>
+</div>
+<div class="pop animated" style="display: none;">
+    <div class="bg"></div>
+    <div class="qscontent">
+        <div>
+            <img class="qs" src="pop.png" alt="">
+        </div>
+        <div>
+            <a onclick="openApp()" href="javascript:void(0);">
+                <img class="more" src="more-big.png" alt="">
+            </a>
+        </div>
+        <img class="replay" src="replay.png" alt="">
+    </div>
+</div>
+<!--<a id="deepLink" href="https://apple.paomiantv.cn/m/apple/user/153458467459907584" style="display: none;"></a>-->
+<script src="jquery.js"></script>
+<script>
+    var aux = document.getElementById("media");
+
+    aux.addEventListener('play', function () { // 监听视频播放状态
+        $('#cover').hide();
+    });
+
+    aux.addEventListener("ended", function () { // 监听视频是否播放完毕
+        setTimeout(function () {
+            $('.pop').show();
+            $('.pop').removeClass('fadeOutDown');
+            $('.pop').addClass('fadeInUp');
+        }, 500);
+    });
+
+    /*$(window).one('touchstart', function () {
+        musicPlay(true);
+    });*/
+
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        var videoStatus = aux.paused ? true : false;
+        var u = navigator.userAgent, app = navigator.appVersion;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isiOS) { //ios自动播放
+            musicPlay(videoStatus);
+        }
+    }, false);
+
+    $('.replay').click(function (e) { // 重新播放视频
+        e.preventDefault();
+        $('.pop').removeClass('fadeInUp');
+        $('.pop').addClass('fadeOutDown');
+        setTimeout("musicPlay(true)", 500);
+    });
+
+    $('#media,#cover').click(function (e) { // 点击暂停播放视频
+        e.preventDefault();
+        var videoStatus = aux.paused ? true : false;
+        musicPlay(videoStatus);
+    });
+
+
+    function musicPlay(isPlay) {
+        if (isPlay && aux.paused) {
+            $('#cover').hide();
+            aux.play();
+        }
+        if (!isPlay && !aux.paused) {
+            aux.pause();
+        }
+    }
+
+    function openApp() {
+        var type = 'user',
+            _id = '153458467459907584';
+        var APPCommon = {
+            iphoneSchema: 'paomiantv://' + type + '/' + _id,
+            iphoneDownUrl: 'http://www.paomiantv.cn/index.html?utm_source=5',
+            androidSchema: 'paomiantv://' + type + '/' + _id,
+            androidDownUrl: 'http://www.paomiantv.cn/index.html?utm_source=5',
+            iphoneLink: 'https://apple.paomiantv.cn/m/apple/' + type + '/' + _id,
+            openApp: function () {
+                var this_ = this;
+                var aDom = document.createElement('a');
+                aDom.style.display = 'none';
+                aDom.setAttribute("id", "deepLink");
+                var parent = document.body;
+                parent.appendChild(aDom);
+                //微信
+                if (this_.isWeixin()) {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+                    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                    if (isiOS) {
+                        document.getElementById('deepLink').setAttribute("href", this_.iphoneLink);
+                        document.getElementById('deepLink').click();
+                    } else {
+                        window.location.href = this_.iphoneDownUrl;
+                    }
+                } else { //非微信浏览器
+                    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+                        document.getElementById('deepLink').setAttribute("href", this_.iphoneLink);
+                        document.getElementById('deepLink').click();
+                    } else if (navigator.userAgent.match(/android/i)) {
+                        try {
+                            window.location = this_.androidSchema;
+                            setTimeout(function () {
+                                window.location = this_.androidDownUrl; //android下载地址
+                            }, 500);
+                        } catch (e) {}
+                    } else {
+                        window.location = this_.iphoneDownUrl;
+                    }
+                }
+            },
+            isWeixin: function () { //判断是否是微信
+                var ua = navigator.userAgent.toLowerCase();
+                return ua.match(/MicroMessenger/i) == "micromessenger";
+            }
+        };
+        APPCommon.openApp();
+    }
+</script>
+</body>
+</html>

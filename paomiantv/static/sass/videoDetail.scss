@@ -94,6 +94,7 @@
 			position: relative;
 			margin-bottom: 1px;
 			height: 3.32rem;
+			text-shadow: 2px 2px 3px #585858;
 			>div{
 				height: 100%;
 			}
@@ -112,11 +113,12 @@
 				padding: 0 0.085rem;
 				left: 0;
 				bottom: 0.375rem;
+				width: 100%;
 			}
 			.info{
 				font-size: 0.12rem;
 				width: 100%;
-				img{
+				>img{
 					width: 0.24rem;
 					height: 0.24rem;
 					border-radius: 50%;

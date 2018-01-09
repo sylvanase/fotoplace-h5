@@ -1,11 +1,11 @@
 function openApp(type) { //
     var _id = parseUrl('id');
     var APPCommon = {
-        iphoneSchema: 'mocationapp://' + type + '/' + _id,
-        iphoneDownUrl: 'http://mocation.cc/download?source=',
-        androidSchema: 'mocationapp://' + type + '/' + _id,
-        androidDownUrl: 'http://mocation.cc/download?source=',
-        iphoneLink: 'https://apple.mocation.cc/m/apple/' + type + '/' + _id,
+        iphoneSchema: 'paomiantv://' + type + '/' + _id,
+        iphoneDownUrl: 'http://www.paomiantv.cn/download/index.html?source=',
+        androidSchema: 'paomiantv://' + type + '/' + _id,
+        androidDownUrl: 'http://www.paomiantv.cn/download/index.html?source=',
+        iphoneLink: 'https://www.paomiantv.cn/m/apple/' + type + '/' + _id,
         openApp: function() {
             var this_ = this;
             //微信
