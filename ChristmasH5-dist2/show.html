@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+    <title></title>
+    <meta property="og:title" content="掐指测测 我们的匹配礼物"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <link rel="stylesheet" href="http://cache.fotoplace.cc/social/2016christmas/assets/css/jquery.fullPage.css">
+    <link rel="stylesheet" href="http://cache.fotoplace.cc/social/2016christmas/assets/css/index.css">
+    <link rel="stylesheet" href="http://cache.fotoplace.cc/social/2016christmas/assets/css/show.css">
+    <link rel="prefetch" href="">
+</head>
+<body>
+<article>
+    <div class="container">
+        <div class="wrapper">
+            <div class="section">
+                <div class="top">
+                    <div class="audio_btn rotate">
+                        <audio loop src="http://cache.fotoplace.cc/social/2016christmas/assets/audio/bg_audio.mp3"
+                               autoplay="autoplay" preload="auto" loop="loop"></audio>
+                    </div>
+                    <div class="con_box"><img class="w60"
+                                              src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P2_ImgH1so.png"
+                                              alt="">
+
+                        <div class="couple"><span class="me"></span><img class=""
+                                                                         src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P2_ImgH2and.png"
+                                                                         alt=""><span class="ta"></span></div>
+                        <img class="w90"
+                             src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P2_ImgH3gift.png" alt="">
+                    </div>
+                    <div class="gift"><img class="w80" src="" alt=""></div>
+                    <div class="toget"><img class="w90"
+                                            src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P2_ImgPrepare.png"
+                                            alt="">
+
+                        <div class="go w90"><img class="share"
+                                                 src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P2_BottonShare.png"
+                                                 alt=""><img class="again"
+                                                             src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P2_BottonAgain.png"
+                                                             alt=""></div>
+                        <img class="download w90"
+                             src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P2_BottonDownload.png"
+                             alt=""></div>
+                </div>
+                <div class="guid">
+                    <div class="cover"></div>
+                    <div class="con">
+                        <div class="hander"><img
+                                src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P3_ImgLine.png"
+                                alt=""></div>
+                        <div class="lao"><img class="ren"
+                                              src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P3_img.png"
+                                              alt="">
+
+                            <div class="wen"><p>12月24号13:00~17:00</p>
+
+                                <p>关注足迹,有大事发生!</p></div>
+                        </div>
+                        <div class="footer"><img
+                                src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P3_ImgLogo.png"
+                                alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+</body>
+<script src="http://cache.fotoplace.cc/social/2016christmas/assets/js/jquery.min.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="http://cache.fotoplace.cc/social/2016christmas/assets/js/jquery.fullPage.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="http://cache.fotoplace.cc/social/2016christmas/assets/js/index.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="http://cache.fotoplace.cc/social/2016christmas/assets/js/gifts.js" type="text/javascript"
+        charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">var host = "http://cache.fotoplace.cc/social/2016christmas/";
+$('.wrapper').fullpage();
+var me = parseUrl('m');
+var ta = parseUrl('t');
+var sex = parseUrl('s');
+var gift = 0;
+init();
+$(function () {
+    setView('.top');
+    $('.download').click(function (event) {
+        window.location.href = "http://fpapi.fotoplace.cc/m3/activity/activity/1140"
+    });
+    $('.again').click(function (event) {
+        window.location.href = host + "index.html"
+    });
+    $('.share').click(function (event) {
+        window.location.href = host + 'result.html?m=' + me + '&t=' + ta + '&sex=' + sex + '&is=0&g=' + gift
+    })
+});
+function init() {
+    $('.me').html(me);
+    $('.ta').html(ta);
+    $('.audio_btn').css('display', 'block');
+    autoPlayMusic();
+    getPic(sex)
+}
+function getPic(sex) {
+    var i = parseInt(Math.random() * 15);
+    gift = i;
+    var g = {};
+    if (sex == '0') {
+        g = boys[i]
+    } else if (sex == '1') {
+        g = girls[i]
+    }
+    var title = "原来" + me + "和" + ta + "最匹配的礼物是" + g.name;
+    $('.gift img').attr('src', 'http://cache.fotoplace.cc/social/2016christmas/assets/options/' + g.value);
+    $('title').html(title)
+}</script>
+<script>var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?e5d310f9500f639203770d9505b63d95";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s)
+})();</script>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+    <title>掐指测测我们的匹配礼物</title>
+    <meta property="og:description" content=""/>
+    <meta property="og:image" content="http://cache.fotoplace.cc/social/2016christmas/assets/images/P3_img.png"/>
+    <meta property="og:url" content=""/>
+    <link rel="stylesheet" href="http://cache.fotoplace.cc/social/2016christmas/assets/css/jquery.fullPage.css">
+    <link rel="stylesheet" href="http://cache.fotoplace.cc/social/2016christmas/assets/css/index.css">
+    <link rel="prefetch" href="">
+    <div id='wx_pic' style='margin:0 auto;display:none;'><img
+            src='http://cache.fotoplace.cc/social/2016christmas/assets/images/P3_img.png'/></div>
+</head>
+<body>
+<article>
+    <div class="container">
+        <div class="wrapper">
+            <div class="section">
+                <div class="top">
+                    <div class="audio_btn rotate">
+                        <audio loop src="http://cache.fotoplace.cc/social/2016christmas/assets/audio/bg_audio.mp3"
+                               autoplay="autoplay" preload="auto" loop="loop"></audio>
+                    </div>
+                    <div class="con_box"><img class="title w100"
+                                              src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_ImgTitle.png"
+                                              alt="">
+
+                        <div class="input_box"><img class="w30"
+                                                    src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_ImgYourname.png"
+                                                    alt="">
+
+                            <div class="input_itm"><input class="me" type="text" value="" maxlength="10"></div>
+                            <img class="w30"
+                                 src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_ImgHisname.png"
+                                 alt="">
+
+                            <div class="input_itm"><input class="ta" type="text" value="" maxlength="10"></div>
+                            <img class="w30"
+                                 src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_ImgSex.png"
+                                 alt=""></div>
+                    </div>
+                    <div class="sex">
+                        <div class="sex_itm">
+                            <div class="hat boyhat"><img
+                                    src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_ImgBoyhat.png"
+                                    alt=""></div>
+                            <img src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_BottonBoy.png"
+                                 alt=""></div>
+                        <div class="sex_itm">
+                            <div class="hat girlhat"><img
+                                    src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_ImgGirlhat.png"
+                                    alt=""></div>
+                            <img src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_BottonGirl.png"
+                                 alt=""></div>
+                    </div>
+                    <div class="getGift w100"><img class="w40"
+                                                   src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_BottonNext.png"
+                                                   alt=""></div>
+                </div>
+                <div class="foot"><img class="w100"
+                                       src="http://cache.fotoplace.cc/social/2016christmas/assets/images/P1_BG_foot.jpg"
+                                       alt=""></div>
+            </div>
+        </div>
+    </div>
+</article>
+</body>
+<script src="http://cache.fotoplace.cc/social/2016christmas/assets/js/jquery.min.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="http://cache.fotoplace.cc/social/2016christmas/assets/js/jquery.fullPage.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="http://cache.fotoplace.cc/social/2016christmas/assets/js/index.js" type="text/javascript"
+        charset="utf-8"></script>
+<script type="text/javascript">$('.wrapper').fullpage();
+var host = "http://cache.fotoplace.cc/social/2016christmas/";
+var sex = -1;
+autoPlayMusic();
+$(function () {
+    setView('.top');
+    $(".sex_itm").bind('click', function () {
+        $(".hat img").css({'opacity': '0'});
+        var hat = $(this).find('.hat');
+        if (hat.hasClass('boyhat')) {
+            sex = 0
+        } else {
+            sex = 1
+        }
+        hat.find('img').css({'opacity': '1'})
+    });
+    $('.me').keyup(function () {
+        var me = $.trim($('.me').val());
+        var reg = new RegExp("[\\u4E00-\\u9FFF]+", "g");
+        if (reg.test(me)) {
+            $(this).attr('maxlength', 5)
+        }
+    });
+    $('.ta').keyup(function () {
+        var ta = $.trim($('.ta').val());
+        var reg = new RegExp("[\\u4E00-\\u9FFF]+", "g");
+        if (reg.test(ta)) {
+            $(this).attr('maxlength', 5)
+        }
+    });
+    $('.getGift').click(function () {
+        var me = $('.me').val();
+        var ta = $('.ta').val();
+        if (me == '') {
+            pup('.top', '你的名字呢?');
+            return
+        } else if (ta == '') {
+            pup('.top', '你想和谁配?')
+        } else if (sex == '-1' || sex > 1 || sex < -1) {
+            pup('.top', '你还没有选性别哦');
+            return
+        } else {
+            window.location.href = encodeURI(host + 'show.html?m=' + me + '&t=' + ta + '&s=' + sex)
+        }
+    })
+});</script>
+<script>var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?e5d310f9500f639203770d9505b63d95";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s)
+})();</script>
+</html>

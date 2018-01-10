@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>像电影一样记录生活，解锁2017你的本命电影</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="initial-scale=1.0,user-scalable=no,maximum-scale=1,minimum-scale=1.0,width=device-width"/>
+    <meta name="applicable-device" content="mobile">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome="/>
+    <link rel="stylesheet" href="static/css/base.css"/>
+    <link rel="stylesheet" href="static/css/jquery.fullPage.css"/>
+    <link rel="stylesheet" href="static/css/index.css"/>
+</head>
+
+<body onselectstart="return false">
+<div id="wrapper">
+    <section id="section">
+        <div class="container first">
+            <!--音乐控件-->
+            <div class="music-btn rotate">
+                <audio loop src="static/audio/bg_audio.mp3" autoplay="autoplay" preload="auto" loop="loop"></audio>
+            </div>
+            <div class="content-logo">
+                <img src="static/img/page/2017_key_word.png" alt="你的2017关键词"/>
+            </div>
+            <!-- 输入用户名 -->
+            <div class="content-input">
+                <input type="text" id="username" maxlength="12" autocomplete="off">
+            </div>
+            <p>输入你或TA的名字</p>
+            <!-- 抽签 -->
+            <div class="content-start">
+                <a href="javascript:void(0);" class="js-check">
+                    <img src="static/img/page/start.png" alt="点击开始"/>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script type="text/javascript" src="static/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="static/js/common.js"></script>
+<script type="text/javascript">
+    $('#wrapper').fullpage({
+        sectionsColor: ['#ffffff', '#ffffff', '#ffffff', '#ffffff'],
+        loopHorizontal: "false"
+    });
+
+    autoPlayMusic(); //播放音乐
+
+    $('.js-check').click(function (e) {
+        e.preventDefault();
+        var reg = /^[\u4e00-\u9fa5A-Za-z]{1,12}$/,
+                uname = $.trim($('#username').val());
+        if (!uname) {
+            pop('请输入姓名');
+            return false;
+        }
+        if (!reg.test(uname)) { //检查姓名是否符合规格
+            pop('姓名由1~12位中英文组成');
+        } else if(uname.length > 12){
+            pop('姓名不能超过12个字');
+        }else{
+            window.location.href = encodeURI('uword.html?name=' + uname);
+        }
+    });
+</script>
+</body>
+</html>

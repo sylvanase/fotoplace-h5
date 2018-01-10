@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>像电影一样记录生活，解锁2017你的本命电影</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="initial-scale=1.0,user-scalable=no,maximum-scale=1,minimum-scale=1.0,width=device-width"/>
+    <meta name="applicable-device" content="mobile">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome="/>
+    <link rel="stylesheet" href="static/css/base.css"/>
+    <link rel="stylesheet" href="static/css/jquery.fullPage.css"/>
+    <link rel="stylesheet" href="static/css/index.css"/>
+</head>
+
+<body onselectstart="return false">
+<div style="display: none;">
+    <img src="static/img/page/share_img.jpg" alt="分享图"/>
+</div>
+<div id="wrapper">
+    <section id="section">
+        <div class="loading-share">
+        </div>
+        <div class="container third">
+            <!--音乐控件-->
+            <div class="music-btn rotate">
+                <audio loop src="static/audio/bg_audio.mp3" autoplay="autoplay" preload="auto" loop="loop"></audio>
+            </div>
+            <div class="content-title">
+                『<span></span>』
+            </div>
+            <div class="content-detail">
+                <div class="detail-header">
+                    <img class="left" src="static/img/page/2017_page3.png" alt=""/>
+                    <img class="right small" src="" alt=""/>
+                </div>
+                <div class="detail-body">
+                    <img src="" class="cover" alt=""/>
+                    <div class="body-from">
+                        <img src="static/img/page/des.png" class="des" alt=""/>
+                        <img src="" class="from" alt=""/>
+                    </div>
+                </div>
+                <div class="detail-footer">
+                </div>
+            </div>
+            <div class="content-footer" style="margin-top: 0.6rem;">
+                <a href="javascript:void(0);" class="share js-reset">
+                    <img src="static/img/page/myself.png" alt="查看我的关键词"/>
+                </a>
+            </div>
+            <!--底部下载-->
+            <div class="share-words">
+                <div class="words-bg"></div>
+                <p>更多精彩内容，尽在足记APP中</p>
+            </div>
+            <div class="share-page">
+                <img src="static/img/page/logo.png">
+                <div class="share-detail">
+                    <p class="share-title">足记FotoPlace</p>
+                    <p class="share-sub">下载APP，像电影一样记录生活</p>
+                    <a onclick="onbuttonclick()" id="openApp" targeturl="" href="javascript:void(0);" class="btn-ios">使用</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script type="text/javascript" src="static/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="static/js/common.js"></script>
+<script type="text/javascript" src="static/js/result.js"></script>
+<script type="text/javascript">
+    $('#wrapper').fullpage({
+        sectionsColor: ['#ffffff', '#ffffff', '#ffffff', '#ffffff'],
+        loopHorizontal: "false"
+    });
+
+    autoPlayMusic(); //播放音乐
+
+    var uname = '', resultIndex = 0;
+
+    $(function () {
+        uname = parseUrl('name'); //获取用户姓名，计算结果
+        resultIndex = getResult(uname);
+        init(resultIndex);
+        var _is = parseUrl('is');
+        if(_is == '0'){ //如果是本人的分享页，加载loading动画
+            setTimeout(function () {
+                $('.loading-share').hide();
+                window.location.href = encodeURI('share.html?name=' + uname + '&is=1');
+            }, 1000);
+        }else{
+            $('.loading-share').hide();
+        }
+    });
+
+    function init(i) {
+        $('.content-title span').text(uname);
+        var smallSrc = 'static/img/result/' + i + '/small.png', coverSrc = 'static/img/result/' + i + '/cover.jpg',
+                fromSrc = 'static/img/result/' + i + '/from.png', des = result[i].description;
+        $('.small').attr('src', smallSrc);
+        $('.cover').attr('src', coverSrc);
+        $('.detail-footer').text(des);
+        $('.from').attr('src', fromSrc);
+    }
+    $('.js-reset').click(function (e) {  //返回第一页
+        e.preventDefault();
+        window.location.href = encodeURI('index.html');
+    });
+
+    $('.loading-share').click(function(e){
+        e.preventDefault();
+        window.location.href = encodeURI('share.html?name=' + uname + '&is=1');
+    });
+
+    //跳转下载链接
+    var isiOS = navigator.userAgent.match('iPad')
+            || navigator.userAgent.match('iPhone')
+            || navigator.userAgent.match('iPod');
+    var isAndroid = navigator.userAgent.match('Android');
+    var isDesktop = !isiOS && !isAndroid;
+    function isWeixin() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function onbuttonclick(sender) {
+        var targeturl = "http://a.app.qq.com/o/simple.jsp?pkgname=cc.fotoplace.app";
+        window.open(targeturl);
+        return;
+    }
+</script>
+</body>
+</html>
