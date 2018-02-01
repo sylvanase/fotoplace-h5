@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>领包包</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0,user-scalable=no,maximum-scale=1,minimum-scale=1.0,width=device-width"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="泡面app"/>
+    <meta name="description" content="泡面app"/>
+    <style>
+        html {
+            font-size: calc(100vw / 3.75);
+        }
+
+        html, body {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: #f73b30;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 0.12rem;
+            margin: 0;
+            padding: 0;
+            background-image: url(img/bg.jpg);
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        .header {
+            background-image: url(img/header.png);
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 3.19rem;
+        }
+
+        .content {
+            background-image: url(img/video_bg.png);
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 2.21rem;
+            margin-top: -0.48rem;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0.04rem 0.15rem 0.19rem 0.15rem;
+            position: relative;
+        }
+
+        .content #cover {
+            position: absolute;
+            width: 3.45rem;
+            height: 1.98rem;
+            z-index: 9;
+        }
+
+        .content #play {
+            position: absolute;
+            top: 50%;
+            margin-top: -0.38rem;
+            left: 50%;
+            margin-left: -0.3rem;
+            width: 0.55rem;
+            height: 0.62rem;
+            z-index: 10;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn {
+            text-align: center;
+            margin-top: 0.1rem;
+        }
+
+        .btn img {
+            width: 2.07rem;
+            height: 0.43rem;
+            margin: 0 auto;
+        }
+
+        .info {
+            font-size: 0.1rem;
+            color: #ce1212;
+            margin-top: 0.25rem;
+            text-align: center;
+        }
+
+        .bottom {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            background-image: url(img/bottom.png);
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 0.63rem;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<div class="header"></div>
+<div class="content">
+    <img src="" alt="封面" id="cover">
+    <img src="img/play.png" id="play" alt="">
+    <video id="media" @click="videoStatus" class="video-player"
+           src=""
+           type="video/mp4" webkit-playsinline="true" playsinline="true" x5-video-player-type="h5"
+           x5-video-player-fullscreen="true"
+           poster="" loop="loop"></video>
+</div>
+<div class="btn">
+    <a onclick="openApp()" href="javascript:void(0);"><img src="img/download.png" alt=""></a>
+</div>
+<div class="info">本次活动最终解释权归泡面短视频所有</div>
+<div class="bottom"></div>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="jquery.js"></script>
+<script>
+    var aux = document.getElementById("media");
+
+    aux.addEventListener('play', function () { // 监听视频播放状态
+        $('#cover').hide();
+    });
+
+    window.onload = function () {
+        getWxConfig();
+    };
+
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        var videoStatus = aux.paused ? true : false;
+        var u = navigator.userAgent, app = navigator.appVersion;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isiOS) { //ios自动播放
+            musicPlay(videoStatus);
+        }
+    }, false);
+
+
+    $('#media,#cover,#play').click(function (e) { // 点击暂停播放视频
+        e.preventDefault();
+        var videoStatus = aux.paused ? true : false;
+        musicPlay(videoStatus);
+    });
+
+
+    function musicPlay(isPlay) {
+        if (isPlay && aux.paused) {
+            $('#cover').hide();
+            $('#play').hide();
+            aux.play();
+        }
+        if (!isPlay && !aux.paused) {
+            $('#play').show();
+            aux.pause();
+        }
+    }
+
+    function openApp() { // 跳转下载链接
+        var u = navigator.userAgent;
+        if (u.toLowerCase().match(/MicroMessenger/i) == "micromessenger") { // 如果是微信，跳转到应用宝
+            window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=cn.paomiantv.appl';
+        } else {
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            if (isiOS) { // ios 跳转到app store
+                window.location.href = 'https://itunes.apple.com/cn/app/id1238141607?mt=8';
+            }
+            if (isAndroid) {
+                window.location.href = '';
+            }
+        }
+    }
+
+    function getWxConfig() {
+        var para = {
+            uToken: '',
+            shareUrl: window.location.href
+        }
+        $.ajax({
+            url: '/ws/wx/smg_share',
+            dataType: 'json',
+            type: 'GET',
+            async: true,
+            data: para,
+            success: function (rsp) {
+                var obj = rsp.data;
+                if (rsp.status == 0) {
+                    //配置微信
+                    window.wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: 'wxc695aff9cd412873', // 必填，公众号的唯一标识
+                        timestamp: obj.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: obj.noncestr, // 必填，生成签名的随机串
+                        signature: obj.signature, // 必填，签名，见附录1
+                        jsApiList: [ // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ',
+                            'onMenuShareWeibo',
+                            'onMenuShareQZone'
+                        ]
+                    });
+                    //调用微信分享方法
+                    shareWxConfig();
+                }
+            },
+            error: function () {
+                console.log('出错了');
+            }
+        });
+    }
+
+    function shareWxConfig() {
+        var shareInfo = {
+            title: '玩泡面短视频，和好友瓜分100000元春节大红包',
+            desc: '拍视频，秀演技，红包不再靠手气',
+            link: window.location.href,
+            imgUrl: 'http://' + window.location.host + '/static/html/redpacket/img/shareicon.jpg'
+        };
+
+        wx.ready(function () {
+            // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareAppMessage({
+                title: shareInfo.title,
+                desc: shareInfo.desc,
+                link: shareInfo.link,
+                imgUrl: shareInfo.imgUrl,
+                trigger: function (res) {
+                    // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                    //alert('用户点击发送给朋友');
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+            // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareTimeline({
+                title: shareInfo.title,
+                link: shareInfo.link,
+                imgUrl: shareInfo.imgUrl,
+                trigger: function (res) {
+                    // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                    //alert('用户点击分享到朋友圈');
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+            // 2.3 监听“分享到QQ”按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareQQ({
+                title: shareInfo.title,
+                desc: shareInfo.desc,
+                link: shareInfo.link,
+                imgUrl: shareInfo.imgUrl,
+                trigger: function (res) {
+                    //alert('用户点击分享到QQ');
+                },
+                complete: function (res) {
+                    //alert(JSON.stringify(res));
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+            // 2.4 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareWeibo({
+                title: shareInfo.title,
+                desc: shareInfo.desc,
+                link: shareInfo.link,
+                imgUrl: shareInfo.imgUrl,
+                trigger: function (res) {
+                    //alert('用户点击分享到微博');
+                },
+                complete: function (res) {
+                    //alert(JSON.stringify(res));
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+            // 2.5 监听“分享到QZone”按钮点击、自定义分享内容及分享接口
+            wx.onMenuShareQZone({
+                title: shareInfo.title,
+                desc: shareInfo.desc,
+                link: shareInfo.link,
+                imgUrl: shareInfo.imgUrl,
+                trigger: function (res) {
+                    //alert('用户点击分享到QZone');
+                },
+                complete: function (res) {
+                    //alert(JSON.stringify(res));
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+        });
+    }
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?15739b0f1d8ec642fa0ebf19a30a8a1e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

@@ -6,15 +6,22 @@ function openApp(type) { //
         androidSchema: 'paomiantv://' + type + '/' + _id,
         androidDownUrl: 'http://www.paomiantv.cn/download/index.html?source=',
         iphoneLink: 'https://www.paomiantv.cn/m/apple/' + type + '/' + _id,
-        openApp: function() {
+        openApp: function () {
             var this_ = this;
             //微信
             if (this_.isWeixin()) {
-                window.location.href = this_.iphoneLink;
+                // 在微信内触发deeplink，在链接后增加参数
+                // window.location.href = this_.iphoneLink;
+                var _share = parseUrl('sharetip');
+                if (_share) {  // 避免已加跳转标识的链接继续增加该标识
+                    window.location.href = window.location.href;
+                } else {
+                    window.location.href = window.location.href + '&sharetip=true';
+                }
             } else { //非微信浏览器
                 if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
                     var loadDateTime = new Date();
-                    window.setTimeout(function() {
+                    window.setTimeout(function () {
                         var timeOutDateTime = new Date();
                         if (timeOutDateTime - loadDateTime < 2600) {
                             window.location = this_.iphoneDownUrl + this_.iphoneSchema; //ios下载地址
@@ -26,16 +33,17 @@ function openApp(type) { //
                 } else if (navigator.userAgent.match(/android/i)) {
                     try {
                         window.location = this_.androidSchema;
-                        setTimeout(function() {
+                        setTimeout(function () {
                             window.location = this_.androidDownUrl + this_.androidSchema; //android下载地址
                         }, 500);
-                    } catch (e) {}
+                    } catch (e) {
+                    }
                 } else {
                     window.location = this_.iphoneDownUrl + this_.iphoneSchema;
                 }
             }
         },
-        isWeixin: function() { //判断是否是微信
+        isWeixin: function () { //判断是否是微信
             var ua = navigator.userAgent.toLowerCase();
             return ua.match(/MicroMessenger/i) == "micromessenger";
         }
@@ -54,7 +62,7 @@ function parseUrl(name) {
     return null;
 }
 
-Date.prototype.Format = function(fmt) { //时间戳转换
+Date.prototype.Format = function (fmt) { //时间戳转换
     var o = {
         "M+": this.getMonth() + 1, //月份
         "d+": this.getDate(), //日

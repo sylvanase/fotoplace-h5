@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>领包包</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0,user-scalable=no,maximum-scale=1,minimum-scale=1.0,width=device-width"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="泡面app"/>
+    <meta name="description" content="泡面app"/>
+    <style>
+        html {
+            font-size: calc(100vw / 3.75);
+            height: 100%;
+        }
+
+        html, body {
+            position: relative;
+        }
+
+        body {
+            min-height: 100%;
+            background: #f73b30;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 0.12rem;
+            margin: 0;
+            padding: 0;
+            background-image: url(img/bg.jpg);
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        .header {
+            background-image: url(img/header.png);
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 3.19rem;
+        }
+
+        .des {
+            background-image: url(img/des_bg.png);
+            -webkit-background-size: 3.34rem 2.67rem;
+            background-size: 3.34rem 2.67rem;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 2.67rem;
+            margin-top: -0.55rem;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .des .title {
+            text-align: center;
+        }
+
+        .title img {
+            width: 1.6rem;
+            height: 0.225rem;
+            margin-top: 0.22rem;
+        }
+
+        .des .content {
+            padding: 0.07rem 0.45rem ;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: row;
+            color: #505050;
+            font-size: 0.15rem;
+            line-height: 0.24rem;
+            margin-bottom: 0.05rem;
+        }
+        .text a{
+            color: #fd2b34;
+        }
+        .text span{
+            color: #fd2b34;
+        }
+
+        .btn {
+            text-align: center;
+            margin-top: 0.1rem;
+        }
+
+        .btn img {
+            width: 2.6rem;
+            height: 0.49rem;
+            margin: 0 auto;
+        }
+
+        .info {
+            font-size: 0.1rem;
+            color: #ce1212;
+            margin-top: 0.25rem;
+            text-align: center;
+        }
+
+        .bottom {
+            background-image: url(img/bottom.png);
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 0.63rem;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<div class="header"></div>
+<div class="des">
+    <div class="title">
+        <img src="img/des_header.png" alt="">
+    </div>
+    <div class="content">
+        <div class="step">
+            <div class="order">（1）</div>
+            <div class="text">
+                用户登录且<a href="paomiantv://BINDWECHAT">绑定微信账号>>></a>
+            </div>
+        </div>
+        <div class="step">
+            <div class="order">
+                （2）
+            </div>
+            <div class="text">
+                活动期内(2月13日～2月22日)在“泡面短视频” <span>录制发布第一条视频</span> 后赢取免费现金红包
+            </div>
+        </div>
+        <div class="step">
+            <div class="order">
+                （3）
+            </div>
+            <div class="text">
+                分享至微信群或者微信朋友圈即可与好友一起抢泡面短视频准备的平台总额 <span>100,000.00</span> 元的超大红包
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn">
+    <a href="paomiantv://CAMERAINDEX"><img src="img/btn.png" alt=""></a>
+</div>
+<div class="info">本次活动最终解释权归泡面短视频所有</div>
+<div class="bottom"></div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{
+    "status": 0,
+    "error": "",
+    "data": {
+        "video": {
+            "id": "165240951024103424",
+            "uid": "117596944303640576",
+            "videoText": "养鼠千日，用鼠一时啊！",
+            "videoUrl": "http://cache.fotoplace.cc/tv/180130/117596944303640576/4c1eb9386c6e47c47e504ae9c99272a7.mp4",
+            "coverUrl": "http://cache.fotoplace.cc/tv/180130/117596944303640576/4c1eb9386c6e47c47e504ae9c99272a7.jpg",
+            "animateUrl": "http://cache.fotoplace.cc/tv/180130/117596944303640576/4c1eb9386c6e47c47e504ae9c99272a7.webp",
+            "size": 4259260,
+            "duration": 16.3,
+            "width": 540,
+            "height": 960,
+            "at": "",
+            "isEssence": false,
+            "createTime": 1517326112751,
+            "updateTime": 1517326112908,
+            "likeCount": 616,
+            "barrageCount": 0,
+            "viewShowCount": 626,
+            "isLike": false,
+            "topic": {
+                "id": "194",
+                "name": "是时候展现真正的技术",
+                "description": "会瑜伽会唱歌是才艺，转笔、卷舌头，打响指也是技术哇~是时候展示你的独特技艺，威震泡面了！谁还不是个人才了咋的~",
+                "video": null,
+                "videoCount": null,
+                "viewShowCount": null,
+                "viewCount": null,
+                "score": null,
+                "user": null,
+                "cover": {
+                    "version": null,
+                    "createTime": 1517299739204,
+                    "updateTime": 1517299739204,
+                    "id": 1792,
+                    "url": "http://cache.fotoplace.cc/tv/180130/admin/3C422A6115E6135904156E3D81811917.png",
+                    "width": 273,
+                    "height": 273
+                },
+                "videos": null
+            },
+            "play": {
+                "id": 399,
+                "name": "谁还不是个人才",
+                "coverUrl": "http://cache.fotoplace.cc/tv/180129/admin/9DB4DD52B028DB283D0C02EAF961E10A.jpg",
+                "width": 480,
+                "height": 854
+            },
+            "user": {
+                "id": null,
+                "uid": "117596944303640576",
+                "username": "Guo",
+                "avatarUrl": "http://cache.fotoplace.cc/tv/170921/0/4E3860D640459C1C5A74543B650CFD31.jpg",
+                "isFollow": false,
+                "isFollowMe": false,
+                "me": null
+            },
+            "nearBy": false,
+            "newOne": false
+        }
+    }
+}

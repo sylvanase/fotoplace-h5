@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>春运囧途</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0,user-scalable=no,maximum-scale=1,minimum-scale=1.0,width=device-width"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <style>
+        html {
+            font-size: calc(100vw / 3.75);
+        }
+
+        html, body {
+            position: relative;
+        }
+
+        body {
+            background: #fed318;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 0.12rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #fed318;
+            min-height: 100%;
+        }
+
+        .container > div img {
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        .bg1 {
+            animation-duration: 0.5s;
+        }
+
+        .bg2 {
+            animation-duration: 0.5s;
+            animation-delay: 1.5s;
+            margin-top: -0.52rem;
+        }
+
+        .bg3 {
+            animation-duration: 0.5s;
+            margin-top: -0.3rem;
+            animation-delay: 3s;
+        }
+
+        .btn {
+            animation-delay: 4.5s;
+            background: #fed318;
+            padding: 0.21rem 0;
+        }
+
+        .btn a {
+            display: inline-block;
+            width: 49%;
+            text-align: center;
+        }
+
+        .btn a img {
+            width: 1.17rem;
+            margin: auto;
+        }
+
+        .btn1 {
+            animation-delay: 4.5s;
+            animation-duration: 2s;
+            animation-name: scaleBig;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        .btn2 {
+            animation-delay: 5.5s;
+            animation-duration: 2s;
+            animation-name: scaleBig;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        @keyframes scaleBig {
+            25% {
+                transform: scale3d(1, 1, 1);
+            }
+            50% {
+                transform: scale3d(1.15, 1.15, 1.15);
+            }
+            75% {
+                transform: scale3d(1, 1, 1);
+            }
+            100% {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+    </style>
+    <link rel="stylesheet" href="animate.css">
+</head>
+<body onselectstart="return false">
+<div class="container">
+    <div class="bg1 animated fadeInLeft">
+        <img src="bg1.png" alt="对话1">
+    </div>
+    <div class="bg2 animated fadeInRight">
+        <img src="bg2.png" alt="对话2">
+    </div>
+    <div class="bg3 animated fadeInLeft">
+        <img src="bg3.png" alt="对话3">
+    </div>
+    <div class="btn animated fadeIn">
+        <a href="http://t.ctrip.cn/EFdKrJH">
+            <img class="btn1 scaleBig" src="btn1.png" alt="携程链接">
+        </a>
+        <a href="http://a.app.qq.com/o/simple.jsp?pkgname=cn.paomiantv.app">
+            <img class="btn2 scaleBig" src="btn2.png" alt="泡面链接">
+        </a>
+    </div>
+</div>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="jquery.js"></script>
+<script>
+    window.onload = function () {
+        getWxConfig();
+    };
+
+    function getWxConfig() {
+        var para = {
+            uToken: '',
+            shareUrl: window.location.href
+        }
+        $.ajax({
+            url: '/ws/wx/smg_share',
+            dataType: 'json',
+            type: 'GET',
+            async: true,
+            data: para,
+            success: function (rsp) {
+                var obj = rsp.data;
+                if (rsp.status == 0) {
+                    //配置微信
+                    window.wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: 'wxc695aff9cd412873', // 必填，公众号的唯一标识
+                        timestamp: obj.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: obj.noncestr, // 必填，生成签名的随机串
+                        signature: obj.signature, // 必填，签名，见附录1
+                        jsApiList: [ // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                        ]
+                    });
+                    //调用微信分享方法
+                    shareWxConfig();
+                }
+            },
+            error: function () {
+                console.log('出错了');
+            }
+        });
+    }
+
+    function shareWxConfig() {
+        var shareInfo = {
+            title: '春运囧途你躺枪了吗？',
+            desc: '关于抢票，笑了一天了',
+            link: window.location.href,
+            imgUrl: 'https://' + window.location.host + '/static/html/ad/chunyun/share.jpg'
+        };
+
+        wx.ready(function () {
+            // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareAppMessage({
+                title: shareInfo.title,
+                desc: shareInfo.desc,
+                link: shareInfo.link,
+                imgUrl: shareInfo.imgUrl,
+                trigger: function (res) {
+                    // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                    //alert('用户点击发送给朋友');
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+            // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareTimeline({
+                title: shareInfo.title,
+                link: shareInfo.link,
+                imgUrl: shareInfo.imgUrl,
+                trigger: function (res) {
+                    // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                    //alert('用户点击分享到朋友圈');
+                },
+                success: function (res) {
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+        });
+    }
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3a53b3942542a362cca0c94f7f507720";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+</script>
+</body>
+</html>
