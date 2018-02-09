@@ -115,15 +115,16 @@
 }
 
 .user-video {
-    padding: 0 0 0.304rem 0.15rem;
+    background-color: #212121;
+    padding: 0.12rem 0 0.13rem 0.13rem;
     > div {
-        margin-bottom: 0.2rem;
-        color: #fff;
+        margin-bottom: 0.18rem;
+        color: rgba(255, 255, 255, 0.84);
         font-size: 0.14rem;
         span {
-            color: #fcbc39;
             font-size: 0.16rem;
             margin-right: 0.05rem;
+            color: #d5d5d5;
         }
     }
     .video-list {
@@ -145,9 +146,11 @@
 
 .hot-video {
     > div {
-        text-align: center;
-        font-size: 0.16rem;
-        margin-bottom: 0.1rem;
+        padding-left: 0.15rem;
+        font-size: 0.14rem;
+        margin-bottom: 0.185rem;
+        margin-bottom: 0.185rem;
+        color: #d5d5d5;
     }
     .video-list {
         width: 100%;

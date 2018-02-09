@@ -23,6 +23,9 @@
         html {
             font-size: calc(100vw / 3.75);
         }
+        section{
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body onselectstart="return false">
@@ -89,7 +92,7 @@
                         <div class="pop-bg"></div>
                         <img src="/static/img/sharepage/replay.png" @click="playVideo" alt="重播">
                         <div class="tips">重播</div>
-                        <div class="btn">查看更多精彩</div>
+                        <a onclick="openApp('video')" class="btn">查看更多精彩</a>
                     </div>
                 </div>
             </div>

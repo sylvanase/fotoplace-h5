@@ -25,6 +25,7 @@
         }
         body{
             background-color: #161616;
+            overflow-x: hidden;
         }
         #header{
             top: calc(100vh - 0.4rem);
@@ -42,11 +43,37 @@
     <img src="/static/img/sharepage/logo.png" alt="logo">
     <div class="share-detail">
         <p class="share-title">和明星一起演对手戏！</p>
-        <a onclick="openApp('user')" href="javascript:void(0);" class="btn-ios">打开看看</a>
+        <a id="deepLink" onclick="openApp('user')" href="javascript:void(0);" class="btn-ios">打开看看</a>
     </div>
 </header>
 
 <section id="section" v-cloak >
+    <!-- 提示在浏览器打开 -->
+    <div class="open-tips" v-if="showOpenTips">
+        <div class="tip-bg"></div>
+        <div class="tip-list">
+            <div class="step1">
+                <span>1.点击右上角</span><img class="icon" src="/static/img/sharepage/tip1.png" alt=""><img
+                    class="arrow" src="/static/img/sharepage/arrow.png" alt="">
+            </div>
+            <div class="step2">
+                <div class="up">
+                    <img src="/static/img/sharepage/tiplink.png" alt="">
+                </div>
+                <div class="text">
+                    2.在菜单中点击<span>浏览器</span>打开
+                </div>
+            </div>
+            <div class="step3">
+                <div class="up">
+                    <img src="/static/img/sharepage/tiplink2.png" alt="">
+                </div>
+                <div class="text">
+                    3.开启<span>泡面短视频App</span><img src="/static/img/sharepage/tipicon.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 错误处理 -->
     <div class="error-page z9" v-if="showError">
         <div class="wrap">
@@ -54,7 +81,7 @@
             <p class="guide">点击打开看看来寻找泡面君吧！</p>
         </div>
     </div>
-    <div class="container" v-if="!showError">
+    <div class="container" v-if="!showError && !showOpenTips">
         <!-- 用户信息主体 -->
         <div class="user-wrap">
             <div class="bg" v-bind:style="styleObject">
@@ -110,6 +137,7 @@
 var app = new Vue({
     el: '#section',
     data:{
+        showOpenTips: false, // 判断该链接是否为提示后的newlink
         styleObject: '', //模糊背景
         sexColor:{}, //根据性别更换按钮背景色
         avatar: '', //头像
@@ -134,7 +162,18 @@ var app = new Vue({
     created:function(){
         var _self = this,
             _id = parseUrl('id'),
-            _url = '/m/user/detail?uid=' + _id;
+            _url = '/m/user/detail?uid=' + _id,
+            _tips = parseUrl('sharetip');
+        if (_self.isWeixin() && _tips) { // 页面在微信内打开，且tips的标识为true，则不调deeplink，改为展示指引页
+            document.getElementById('header').style.display = 'none';
+            _self.showOpenTips = true;
+            return;
+        } else { // 在浏览器内打开
+            if (_tips) { // tips的标识为true，自动调用deeplink
+                document.getElementById('deepLink').click();
+                return;
+            }
+        }
         axios.get(_url).then(function (res) {
             if(res.data.status !== 0){ //返回值code不为0
                 _self.showError = true;
@@ -206,6 +245,10 @@ var app = new Vue({
                 this.tabHtml = '<img src="/static/img/sharepage/like.png">喜欢';
                 this.videoList = this.userLike;
             }
+        },
+        isWeixin: function () { //判断是否是微信
+            var ua = navigator.userAgent.toLowerCase();
+            return ua.match(/MicroMessenger/i) == "micromessenger";
         }
     }
 })
