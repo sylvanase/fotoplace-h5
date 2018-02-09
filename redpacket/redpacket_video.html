@@ -18,7 +18,6 @@
         }
 
         html, body {
-            position: relative;
             height: 100%;
             overflow: hidden;
         }
@@ -33,6 +32,12 @@
             -webkit-background-size: 100%;
             background-size: 100%;
             background-repeat: no-repeat;
+        }
+
+        #wrap {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
         }
 
         .header {
@@ -50,12 +55,14 @@
             background-repeat: no-repeat;
             background-position: center;
             height: 2.21rem;
-            margin-top: -0.48rem;
+            width: 100%;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
             padding: 0.04rem 0.15rem 0.19rem 0.15rem;
-            position: relative;
+            position: fixed;
+            top: 2.71rem;
+            left: 0;
         }
 
         .content #cover {
@@ -68,11 +75,11 @@
         .content #play {
             position: absolute;
             top: 50%;
-            margin-top: -0.38rem;
+            margin-top: -0.20rem;
             left: 50%;
-            margin-left: -0.3rem;
-            width: 0.55rem;
-            height: 0.62rem;
+            margin-left: -0.14rem;
+            width: 0.28rem;
+            height: 0.31rem;
             z-index: 10;
         }
 
@@ -83,7 +90,10 @@
 
         .btn {
             text-align: center;
-            margin-top: 0.1rem;
+            position: fixed;
+            width: 100%;
+            top: 5.02rem;
+            z-index: 99;
         }
 
         .btn img {
@@ -95,7 +105,7 @@
         .info {
             font-size: 0.1rem;
             color: #ce1212;
-            margin-top: 0.25rem;
+            margin-top: 2.92rem;
             text-align: center;
         }
 
@@ -112,33 +122,36 @@
     </style>
 </head>
 <body onselectstart="return false">
-<div class="header"></div>
-<div class="content">
-    <img src="" alt="封面" id="cover">
-    <img src="img/play.png" id="play" alt="">
-    <video id="media" @click="videoStatus" class="video-player"
-           src="http://cache.fotoplace.cc/redpacket_video/pm1.mp4"
-           type="video/mp4" webkit-playsinline="true" playsinline="true" x5-video-player-type="h5"
-           x5-video-player-fullscreen="true"
-           poster="http://cache.fotoplace.cc/redpacket_video/pm1.png" loop="loop"></video>
+<div id="wrap">
+    <div class="header"></div>
+    <div class="content">
+        <img src="http://cache.fotoplace.cc/redpacket_video/pm1.png" alt="封面" id="cover">
+        <img src="img/play.png" id="play" alt="">
+        <video id="media" @click="videoStatus" class="video-player"
+               src="http://cache.fotoplace.cc/redpacket_video/pm1.mp4"
+               type="video/mp4" webkit-playsinline="true" playsinline="true" style="object-fit:fill;"
+               poster="http://cache.fotoplace.cc/redpacket_video/pm1.png" loop="loop"></video>
+    </div>
+    <div class="btn">
+        <a onclick="openApp()" href="javascript:void(0);"><img src="img/download.png" alt=""></a>
+    </div>
+    <div class="info">本次活动最终解释权归泡面短视频所有</div>
+    <div class="bottom"></div>
 </div>
-<div class="btn">
-    <a onclick="openApp()" href="javascript:void(0);"><img src="img/download.png" alt=""></a>
-</div>
-<div class="info">本次活动最终解释权归泡面短视频所有</div>
-<div class="bottom"></div>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="jquery.js"></script>
 <script>
-    var aux = document.getElementById("media");
+    $(document).on('touchmove', function (e) { // 阻止页面滚动
+        e.preventDefault();
+    });
 
+    var aux = document.getElementById("media");
+alert(1)
     aux.addEventListener('play', function () { // 监听视频播放状态
         $('#cover').hide();
     });
 
-    window.onload = function () {
-        getWxConfig();
-    };
+    getWxConfig(); // 配置微信分享
 
     document.addEventListener("WeixinJSBridgeReady", function () {
         var videoStatus = aux.paused ? true : false;
@@ -173,15 +186,14 @@
     function openApp() { // 跳转下载链接
         var u = navigator.userAgent;
         if (u.toLowerCase().match(/MicroMessenger/i) == "micromessenger") { // 如果是微信，跳转到应用宝
-            window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=cn.paomiantv.appl';
+            window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=cn.paomiantv.app';
         } else {
             var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
             var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
             if (isiOS) { // ios 跳转到app store
                 window.location.href = 'https://itunes.apple.com/cn/app/id1238141607?mt=8';
-            }
-            if (isAndroid) {
-                window.location.href = '';
+            } else if (isAndroid) {
+                window.location.href = 'http://bdcdn.fotoplace.cc/download/paomiantv_v1.0.5_2018-02-08_android_legu_hongbao.apk';
             }
         }
     }
