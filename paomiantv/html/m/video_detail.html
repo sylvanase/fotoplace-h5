@@ -181,6 +181,7 @@
                 _url = '/m/video/detail?vpId=' + _id,
                 _tips = parseUrl('sharetip');
             if (_self.isWeixin() && _tips) { // 页面在微信内打开，且tips的标识为true，则不调deeplink，改为展示指引页
+                document.getElementById('header').style.display = 'none';
                 _self.showOpenTips = true;
                 return;
             } else { // 在浏览器内打开
