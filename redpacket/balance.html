@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>提现</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0,user-scalable=no,maximum-scale=1,minimum-scale=1.0,width=device-width"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="泡面短视频app"/>
+    <meta name="description" content="泡面短视频app"/>
+    <style>
+        html {
+            font-size: calc(100vw / 3.75);
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background-color: #c63629;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 0.14rem;
+            margin: 0;
+            padding: 0;
+            color: #fec85a;
+        }
+
+        .page {
+            box-sizing: border-box;
+            height: 100%;
+            position: relative;
+        }
+
+        .arc-bg {
+            background-color: #daab5f;
+            height: 70px;
+            border-radius: 50% / 0 0 100% 100%;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .p1 {
+            margin-top: 78px;
+            margin-bottom: 66px;
+        }
+
+        .p2 {
+            margin-bottom: 36.5px;
+        }
+
+        .p3 {
+            font-size: 50px;
+            line-height: 1;
+            margin-top: 0;
+            margin-bottom: 142px;
+        }
+
+        .p3 span {
+            margin-left: 5px;
+        }
+
+        .btn {
+            width: 277px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #2dce36;
+            color: #fff;
+            margin: 0 auto;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<div class="page">
+    <div class="arc-bg"></div>
+    <p class="p1">感谢您参与此次活动</p>
+    <p class="p2">可提现余额：</p>
+    <p class="p3">￥<span id="num">888</span></p>
+    <div class="btn js-cash">提现</div>
+    <p>1~5个工作日到账</p>
+</div>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="jquery.js"></script>
+<script>
+
+    var uToken = parseUrl('token'), //页面token
+        uuid = parseUrl('uuid'),
+        host = 'http://' + window.location.host,
+        APPID = 'wx4c8dc3d5d047624e',
+        REDIRECT_URI = '/html/ws/weixin/code',
+        amount = '';
+    $(function ($) {
+        // 检验token
+        if (uToken == null) { //token为空，跳转微信授权页
+            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + APPID + '&redirect_uri=' + host + REDIRECT_URI + '&response_type=code&scope=snsapi_userinfo&state=STATE';
+        } else { // token不为空，获取用户的账户信息
+            fetchAccount();
+        }
+
+    });
+
+    function parseUrl(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = decodeURI(window.location.search).substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    $(document).on('touchmove', function (e) { // 阻止页面滚动
+        e.preventDefault();
+    });
+
+    function fetchAccount() { // ajax请求账户
+        $.ajax({
+            url: '/html/ws/weixin/amount?uuid=' + uuid + '&token=' + uToken,
+            dataType: 'json',
+            type: 'GET',
+            async: true,
+            data: '',
+            success: function (rsp) {
+                var obj = rsp.data;
+                if (rsp.status == 0) {
+                    $('#num').text(obj.reward.amount);
+                    amount = obj.reward.amount;
+                    uToken = obj.token;
+                    uuid = obj.uuid;
+                } else {
+                    alert(rsp.error);
+                }
+            },
+            error: function () {
+                console.log('请求出错');
+            }
+        });
+    }
+
+    $('.js-cash').click(function (e) { // 进行提现操作
+        e.preventDefault();
+        e.stopPropagation();
+
+        var para = {
+            amount: amount
+        };
+
+        $.ajax({
+            url: '/html/ws/weixin/cash?uuid=' + uuid + '&token=' + uToken,
+            dataType: 'json',
+            type: 'POST',
+            async: true,
+            data: JSON.stringify(para),
+            success: function (rsp) {
+                var obj = rsp.data;
+                if (rsp.status == 0) { // 提现成功
+                    $('#num').text('0');
+                    uToken = obj.token;
+                    uuid = obj.uuid;
+                    alert('您的提现已经受理，1~5个工作日发送到您微信钱包');
+                } else {
+                    alert(rsp.error);
+                }
+            },
+            error: function () {
+                console.log('请求出错');
+            }
+        });
+
+    })
+
+</script>
+</body>
+</html>

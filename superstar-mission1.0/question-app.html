@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>明星问你来答</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0,user-scalable=no,maximum-scale=1,minimum-scale=1.0,width=device-width"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no,email=no,date=no,address=no" name="format-detection">
+    <meta content="mobile" name="applicable-device">
+    <meta content="IE=edge, chrome=" http-equiv="X-UA-Compatible">
+    <meta name="keywords" content="泡面app"/>
+    <meta name="description" content="泡面app"/>
+    <link rel="stylesheet" href="jquery.fullPage.css">
+    <style>
+        html {
+            font-size: calc(100vw / 3.75);
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: #160934;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 0.12rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            position: relative;
+        }
+
+        .page1 {
+            background-image: url(img/question-bg.jpg);
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            padding-top: 0.16rem;
+        }
+
+        .header {
+            width: 2.94rem;
+            margin-bottom: 0.114rem;
+            margin-left: 0.48rem;
+        }
+
+        .content {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .content #cover {
+            position: absolute;
+            z-index: 9;
+        }
+
+        .content #play {
+            position: absolute;
+            top: 50%;
+            margin-top: -0.24rem;
+            left: 50%;
+            margin-left: -0.24rem;
+            width: 0.48rem;
+            height: 0.48rem;
+            z-index: 10;
+        }
+
+        .content .border {
+            width: 1.82rem;
+            height: 3.12rem;
+            position: absolute;
+            z-index: 10;
+            margin-left: -0.025rem;
+            margin-top: -0.025rem;
+        }
+
+        video, #cover {
+            width: 1.77rem;
+            height: 3.07rem;
+        }
+
+        .btn {
+            margin-left: 1.12rem;
+            margin-top: 0.15rem;
+        }
+
+        .btn img {
+            width: 1.48rem;
+        }
+
+        .info {
+            font-size: 0.1rem;
+            text-align: center;
+            color: #1aa4ac;
+            text-decoration: underline;
+        }
+
+        .page2 {
+            background-image: url(img/question-bg2.jpg);
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            padding-top: 0.12rem;
+        }
+
+        .page2 .info-img {
+            width: 2.51rem;
+            margin-left: 0.65rem;
+        }
+    </style>
+</head>
+<body onselectstart="return false">
+<div id="wrap">
+    <!-- 第一页 视频播放 -->
+    <div class="section page1">
+        <img class="header" src="img/question-header.png" alt="">
+        <div class="content">
+            <img src="" alt="封面" id="cover">
+            <img src="img/play.png" id="play" alt="播放键">
+            <img src="img/question-border.png" class="border" alt="边框">
+            <video id="media" @click="videoStatus" class="video-player"
+                   src=""
+                   type="video/mp4" webkit-playsinline="true" playsinline="true" style="object-fit:fill;"
+                   poster="" loop="loop"></video>
+        </div>
+        <div class="btn">
+            <a onclick="openApp()" href="javascript:void(0);"><img src="img/question-btn-app.png" alt=""></a>
+        </div>
+        <div class="info js-up">点击查看游戏规则>>></div>
+    </div>
+    <!-- 第二页 详细介绍 -->
+    <div class="section page2">
+        <img class="header" src="img/question-header.png" alt="">
+        <img class="info-img" src="img/question-info.png">
+    </div>
+</div>
+<script src="jquery.js"></script>
+<script src="jquery.fullPage.js"></script>
+<script>
+
+    $(function () {
+        var _date = new Date().getDate(); // 获取当天日期
+        var _index = (_date%13)%4; // 获取当天播放视频的索引
+        var coverDom = document.getElementById('cover');
+        coverDom.src = videoArr[_index].cover;
+        aux.src = videoArr[_index].src;
+        aux.poster = videoArr[_index].cover;
+        $('#wrap').fullpage({
+            verticalCentered: false, // 段落内部垂直居中
+            onLeave: function(index, nextIndex, direction){
+                var leavingSection = $(this);
+                // 离开第一页下滑
+                if(index == 1 && direction =='down'){
+                    if(!aux.paused){ // 如果视频正在播放，暂停视频
+                        $('#play').click();
+                    }
+                }
+            }
+        });
+        fetchTopic();
+    });
+
+    var videoArr = [
+        {
+            src:'http://cache.fotoplace.cc/tv/180309/admin/D303E4785FF4D6BBB508F63BA2DE6BD0.mp4',
+            cover:'http://cache.fotoplace.cc/tv/180309/admin/81CEDC64246833EBD7633526CB0F8622.png'
+        },{
+            src: 'http://cache.fotoplace.cc/tv/180309/admin/415C7D2113CAE3C371224CCAE87ED0E8.mp4',
+            cover:'http://cache.fotoplace.cc/tv/180309/admin/0E14EA2CA5F358598E6518A28D3B18D7.png'
+        },{
+            src: 'http://cache.fotoplace.cc/tv/180309/admin/27E08921B3ABE692E0F427DE6917F10F.mp4',
+            cover:'http://cache.fotoplace.cc/tv/180309/admin/9976FAB3D785A945B8C5EFED00BE2E0D.png'
+        },{
+            src: 'http://cache.fotoplace.cc/tv/180309/admin/35B668D3EF8E698005B863C7CE8A68E9.mp4',
+            cover:'http://cache.fotoplace.cc/tv/180309/admin/E3403562C78C9ACD17FFB991A7F5EAB3.png'
+        }
+    ];
+
+    var aux = document.getElementById("media");
+
+    aux.addEventListener('play', function () { // 监听视频播放状态
+        $('#cover').hide();
+    });
+
+
+    $('#media,#cover,#play,.border').click(function (e) { // 点击暂停播放视频
+        e.preventDefault();
+        var videoStatus = aux.paused ? true : false;
+        musicPlay(videoStatus);
+    });
+
+    function musicPlay(isPlay) {
+        if (isPlay && aux.paused) {
+            $('#cover').hide();
+            $('#play').hide();
+            aux.play();
+        }
+        if (!isPlay && !aux.paused) {
+            $('#play').show();
+            aux.pause();
+        }
+    }
+
+    var topicID = '275'; // 当日关联的话题id
+
+    function fetchTopic() {
+        $.ajax({
+            url: '/ws/h5/topic/hometop',
+            dataType: 'json',
+            type: 'GET',
+            async: true,
+            data: '',
+            success: function (rsp) {
+                var obj = rsp.data;
+                if (rsp.status == 0) {
+                    topicID = obj.top1;
+                }
+            },
+            error: function () {
+                console.log('出错了');
+            }
+        });
+    }
+
+    function openApp() { // 跳转话题链接
+        window.location.href = 'paomiantv://TOPIC/' + topicID;
+    }
+
+    $('.js-up').click(function (e) { //点击显示页面2
+        e.preventDefault();
+        $.fn.fullpage.moveSectionDown();
+    });
+
+</script>
+</body>
+</html>
